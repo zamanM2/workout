@@ -1,12 +1,11 @@
 import './App.css';
+import React from 'react';
+import  Workout from './Components/Workout'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <div>  <Workout name= "Chest Day" /> </div>
   );
 }
 
