@@ -23,7 +23,7 @@ const Exercise = (props) => {
     
         <div> {props.exercise.exercise} 
         <div style= {mystyle}> 
-     <Form onClick = {handleSubmit} />
+     <Form onClick = {handleSubmit}/>
      
   
         <Log/>
