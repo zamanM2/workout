@@ -12,7 +12,8 @@ import  Workout from './Components/Workout'
 
 function App() {
   return (
-    <div className = "chest">  <Workout name= "Chest Day" /> </div>
+    <div className = "chest">  <Workout name= "Chest" /> 
+    </div>
   );
 }
 

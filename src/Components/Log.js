@@ -3,11 +3,12 @@ import '../App.css';
 
 const Log= (props) =>{
     return(
-   <div>
+   <div className= "repweight">
        <table style= {{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}} >
-  <tr>
+  <tr >
     <th>Reps</th>
     <th>Weight</th>
+    <br/>
   
   </tr>
   {props.entries.map(element => ( 

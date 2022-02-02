@@ -16,7 +16,6 @@ const Workout = (props) => {
   }
 
   const handleChange =(event) =>{
-    // debugger
     setNewExercise(event.target.value) 
 
   }
@@ -30,7 +29,7 @@ const Workout = (props) => {
       </form>
       <br/>
       <br/>
-    <RestTimer></RestTimer>
+    <RestTimer>Timer</RestTimer>
    
 
    <p style ={mystyle}> 
