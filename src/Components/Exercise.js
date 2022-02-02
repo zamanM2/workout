@@ -1,33 +1,34 @@
 import React, {useState} from "react"
 import Form from './Form'
 import Log from './Log'
+import '../App.css';
 
 
 const Exercise = (props) => {
+  const [allEntries, setAllEntries] = useState([])
+  const [logSet, setLogSet] = useState({reps:0,weight:0})
 
-    const [amount, setAmountAndReps] = useState([
-        
+  const handleChange =(event) =>{
+    // debugger
+    setLogSet({...logSet, [event.target.name]: event.target.value}) 
 
-    ])
+  }
+  const handleSubmit =(event) => {
+  //  debugger
+    event.preventDefault(); 
+    setAllEntries([...allEntries, logSet])
+  }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(event.target[0].value)
-        setAmountAndReps([...amount, 
-        {
-        reps:event.target[0].value,
-        sets:event.target[1].value}])
-      }
-
-    return(
+  return(
     
         <div> {props.exercise.exercise} 
         <div style= {mystyle}> 
-     <Form onClick = {handleSubmit}/>
+     <Form onChange = {handleChange} logSet= {logSet} onSubmit= {handleSubmit}/>
      
   
-        <Log/>
+        <Log entries={allEntries} />
      
+  
      
          </div>
     </div>

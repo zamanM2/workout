@@ -1,19 +1,20 @@
 import react from 'react';
+import '../App.css';
 
 
 const Form = (props) =>{
     return(
-        <form>
-  
+        <form className ="bigtable" onSubmit ={props.onSubmit}>
+  <div className = "reps">
     Reps
-    <input type="text" name="name" />
+    <input onChange= {props.onChange} type="text" name="reps" value= {props.logSet.reps} />
     Weight
-    <input type="text" name="name" />
-  
+    <input onChange= {props.onChange} type="text" name="weight" value={props.logSet.weight} />
+    </div>
 
-  <button type= "button" onClick = {props.onClick} >
+  <button type= "submit"  >
   Log
-</button> 
+</button > 
 </form>
 
     )

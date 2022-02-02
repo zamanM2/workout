@@ -1,4 +1,5 @@
 import React from 'react'
+import '../App.css';
 
 const Log= (props) =>{
     return(
@@ -9,22 +10,13 @@ const Log= (props) =>{
     <th>Weight</th>
   
   </tr>
-  {/* {props.data.map(element => ( <tr>
-    <td>3</td>
-    <td>4</td>
-    
-  </tr>) )} */}
-
-  {/* <tr>
-    <td>1</td>
-    <td>2</td>
-   
-  </tr>
+  {props.entries.map(element => ( 
   <tr>
-    <td>3</td>
-    <td>4</td>
+    <td>{element.reps}</td>
+    <td>{element.weight}</td>
     
-  </tr> */}
+  </tr>) )}
+
 </table>
    </div>
     )

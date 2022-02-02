@@ -8,4 +8,9 @@ let exercises = [
     
   ];
 
+ export const createWorkout =(workout)=>{
+  exercises.push({exercise: workout, reps: 0, sets: 0, key:3 })
+ }
+
   export default exercises;
+
