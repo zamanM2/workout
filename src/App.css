@@ -15,24 +15,38 @@
 }
 
 /* .Hello{
-  background-color: blue
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  
 } */
+
+.timerbutton{
+  display:flex;
+  align-items: center;
+  padding: 5px 5%;
+}
 
 .left{
  padding-left : 200px;
 }
 
-/* .reps{
-  font-size: 20px;
-  margin: auto;
-  width: 50%;
-  text-align:center;
-} */
-
-.chest{
-  text-align: center;
+.reps{
+  display:flex;
   
+  align-items: center;
+  padding: 10px 10%;
 }
+
+.logtable{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  border-width:1px; 
+  border-color :#aaaaaa; border-style:solid;
+}
+
 
 html {
   height:100%;
