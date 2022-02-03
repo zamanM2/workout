@@ -12,7 +12,7 @@ const Workout = (props) => {
   const handleAddExercise =(event) =>{
     
     event.preventDefault(); 
-      setExcercises([...myExercises, {exercise: newExercise, reps: 0, sets: 0, key:1} ])
+      setExcercises([...myExercises, {exercise: newExercise, reps: 0, sets: 0, key:props.myWorkout.key} ])
   }
 
   const handleChange =(event) =>{

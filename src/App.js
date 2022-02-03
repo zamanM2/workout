@@ -13,8 +13,11 @@ import WorkoutList from './Components/WorkoutList'
 
 function App() {
   return (
+   
     <div className = "chest">  <WorkoutList  /> 
     </div>
+
+   
   );
 }
 

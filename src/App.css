@@ -33,10 +33,11 @@
 .chest{
   margin: auto;
   width: 100%;
-  border: 3px solid rgb(128, 0, 107);
+  /* border: 3px solid rgb(128, 0, 107); */
   padding: 10px;
   text-align: center;
   font-size: 20px;
+  
 }
 
 .left{
