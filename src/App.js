@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import  Workout from './Components/Workout'
+import WorkoutList from './Components/WorkoutList'
 
 // import {
 //   BrowserRouter as Router,
@@ -12,7 +13,7 @@ import  Workout from './Components/Workout'
 
 function App() {
   return (
-    <div className = "chest">  <Workout name= "Chest" /> 
+    <div className = "chest">  <WorkoutList  /> 
     </div>
   );
 }

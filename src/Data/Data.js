@@ -20,5 +20,6 @@ let exercises = [
   exercises.push({exercise: workout, reps: 0, sets: 0, key:3 })
  }
 
-  export default exercises;
+  export { exercises, allWorkouts};
+  // export  allWorkouts;
 

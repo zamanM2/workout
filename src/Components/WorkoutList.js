@@ -1,30 +1,25 @@
 import React, {useState} from "react"
 import '../App.css';
-import allWorkouts from '../Data/Data.js' 
+import {allWorkouts} from '../Data/Data.js' 
+import Workout from "./Workout";
+import Collapsible from 'react-collapsible';
 
 
 const WorkoutList =() =>{
-const [workoutList, setWorkoutList] = useState();
+    const [workoutList, setWorkoutList] = useState();
 
-return(
-    <Collapsible trigger= {props.name} classParentString= " Hello" >
-    <form onSubmit= {handleAddExercise}> 
-    <button type="submit"> Add Exercise </button>
-    <input onChange ={handleChange} type="text" name="exercise" value= {newExercise} />
-
-    </form>
-    <br/>
-    <br/>
-  <RestTimer>Timer</RestTimer>
- 
-
- <p style ={mystyle}> 
-   {myExercises.map((exercise) =>
-<Exercise exercise= {exercise}></Exercise>
- )
-   }
-    </p>
-  </Collapsible>
+    return(
+        <div>
+        {allWorkouts.map((ourWorkout)=> {
+            return(
+             <Collapsible trigger= {ourWorkout.workoutName}classParentString= " Hello" >
+             <Workout myWorkout={ourWorkout}/>
+            </Collapsible> 
+            )
+        })}
+        
+       
+    </div>
     )
 }
 

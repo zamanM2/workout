@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Collapsible from 'react-collapsible';
 import Exercise from './Exercise'
-import exercises from '../Data/Data.js' 
+import {exercises} from '../Data/Data.js' 
 import '../App.css';
 import RestTimer from './RestTimer';
 
@@ -17,11 +17,10 @@ const Workout = (props) => {
 
   const handleChange =(event) =>{
     setNewExercise(event.target.value) 
-
   }
 
   return (
-    <Collapsible trigger= {props.name} classParentString= " Hello" >
+   <div>  
       <form onSubmit= {handleAddExercise}> 
       <button type="submit"> Add Exercise </button>
       <input onChange ={handleChange} type="text" name="exercise" value= {newExercise} />
@@ -31,15 +30,19 @@ const Workout = (props) => {
       <br/>
     <RestTimer>Timer</RestTimer>
    
+    {myExercises.filter(function (exercise) {
+        return exercise.key === props.myWorkout.key;
+    }).map((myExercise) =>
+    <p style ={mystyle}> 
+    <Exercise exercise= {myExercise}></Exercise> </p>) 
+    
+    }
 
-   <p style ={mystyle}> 
-     {myExercises.map((exercise) =>
-  <Exercise exercise= {exercise}></Exercise>
-   )
-     }
-      </p>
-    </Collapsible>
+  
+      
+   </div>
   );
+
 };
 
 const mystyle = {
