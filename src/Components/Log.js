@@ -1,32 +1,34 @@
-import React from 'react'
-import '../App.css';
+import React from "react";
+import "../App.css";
 
-const Log= (props) =>{
-    return(
-   <div className= "repweight">
-       <table style= {{"borderWidth":"1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}} >
-  <tr >
-    <th>Reps</th>
-    <th>Weight</th>
-    <br/>
-  
-  </tr>
-  {props.entries.map(element => ( 
-  <tr>
-    <td>{element.reps}</td>
-    <td>{element.weight}</td>
-    
-  </tr>) )}
+const Log = (props) => {
+  return (
+    <div className="repweight">
+      <table
+        style={{
+          borderWidth: "1px",
+          borderColor: "#aaaaaa",
+          borderStyle: "solid",
+        }}
+      >
+        <tr>
+          <th>Reps</th>
+          <th>Weight</th>
+          <br />
+        </tr>
+        {props.entries.map((element) => (
+          <tr>
+            <td>{element.reps}</td>
+            <td>{element.weight}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
+};
 
-</table>
-   </div>
-    )
-}
-
-
-const tablestyle= {
-
+const tablestyle = {
   border: "1px solid black",
-}
+};
 
 export default Log;
