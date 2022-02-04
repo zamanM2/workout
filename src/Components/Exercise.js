@@ -21,9 +21,12 @@ const Exercise = (props) => {
     <div>
       {" "}
       {props.exercise.exercise}
-      <form onSubmit={props.handleDeleteExercise}>
-        <button type="submit"> X </button>
-      </form>
+      {/* <form onSubmit={props.handleDeleteExercise}> */}
+      <button onClick={() => props.onDeleteExercise()} type="submit">
+        {" "}
+        X{" "}
+      </button>
+      {/* </form> */}
       <div style={mystyle}>
         <Form onChange={handleChange} logSet={logSet} onSubmit={handleSubmit} />
 

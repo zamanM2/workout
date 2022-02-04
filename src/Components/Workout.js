@@ -19,9 +19,10 @@ const Workout = (props) => {
   const handleChange = (event) => {
     setNewExercise(event.target.value);
   };
-  const handleDeleteExercise = (event) => {
-    event.preventDefault();
-    setExcercises();
+  const handleDeleteExercise = (name) => {
+    setExcercises(
+      myExercises.filter((currentExercise) => currentExercise.exercise !== name)
+    );
   };
   return (
     <div>
@@ -45,7 +46,9 @@ const Workout = (props) => {
         .map((myExercise) => (
           <p style={mystyle}>
             <Exercise
-              onDeleteExercise={handleDeleteExercise}
+              onDeleteExercise={() => {
+                handleDeleteExercise(myExercise.exercise);
+              }}
               exercise={myExercise}
             ></Exercise>{" "}
           </p>
