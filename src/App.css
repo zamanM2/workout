@@ -14,12 +14,11 @@
   color: white;
 }
 
-/* .Hello{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+.Hello{
+  border-top:1px solid black ;
+  border-bottom: 1px solid black;
   
-} */
+}
 
 .timerbutton{
   font-size: 20px;
