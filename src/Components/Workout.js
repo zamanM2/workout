@@ -18,7 +18,10 @@ const Workout = (props) => {
   const handleChange =(event) =>{
     setNewExercise(event.target.value) 
   }
-
+  const handleDeleteExercise =(event)=>{
+    event.preventDefault();
+    setExcercises()
+  }
   return (
    <div>  
       <form onSubmit= {handleAddExercise}> 
@@ -34,7 +37,7 @@ const Workout = (props) => {
         return exercise.key === props.myWorkout.key;
     }).map((myExercise) =>
     <p style ={mystyle}> 
-    <Exercise exercise= {myExercise}></Exercise> </p>) 
+    <Exercise onDeleteExercise={handleDeleteExercise} exercise= {myExercise}></Exercise> </p>) 
     
     }
 
