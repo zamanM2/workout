@@ -45,7 +45,12 @@ const Workout = (props) => {
         })
         .map((myExercise) => (
           <div style={mystyle}>
-            <Exercise onDeleteExercise={() => {handleDeleteExercise(myExercise.exercise)}} exercise={myExercise} />
+            <Exercise
+              onDeleteExercise={() => {
+                handleDeleteExercise(myExercise.exercise);
+              }}
+              exercise={myExercise}
+            />
           </div>
         ))}
     </div>

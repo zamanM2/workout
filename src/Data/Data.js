@@ -11,4 +11,3 @@ let allWorkouts = [
 ];
 
 export { exercises, allWorkouts };
-// export  allWorkouts;

@@ -22,16 +22,21 @@ const WorkoutList = () => {
 
   return (
     <div>
-      {<form onSubmit={handleAddWorkout} style={{textAlign: 'left'}}>
-        <button className="addWorkout"  type="submit"> Add Workout </button>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="workout"
-          value={newWorkout}
-          className="addWorkoutInput"
-        />
-      </form>}
+      {
+        <form onSubmit={handleAddWorkout} style={{ textAlign: "left" }}>
+          <button className="addWorkout" type="submit">
+            {" "}
+            Add Workout{" "}
+          </button>
+          <input
+            onChange={handleChange}
+            type="text"
+            name="workout"
+            value={newWorkout}
+            className="addWorkoutInput"
+          />
+        </form>
+      }
       <br />
       {workoutList.map((ourWorkout) => {
         return (
