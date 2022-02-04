@@ -23,12 +23,13 @@ const WorkoutList = () => {
   return (
     <div>
       {<form onSubmit={handleAddWorkout} style={{textAlign: 'left'}}>
-        <button  type="submit"> Add Workout </button>
+        <button className="addWorkout"  type="submit"> Add Workout </button>
         <input
           onChange={handleChange}
           type="text"
           name="workout"
           value={newWorkout}
+          className="addWorkoutInput"
         />
       </form>}
       <br />
@@ -36,7 +37,7 @@ const WorkoutList = () => {
         return (
           <Collapsible
             trigger={ourWorkout.workoutName}
-            classParentString=" Hello"
+            classParentString="collapsibileList"
           >
             <Workout myWorkout={ourWorkout} />
           </Collapsible>
