@@ -12,13 +12,14 @@ const Exercise = (props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    setAllEntries([...allEntries, {...logSetInput, id: Date.now()}]) ;
+    setAllEntries([...allEntries, { ...logSetInput, id: Date.now() }]);
   };
 
-  const handleDeleteReps =()=>{
-    
-    console.log("zzz")
-  }
+  const handleDeleteReps = (myId) => {
+    //debugger;
+    console.log(myId);
+    setAllEntries(allEntries.filter((row) => row.id !== myId));
+  };
 
   return (
     <div>
@@ -27,8 +28,12 @@ const Exercise = (props) => {
         X
       </button>
       <div style={mystyle}>
-        <Form onChange={handleChange} logSet={logSetInput} onSubmit={handleSubmit} />
-        <Log onDeleteReps= {handleDeleteReps} entries={allEntries} />
+        <Form
+          onChange={handleChange}
+          logSet={logSetInput}
+          onSubmit={handleSubmit}
+        />
+        <Log onDeleteReps={handleDeleteReps} entries={allEntries} />
       </div>
     </div>
   );
