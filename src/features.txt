@@ -1,7 +1,11 @@
 Features to Add
-- Delete Exercise
+- Delete reps/sets
 - Logging Exercise starts countdown timer
 - Exercise Log previous day
 - Rename Workout
+- Integrate DB/Firebase
 - Rename Exercise
 - Login
+- Graph/ stats
+- Delete free floating Exercise
+- Add keys to dynamic elements

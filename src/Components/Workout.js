@@ -27,6 +27,7 @@ const Workout = (props) => {
   return (
     <div>
       <form onSubmit={handleAddExercise}>
+        <button onClick = {props.onDeleteWorkout} type="submit"> Delete Workout </button> <br/>
         <button type="submit"> Add Exercise </button>
         <input
           onChange={handleChange}

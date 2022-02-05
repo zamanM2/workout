@@ -20,6 +20,12 @@ const WorkoutList = () => {
     setNewWorkout(event.target.value);
   };
 
+  const handleDeleteWorkout= (id)=>{
+    setWorkoutList(
+        workoutList.filter((myWorkout) => myWorkout.key !== id)
+      );
+  }
+
   return (
     <div>
       {
@@ -44,7 +50,7 @@ const WorkoutList = () => {
             trigger={ourWorkout.workoutName}
             classParentString="collapsibileList"
           >
-            <Workout myWorkout={ourWorkout} />
+            <Workout onDeleteWorkout = {()=>(handleDeleteWorkout(ourWorkout.key))} myWorkout={ourWorkout} />
           </Collapsible>
         );
       })}
