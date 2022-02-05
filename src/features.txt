@@ -1,2 +1,7 @@
 Features to Add
 - Delete Exercise
+- Logging Exercise starts countdown timer
+- Exercise Log previous day
+- Rename Workout
+- Rename Exercise
+- Login
