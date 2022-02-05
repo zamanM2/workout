@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import  Workout from './Components/Workout'
 import WorkoutList from './Components/WorkoutList'
+import { initializeApp } from './Firebase/FirebaseConfig'
+
 
 // import {
 //   BrowserRouter as Router,
