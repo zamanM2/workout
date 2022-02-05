@@ -1,5 +1,4 @@
 Features to Add
-- Delete reps/sets
 - Logging Exercise starts countdown timer
 - Exercise Log previous day
 - Rename Workout
@@ -9,3 +8,7 @@ Features to Add
 - Graph/ stats
 - Delete free floating Exercise
 - Add keys to dynamic elements
+
+Done
+- Delete Workouts
+- Delete reps/sets
