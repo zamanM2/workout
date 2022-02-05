@@ -6,8 +6,9 @@ let exercises = [
 ];
 
 let allWorkouts = [
-  { workoutName: "Chest Day ", key: 1 },
-  { workoutName: "Back Day ", key: 2 },
+  { workoutName: "Chest Day ", key: 1 , user: "sakib"},
+  { workoutName: "Back Day ", key: 2, user: "zaman" },
+
 ];
 
 export { exercises, allWorkouts };

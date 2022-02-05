@@ -18,7 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-const workoutRef = ref(db);
+const workoutRef = ref(db, "Chestday");
 onValue(workoutRef, (snapshot) => {
   const data = snapshot.val();
 console.log(data)
