@@ -12,8 +12,7 @@ const LogRow = (props) => {
             onClick={() => props.onDeleteReps(props.element.id)}
             type="submit"
           >
-            {" "}
-            X{" "}
+            X
           </button>
         </td>
       </tr>

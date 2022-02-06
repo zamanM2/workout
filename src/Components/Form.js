@@ -10,6 +10,7 @@ const Form = (props) => {
           onChange={props.onChange}
           type="text"
           name="reps"
+          style={inputStyle}
           value={props.logSet.reps}
         />
         Weight
@@ -17,6 +18,7 @@ const Form = (props) => {
           onChange={props.onChange}
           type="text"
           name="weight"
+          style={inputStyle}
           value={props.logSet.weight}
         />
       </div>
@@ -27,3 +29,9 @@ const Form = (props) => {
 };
 
 export default Form;
+
+const inputStyle = {
+  width: "50px",
+  marginRight: "15px",
+  marginLeft: "5px",
+};
