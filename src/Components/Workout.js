@@ -3,6 +3,7 @@ import Exercise from "./Exercise";
 import { exercises } from "../Data/Data.js";
 import "../App.css";
 import RestTimer from "./RestTimer";
+import "../css/blackBtn.css";
 
 const Workout = (props) => {
   const [myExercises, setExcercises] = useState(exercises);
@@ -27,11 +28,13 @@ const Workout = (props) => {
     <div>
       <form onSubmit={handleAddExercise}>
         <button onClick={props.onDeleteWorkout} type="submit">
-          {" "}
-          Delete Workout{" "}
-        </button>{" "}
+          Delete Workout
+        </button>
         <br />
-        <button type="submit"> Add Exercise </button>
+        <button className="blackBtn" type="submit">
+          {" "}
+          Add Exercise{" "}
+        </button>
         <input
           onChange={handleChange}
           type="text"

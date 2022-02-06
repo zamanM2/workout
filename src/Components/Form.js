@@ -1,9 +1,10 @@
 import React from "react";
 import "../App.css";
+import "../css/blackBtn.css";
 
 const Form = (props) => {
   return (
-    <form className="bigtable" onSubmit={props.onSubmit}>
+    <form onSubmit={props.onSubmit}>
       <div className="reps">
         Reps
         <input
@@ -23,7 +24,9 @@ const Form = (props) => {
         />
       </div>
 
-      <button type="submit">Log</button>
+      <button className="blackBtn" type="submit">
+        Log
+      </button>
     </form>
   );
 };

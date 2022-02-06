@@ -7,16 +7,17 @@ const Log = (props) => {
     <div className="repweight">
       <table style={tableStyle}>
         <tbody>
-        <tr>
-          <th>Reps</th>
-          <th>Weight</th>
-          {/* <br /> */}
-        </tr>
-        {props.entries.map((_element) => (
-
-          <LogRow onDeleteReps={props.onDeleteReps} key = {_element.id} element={_element} />
-        
-        ))}
+          <tr>
+            <th>Reps</th>
+            <th>Weight</th>
+          </tr>
+          {props.entries.map((_element) => (
+            <LogRow
+              onDeleteReps={props.onDeleteReps}
+              key={_element.id}
+              element={_element}
+            />
+          ))}
         </tbody>
       </table>
     </div>
