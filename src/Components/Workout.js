@@ -43,7 +43,6 @@ const Workout = (props) => {
         />
       </form>
       <br />
-      <br />
       <RestTimer />
 
       {myExercises
