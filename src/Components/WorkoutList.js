@@ -4,7 +4,6 @@ import { allWorkouts } from "../Data/Data.js";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
 
-
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState(allWorkouts);
   const [newWorkout, setNewWorkout] = useState(" ");
@@ -15,18 +14,15 @@ const WorkoutList = () => {
       ...workoutList,
       { workoutName: newWorkout, key: Math.random() },
     ]);
-    // console.log(databaseRef)
   };
 
   const handleChange = (event) => {
     setNewWorkout(event.target.value);
   };
 
-  const handleDeleteWorkout= (id)=>{
-    setWorkoutList(
-        workoutList.filter((myWorkout) => myWorkout.key !== id)
-      );
-  }
+  const handleDeleteWorkout = (id) => {
+    setWorkoutList(workoutList.filter((myWorkout) => myWorkout.key !== id));
+  };
 
   return (
     <div>
@@ -52,7 +48,10 @@ const WorkoutList = () => {
             trigger={ourWorkout.workoutName}
             classParentString="collapsibileList"
           >
-            <Workout onDeleteWorkout = {()=>(handleDeleteWorkout(ourWorkout.key))} myWorkout={ourWorkout} />
+            <Workout
+              onDeleteWorkout={() => handleDeleteWorkout(ourWorkout.key)}
+              myWorkout={ourWorkout}
+            />
           </Collapsible>
         );
       })}

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue, get, child } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -12,15 +12,21 @@ const firebaseConfig = {
   projectId: "gainz-db",
   storageBucket: "gainz-db.appspot.com",
   messagingSenderId: "714005148405",
-  appId: "1:714005148405:web:327253dd8c25a4decdcbbc"
+  appId: "1:714005148405:web:327253dd8c25a4decdcbbc",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const workoutRef = ref(db, "Chestday");
-onValue(workoutRef, (snapshot) => {
-  const data = snapshot.val();
-console.log(data)
-});
+const db = getDatabase(app);
+const workoutRef = ref(db, "Users");
 
+// onValue(workoutRef, (snapshot) => {
+//   const data = snapshot.val();
+//   console.log(data);
+// });
+
+const dbRef = ref(db, "/Users");
+
+get(child(dbRef, "/123")).then((snapshot) => {
+  console.log(snapshot.val());
+});

@@ -7,7 +7,7 @@ const Exercise = (props) => {
   const [allEntries, setAllEntries] = useState([]);
   const [logSetInput, setLogSetInput] = useState({ reps: 0, weight: 0 });
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     setLogSetInput({ ...logSetInput, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
@@ -23,12 +23,16 @@ const Exercise = (props) => {
   return (
     <div>
       {props.exercise.exercise}
-      <button onClick={() => props.onDeleteExercise()} type="submit">
+      <button
+        className=""
+        onClick={() => props.onDeleteExercise()}
+        type="submit"
+      >
         X
       </button>
       <div style={mystyle}>
         <Form
-          onChange={handleChange}
+          onChange={handleInputChange}
           logSet={logSetInput}
           onSubmit={handleSubmit}
         />
