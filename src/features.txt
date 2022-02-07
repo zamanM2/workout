@@ -1,6 +1,7 @@
 Features to Add
 - Integrate DB/Firebase
-    -
+    - Read Workout data
+    - Read Exercise data
 - Logging Exercise starts countdown timer
 - Exercise Log previous day
 - Rename Workout
@@ -13,6 +14,8 @@ Features to Add
 - Track your weight
 - Add images to track progress
 - Add top nav to switch between workout and myself
+- Play sound when timer is up
+- Adjust length of timer
 
 Done
 - Delete Workouts
