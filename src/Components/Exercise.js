@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "./Form";
 import Log from "./Log";
 import "../App.css";
+import "../css/xBtn.css";
 
 const Exercise = (props) => {
   const [allEntries, setAllEntries] = useState([]);
@@ -24,7 +25,7 @@ const Exercise = (props) => {
     <div>
       {props.exercise.exercise}
       <button
-        className=""
+        className="xBtn"
         onClick={() => props.onDeleteExercise()}
         type="submit"
       >

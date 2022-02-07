@@ -1,13 +1,18 @@
 Features to Add
+- Integrate DB/Firebase
+    -
 - Logging Exercise starts countdown timer
 - Exercise Log previous day
 - Rename Workout
-- Integrate DB/Firebase
 - Rename Exercise
 - Login
+- Sign-up
 - Graph/ stats
 - Delete free floating Exercise
 - Add keys to dynamic elements
+- Track your weight
+- Add images to track progress
+- Add top nav to switch between workout and myself
 
 Done
 - Delete Workouts
