@@ -78,7 +78,7 @@ body {
 }
 
 .bg {
-  background-image:  url("./bg-orange.jpg");;
+  background-image:  url("../public/bg-orange.jpg");;
   bottom:0;
   left:-50%;
   opacity:.5;
