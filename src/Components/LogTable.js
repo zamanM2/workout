@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import LogRow from "./LogRow";
 
-const Log = (props) => {
+const LogTable = (props) => {
   return (
     <div className="repweight">
       <table style={tableStyle}>
@@ -24,7 +24,7 @@ const Log = (props) => {
   );
 };
 
-export default Log;
+export default LogTable;
 
 const tableStyle = {
   borderWidth: "1px",

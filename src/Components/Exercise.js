@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Form from "./Form";
-import Log from "./Log";
+import LogForm from "./LogForm";
+import LogTable from "./LogTable";
 import "../App.css";
 import "../css/xBtn.css";
 
@@ -32,12 +32,12 @@ const Exercise = (props) => {
         X
       </button>
       <div style={mystyle}>
-        <Form
+        <LogForm
           onChange={handleInputChange}
           onSubmit={handleInputSubmit}
           logSet={logInput}
         />
-        <Log onDeleteReps={handleDeleteReps} entries={logEntries} />
+        <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
       </div>
     </div>
   );

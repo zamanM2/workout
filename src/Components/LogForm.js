@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import "../css/blackBtn.css";
 
-const Form = (props) => {
+const LogForm = (props) => {
   return (
     <form onSubmit={props.onSubmit}>
       <div className="reps">
@@ -31,7 +31,7 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default LogForm;
 
 const inputStyle = {
   width: "50px",

@@ -8,6 +8,7 @@ import "../css/blackBtn.css";
 const Workout = (props) => {
   const [myExercises, setExcercises] = useState(exercises);
   const [newExercise, setNewExercise] = useState("");
+
   const handleAddExercise = (event) => {
     event.preventDefault();
     setExcercises([
@@ -19,11 +20,13 @@ const Workout = (props) => {
   const handleChange = (event) => {
     setNewExercise(event.target.value);
   };
+
   const handleDeleteExercise = (name) => {
     setExcercises(
       myExercises.filter((currentExercise) => currentExercise.exercise !== name)
     );
   };
+
   return (
     <div>
       <form onSubmit={handleAddExercise}>
@@ -63,11 +66,11 @@ const Workout = (props) => {
   );
 };
 
+export default Workout;
+
 const myStyle = {
   color: "white",
   backgroundColor: "",
   padding: "15px",
   fontFamily: "Arial",
 };
-
-export default Workout;

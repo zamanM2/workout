@@ -22,8 +22,7 @@ const Timer = () => {
 
   return (
     <button onClick={handleClick} className="timerbutton">
-      {" "}
-      {secondsLeft}{" "}
+      {secondsLeft}
     </button>
   );
 };
