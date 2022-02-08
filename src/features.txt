@@ -10,7 +10,6 @@ Features to Add
 - Sign-up
 - Graph/ stats
 - Delete free floating Exercise
-- Add keys to dynamic elements
 - Track your weight
 - Add images to track progress
 - Add top nav to switch between workout and myself

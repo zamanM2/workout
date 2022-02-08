@@ -50,7 +50,7 @@ const Workout = (props) => {
           return exercise.key === props.myWorkout.key;
         })
         .map((myExercise) => (
-          <div style={mystyle}>
+          <div style={myStyle} key={myExercise.id}>
             <Exercise
               onDeleteExercise={() => {
                 handleDeleteExercise(myExercise.exercise);
@@ -63,7 +63,7 @@ const Workout = (props) => {
   );
 };
 
-const mystyle = {
+const myStyle = {
   color: "white",
   backgroundColor: "",
   padding: "15px",

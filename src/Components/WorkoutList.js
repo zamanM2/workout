@@ -6,7 +6,7 @@ import Collapsible from "react-collapsible";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState(allWorkouts);
-  const [newWorkout, setNewWorkout] = useState(" ");
+  const [newWorkout, setNewWorkout] = useState("");
 
   const handleAddWorkout = (event) => {
     event.preventDefault();
@@ -29,8 +29,7 @@ const WorkoutList = () => {
       {
         <form onSubmit={handleAddWorkout} style={{ textAlign: "left" }}>
           <button className="addWorkout" type="submit">
-            {" "}
-            Add Workout{" "}
+            Add Workout
           </button>
           <input
             onChange={handleChange}
@@ -42,15 +41,16 @@ const WorkoutList = () => {
         </form>
       }
       <br />
-      {workoutList.map((ourWorkout) => {
+      {workoutList.map((_workout) => {
         return (
           <Collapsible
-            trigger={ourWorkout.workoutName}
+            trigger={_workout.workoutName}
             classParentString="collapsibileList"
+            key={_workout.key}
           >
             <Workout
-              onDeleteWorkout={() => handleDeleteWorkout(ourWorkout.key)}
-              myWorkout={ourWorkout}
+              onDeleteWorkout={() => handleDeleteWorkout(_workout.key)}
+              myWorkout={_workout}
             />
           </Collapsible>
         );

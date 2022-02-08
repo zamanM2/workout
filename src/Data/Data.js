@@ -1,14 +1,13 @@
 let exercises = [
-  { exercise: "Barebell Bench Press", reps: 0, sets: 0, key: 1 },
-  { exercise: "Incline Dumbell Bench press", reps: 0, sets: 0, key: 1 },
-  { exercise: "Cable Fly", reps: 0, sets: 0, key: 1 },
-  { exercise: "Deadlift", reps: 0, sets: 0, key: 2 },
+  { exercise: "Barebell Bench Press", key: 1, id: 111 },
+  { exercise: "Incline Dumbell Bench press", key: 1, id: 222 },
+  { exercise: "Cable Fly", key: 1, id: 333 },
+  { exercise: "Deadlift", key: 2, id: 444 },
 ];
 
 let allWorkouts = [
-  { workoutName: "Chest Day ", key: 1 , user: "sakib"},
+  { workoutName: "Chest Day ", key: 1, user: "sakib" },
   { workoutName: "Back Day ", key: 2, user: "zaman" },
-
 ];
 
 export { exercises, allWorkouts };
