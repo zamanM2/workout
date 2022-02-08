@@ -2,19 +2,28 @@ Features to Add
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
+    - Write Create Workout data
+    - Write Create Exercise data
+    - Write log data
 - Logging Exercise starts countdown timer
+- Login
+- Sign-up
+- sort order of exercises
+- sort order of workouts
 - Exercise Log previous day
 - Rename Workout
 - Rename Exercise
-- Login
-- Sign-up
 - Graph/ stats
 - Delete free floating Exercise
 - Track your weight
-- Add images to track progress
+- Add body images to track progress
 - Add top nav to switch between workout and myself
 - Play sound when timer is up
 - Adjust length of timer
+- Input field validation
+- Warning message when trying to delete workout
+- Make each exercise collapsible
+- BUG: Hitting entter on Add exercise deletes exercise
 
 Done
 - Delete Workouts

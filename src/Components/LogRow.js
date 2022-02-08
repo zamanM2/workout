@@ -7,7 +7,6 @@ const LogRow = (props) => {
         <td style={tableStyle}>{props.element.reps}</td>
         <td style={tableStyle}>{props.element.weight}</td>
         <td>
-          {" "}
           <button
             onClick={() => props.onDeleteReps(props.element.id)}
             type="submit"
