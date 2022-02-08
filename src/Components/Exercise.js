@@ -5,20 +5,20 @@ import "../App.css";
 import "../css/xBtn.css";
 
 const Exercise = (props) => {
-  const [allEntries, setAllEntries] = useState([]);
-  const [logSetInput, setLogSetInput] = useState({ reps: 0, weight: 0 });
+  const [logEntries, setLogEntries] = useState([]);
+  const [logInput, setLogInput] = useState({ reps: 0, weight: 0 });
 
   const handleInputChange = (event) => {
-    setLogSetInput({ ...logSetInput, [event.target.name]: event.target.value });
+    setLogInput({ ...logInput, [event.target.name]: event.target.value });
   };
-  const handleSubmit = (event) => {
+  const handleInputSubmit = (event) => {
     event.preventDefault();
-    setAllEntries([...allEntries, { ...logSetInput, id: Date.now() }]);
+    setLogEntries([...logEntries, { ...logInput, id: Date.now() }]);
   };
 
   const handleDeleteReps = (myId) => {
     console.log(myId);
-    setAllEntries(allEntries.filter((row) => row.id !== myId));
+    setLogEntries(logEntries.filter((row) => row.id !== myId));
   };
 
   return (
@@ -34,10 +34,10 @@ const Exercise = (props) => {
       <div style={mystyle}>
         <Form
           onChange={handleInputChange}
-          logSet={logSetInput}
-          onSubmit={handleSubmit}
+          onSubmit={handleInputSubmit}
+          logSet={logInput}
         />
-        <Log onDeleteReps={handleDeleteReps} entries={allEntries} />
+        <Log onDeleteReps={handleDeleteReps} entries={logEntries} />
       </div>
     </div>
   );
