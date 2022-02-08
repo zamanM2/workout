@@ -13,7 +13,11 @@ const Workout = (props) => {
     event.preventDefault();
     setExcercises([
       ...myExercises,
-      { exercise: newExercise, reps: 0, sets: 0, key: props.myWorkout.key },
+      {
+        exercise: newExercise,
+        workoutId: props.myWorkout.id,
+        id: Math.random(),
+      },
     ]);
   };
 
@@ -35,8 +39,7 @@ const Workout = (props) => {
         </button>
         <br />
         <button className="blackBtn" type="submit">
-          {" "}
-          Add Exercise{" "}
+          Add Exercise
         </button>
         <input
           onChange={handleChange}
@@ -50,7 +53,7 @@ const Workout = (props) => {
 
       {myExercises
         .filter(function (exercise) {
-          return exercise.key === props.myWorkout.key;
+          return exercise.workoutId === props.myWorkout.id;
         })
         .map((myExercise) => (
           <div style={myStyle} key={myExercise.id}>

@@ -12,7 +12,7 @@ const WorkoutList = () => {
     event.preventDefault();
     setWorkoutList([
       ...workoutList,
-      { workoutName: newWorkout, key: Math.random() },
+      { workoutName: newWorkout, id: Math.random() },
     ]);
   };
 
@@ -21,7 +21,7 @@ const WorkoutList = () => {
   };
 
   const handleDeleteWorkout = (id) => {
-    setWorkoutList(workoutList.filter((myWorkout) => myWorkout.key !== id));
+    setWorkoutList(workoutList.filter((myWorkout) => myWorkout.id !== id));
   };
 
   return (
@@ -46,10 +46,10 @@ const WorkoutList = () => {
           <Collapsible
             trigger={_workout.workoutName}
             classParentString="collapsibileList"
-            key={_workout.key}
+            key={_workout.id}
           >
             <Workout
-              onDeleteWorkout={() => handleDeleteWorkout(_workout.key)}
+              onDeleteWorkout={() => handleDeleteWorkout(_workout.id)}
               myWorkout={_workout}
             />
           </Collapsible>
