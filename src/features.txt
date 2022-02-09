@@ -28,3 +28,5 @@ Features to Add
 Done
 - Delete Workouts
 - Delete reps/sets
+- Integrate DB/Firebase
+    - Read Workout data

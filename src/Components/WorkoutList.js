@@ -11,8 +11,8 @@ const WorkoutList = () => {
   useEffect(() => {
     getWorkouts().then((snapshot) => {
       let keys = Object.keys(snapshot.val());
-      let workouts = keys.map((object) => {
-        return { ...snapshot.val()[object], id: object };
+      let workouts = keys.map((_id) => {
+        return { ...snapshot.val()[_id], id: _id };
       });
       setWorkoutList(workouts);
     });
