@@ -10,19 +10,13 @@ const WorkoutList = () => {
   const [newWorkout, setNewWorkout] = useState("");
 
   useEffect(() => {
-    const entries = Object.entries(
-      getWorkouts().then((snapshot) => {
-        let keys = Object.keys(snapshot.val());
-        let workouts = keys.map((object) => {
-          return Object.assign({}, snapshot.val()[object], {
-            id: object,
-          });
-        });
-        console.group(workouts);
-        setWorkoutList(workouts);
-      })
-    );
-    console.log(entries);
+    getWorkouts().then((snapshot) => {
+      let keys = Object.keys(snapshot.val());
+      let workouts = keys.map((object) => {
+        return { ...snapshot.val()[object], id: object };
+      });
+      setWorkoutList(workouts);
+    });
   }, []);
 
   const handleAddWorkout = (event) => {
