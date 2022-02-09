@@ -25,8 +25,12 @@ const workoutRef = ref(db, "Users");
 //   console.log(data);
 // });
 
-const dbRef = ref(db, "/Users");
+const dbRef = ref(db);
 
-get(child(dbRef, "/123")).then((snapshot) => {
-  console.log(snapshot.val());
-});
+// get(child(dbRef, "/123")).then((snapshot) => {
+//   console.log(snapshot.val());
+// });
+
+export  {dbRef};
+
+
