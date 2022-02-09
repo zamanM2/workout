@@ -11,7 +11,16 @@ const WorkoutList = () => {
 
   useEffect(() => {
     const entries = Object.entries(
-      getWorkouts().then((snapshot) => console.log(snapshot.val()))
+      getWorkouts().then((snapshot) => {
+        let keys = Object.keys(snapshot.val());
+        let workouts = keys.map((object) => {
+          return Object.assign({}, snapshot.val()[object], {
+            id: object,
+          });
+        });
+        console.group(workouts);
+        setWorkoutList(workouts);
+      })
     );
     console.log(entries);
   }, []);
@@ -52,7 +61,7 @@ const WorkoutList = () => {
       {workoutList.map((_workout) => {
         return (
           <Collapsible
-            trigger={_workout.workoutName}
+            trigger={_workout.name}
             classParentString="collapsibileList"
             key={_workout.id}
           >
