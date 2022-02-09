@@ -8,14 +8,13 @@ const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
 
-  useEffect(() => {
-    getWorkouts().then((snapshot) => {
-      let keys = Object.keys(snapshot.val());
-      let workouts = keys.map((_id) => {
-        return { ...snapshot.val()[_id], id: _id };
-      });
-      setWorkoutList(workouts);
+  useEffect(async () => {
+    let snapshot = await getWorkouts();
+    let keys = Object.keys(snapshot.val());
+    let workouts = keys.map((_id) => {
+      return { ...snapshot.val()[_id], id: _id };
     });
+    setWorkoutList(workouts);
   }, []);
 
   const handleAddWorkout = (event) => {

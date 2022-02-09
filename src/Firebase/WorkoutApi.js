@@ -7,7 +7,7 @@ let getUser = () => {
 
 const userId = getUser();
 
-const getWorkouts = () => {
+const getWorkouts = async () => {
   return get(child(dbRef, `/workouts/${userId}`));
 };
 
