@@ -1,5 +1,5 @@
 import { dbRef } from "./FirebaseConfig";
-import { get, child } from "firebase/database";
+import { child, get, push } from "firebase/database";
 
 let getUser = () => {
   return "123";
@@ -15,4 +15,11 @@ const getExercises = async () => {
   return get(child(dbRef, `/exercises/${userId}`));
 };
 
-export { getWorkouts, getExercises };
+const saveWorkout = async (workout) => {
+  return push(child(dbRef, `/workouts/${userId}`), {
+    name: workout,
+    sort: 1,
+  });
+};
+
+export { getWorkouts, getExercises, saveWorkout };
