@@ -19,10 +19,7 @@ const WorkoutList = () => {
 
   const handleAddWorkout = (event) => {
     event.preventDefault();
-    setWorkoutList([
-      ...workoutList,
-      { workoutName: newWorkout, id: Math.random() },
-    ]);
+    setWorkoutList([...workoutList, { name: newWorkout, id: Math.random() }]);
   };
 
   const handleChange = (event) => {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Exercise from "./Exercise";
-import { exercises } from "../Data/Data.js";
 import "../App.css";
 import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
@@ -25,7 +24,7 @@ const Workout = (props) => {
     setExcercises([
       ...myExercises,
       {
-        exercise: newExercise,
+        name: newExercise,
         workoutId: props.myWorkout.id,
         id: Math.random(),
       },
@@ -64,7 +63,8 @@ const Workout = (props) => {
 
       {myExercises
         .filter(function (exercise) {
-          return exercise.workoutId == props.myWorkout.id;
+          debugger;
+          return exercise.workoutId === props.myWorkout.id;
         })
         .map((myExercise) => (
           <div style={myStyle} key={myExercise.id}>
