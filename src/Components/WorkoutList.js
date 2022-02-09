@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { allWorkouts } from "../Data/Data.js";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
 import { getWorkouts } from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
-  const [workoutList, setWorkoutList] = useState(allWorkouts);
+  const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
 
   useEffect(() => {
