@@ -3,11 +3,13 @@ import "../App.css";
 import { allWorkouts } from "../Data/Data.js";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
+import { getWorkouts } from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
+  const myData = getWorkouts();
   const [workoutList, setWorkoutList] = useState(allWorkouts);
   const [newWorkout, setNewWorkout] = useState("");
-
+  
   const handleAddWorkout = (event) => {
     event.preventDefault();
     setWorkoutList([
