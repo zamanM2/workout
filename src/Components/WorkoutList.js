@@ -6,10 +6,16 @@ import Collapsible from "react-collapsible";
 import { getWorkouts } from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
-  const myData = getWorkouts();
+  let data;
   const [workoutList, setWorkoutList] = useState(allWorkouts);
   const [newWorkout, setNewWorkout] = useState("");
-  
+
+  function getData() {
+    return getWorkouts();
+  }
+
+  console.log(getData());
+
   const handleAddWorkout = (event) => {
     event.preventDefault();
     setWorkoutList([
