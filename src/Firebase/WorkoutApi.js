@@ -11,10 +11,8 @@ const getWorkouts = async () => {
   return get(child(dbRef, `/workouts/${userId}`));
 };
 
-const getExercises = () => {
-  get(child(dbRef, `/exercises/${userId}`)).then((snapshot) => {
-    console.log(snapshot.val());
-  });
+const getExercises = async () => {
+  return get(child(dbRef, `/exercises/${userId}`));
 };
 
 export { getWorkouts, getExercises };

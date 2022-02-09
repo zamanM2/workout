@@ -23,7 +23,7 @@ const Exercise = (props) => {
 
   return (
     <div>
-      {props.exercise.exercise}
+      {props.exercise.name}
       <button
         className="xBtn"
         onClick={() => props.onDeleteExercise()}

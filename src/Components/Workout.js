@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Exercise from "./Exercise";
 import { exercises } from "../Data/Data.js";
 import "../App.css";
 import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
+import { getExercises } from "../Firebase/WorkoutApi";
 
 const Workout = (props) => {
-  const [myExercises, setExcercises] = useState(exercises);
+  const [myExercises, setExcercises] = useState([]);
   const [newExercise, setNewExercise] = useState("");
+
+  useEffect(async () => {
+    let snapshot = await getExercises();
+    let keys = Object.keys(snapshot.val());
+    let exercises = keys.map((_id) => {
+      return { ...snapshot.val()[_id], id: _id };
+    });
+    console.log(exercises);
+    setExcercises(exercises);
+  }, []);
 
   const handleAddExercise = (event) => {
     event.preventDefault();
@@ -27,7 +38,7 @@ const Workout = (props) => {
 
   const handleDeleteExercise = (name) => {
     setExcercises(
-      myExercises.filter((currentExercise) => currentExercise.exercise !== name)
+      myExercises.filter((currentExercise) => currentExercise.name !== name)
     );
   };
 
@@ -53,13 +64,13 @@ const Workout = (props) => {
 
       {myExercises
         .filter(function (exercise) {
-          return exercise.workoutId === props.myWorkout.id;
+          return exercise.workoutId == props.myWorkout.id;
         })
         .map((myExercise) => (
           <div style={myStyle} key={myExercise.id}>
             <Exercise
               onDeleteExercise={() => {
-                handleDeleteExercise(myExercise.exercise);
+                handleDeleteExercise(myExercise.id);
               }}
               exercise={myExercise}
             />

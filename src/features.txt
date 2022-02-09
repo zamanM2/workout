@@ -1,7 +1,5 @@
 Features to Add
 - Integrate DB/Firebase
-    - Read Workout data
-    - Read Exercise data
     - Write Create Workout data
     - Write Create Exercise data
     - Write log data
@@ -30,3 +28,4 @@ Done
 - Delete reps/sets
 - Integrate DB/Firebase
     - Read Workout data
+    - Read Exercise data
