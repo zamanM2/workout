@@ -17,7 +17,6 @@ const Exercise = (props) => {
   };
 
   const handleDeleteReps = (myId) => {
-    console.log(myId);
     setLogEntries(logEntries.filter((row) => row.id !== myId));
   };
 

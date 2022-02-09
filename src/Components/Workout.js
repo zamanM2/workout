@@ -15,7 +15,6 @@ const Workout = (props) => {
     let exercises = keys.map((_id) => {
       return { ...snapshot.val()[_id], id: _id };
     });
-    console.log(exercises);
     setExcercises(exercises);
   }, []);
 
@@ -63,7 +62,6 @@ const Workout = (props) => {
 
       {myExercises
         .filter(function (exercise) {
-          debugger;
           return exercise.workoutId === props.myWorkout.id;
         })
         .map((myExercise) => (
