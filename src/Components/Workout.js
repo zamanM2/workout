@@ -35,9 +35,9 @@ const Workout = (props) => {
     setNewExercise(event.target.value);
   };
 
-  const handleDeleteExercise = (name) => {
+  const handleDeleteExercise = (id) => {
     setExcercises(
-      myExercises.filter((currentExercise) => currentExercise.name !== name)
+      myExercises.filter((currentExercise) => currentExercise.id !== id)
     );
   };
 
