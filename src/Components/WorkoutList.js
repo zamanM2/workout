@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import { allWorkouts } from "../Data/Data.js";
 import Workout from "./Workout";
@@ -6,15 +6,15 @@ import Collapsible from "react-collapsible";
 import { getWorkouts } from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
-  let data;
   const [workoutList, setWorkoutList] = useState(allWorkouts);
   const [newWorkout, setNewWorkout] = useState("");
 
-  function getData() {
-    return getWorkouts();
-  }
-
-  console.log(getData());
+  useEffect(() => {
+    const entries = Object.entries(
+      getWorkouts().then((snapshot) => console.log(snapshot.val()))
+    );
+    console.log(entries);
+  }, []);
 
   const handleAddWorkout = (event) => {
     event.preventDefault();

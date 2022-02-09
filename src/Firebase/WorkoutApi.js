@@ -8,17 +8,17 @@ let getUser = () => {
 const userId = getUser();
 
 const getWorkouts = () => {
-  get(child(dbRef, `/workouts/${userId}`))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        return snapshot.val();
-      } else {
-        console.log("No data available");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  return get(child(dbRef, `/workouts/${userId}`));
+  // .then((snapshot) => {
+  //   if (snapshot.exists()) {
+  //     return snapshot.val();
+  //   } else {
+  //     console.log("No data available");
+  //   }
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // });
 
   // .then((snapshot) => {
   //   snapshot.val();
