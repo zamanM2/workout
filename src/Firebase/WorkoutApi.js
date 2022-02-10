@@ -26,4 +26,12 @@ const deleteWorkout = async (workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-export { getWorkouts, getExercises, saveWorkout, deleteWorkout };
+const saveExercise= async(exercise, _workoutId)=>{
+  return push(child(dbRef, `/exercises/${userId}`), {
+    name: exercise,
+    workoutId: _workoutId,
+    sort: 1,
+  });
+};
+
+export { getWorkouts, getExercises, saveWorkout, deleteWorkout, saveExercise };

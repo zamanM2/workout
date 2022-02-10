@@ -4,9 +4,10 @@ import "../App.css";
 import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
 import { getExercises } from "../Firebase/WorkoutApi";
+import { saveExercise } from "../Firebase/WorkoutApi";
 
 const Workout = (props) => {
-  const [myExercises, setExcercises] = useState([]);
+  const [myExercises, setExercises] = useState([]);
   const [newExercise, setNewExercise] = useState("");
 
   useEffect(async () => {
@@ -15,19 +16,22 @@ const Workout = (props) => {
     let exercises = keys.map((_id) => {
       return { ...snapshot.val()[_id], id: _id };
     });
-    setExcercises(exercises);
+    setExercises(exercises);
   }, []);
 
-  const handleAddExercise = (event) => {
+  const handleAddExercise = async (event) => {
     event.preventDefault();
-    setExcercises([
-      ...myExercises,
-      {
-        name: newExercise,
-        workoutId: props.myWorkout.id,
-        id: Math.random(),
-      },
-    ]);
+    await saveExercise(newExercise, props.myWorkout.id).then((post) => { 
+      setExercises([
+        ...myExercises,
+        {
+          name: newExercise,
+          workoutId: props.myWorkout.id,
+          id: post.key,
+        },
+      ]);
+    });
+    
   };
 
   const handleChange = (event) => {
@@ -35,7 +39,7 @@ const Workout = (props) => {
   };
 
   const handleDeleteExercise = (id) => {
-    setExcercises(
+    setExercises(
       myExercises.filter((currentExercise) => currentExercise.id !== id)
     );
   };

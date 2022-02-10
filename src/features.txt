@@ -1,6 +1,5 @@
 Features to Add
 - Integrate DB/Firebase
-    - Write Create Exercise data
     - Delete Exercise
     - Write log data
 - Logging Exercise starts countdown timer
@@ -21,7 +20,7 @@ Features to Add
 - Input field validation
 - Warning message when trying to delete workout
 - Make each exercise collapsible
-- BUG: Hitting entter on Add exercise deletes exercise
+- BUG: Hitting enter on Add exercise deletes exercise
 
 Done
 - Delete Workouts
@@ -31,3 +30,4 @@ Done
     - Read Exercise data
     - Write Create Workout data
     - Delete Workout
+    - Write Create Exercise data
