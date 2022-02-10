@@ -17,12 +17,16 @@ const Workout = (props) => {
     let exercises = keys.map((_id) => {
       return { ...snapshot.val()[_id], id: _id };
     });
-    setExercises(exercises);
+    setExercises(
+      exercises.filter(function (exercise) {
+        return exercise.workoutId === props.myWorkout.id;
+      })
+    );
   }, []);
 
   const handleAddExercise = async (event) => {
     event.preventDefault();
-    await saveExercise(newExercise, props.myWorkout.id).then((post) => { 
+    await saveExercise(newExercise, props.myWorkout.id).then((post) => {
       setExercises([
         ...myExercises,
         {
@@ -32,26 +36,27 @@ const Workout = (props) => {
         },
       ]);
     });
-    
   };
 
   const handleChange = (event) => {
     setNewExercise(event.target.value);
   };
 
-  const handleDeleteExercise = async(id) => {
+  const handleDeleteExercise = async (id) => {
     await deleteExercise(id).then((post) => {
       setExercises(
-      myExercises.filter((currentExercise) => currentExercise.id !== id)
-      ); 
+        myExercises.filter((currentExercise) => currentExercise.id !== id)
+      );
     });
-    
   };
 
   return (
     <div>
       <form onSubmit={handleAddExercise}>
-        <button onClick={props.onDeleteWorkout} type="submit">
+        <button
+          onClick={() => props.onDeleteWorkout(props.myWorkout.id, myExercises)}
+          type="submit"
+        >
           Delete Workout
         </button>
         <br />
@@ -68,20 +73,16 @@ const Workout = (props) => {
       <br />
       <RestTimer />
 
-      {myExercises
-        .filter(function (exercise) {
-          return exercise.workoutId === props.myWorkout.id;
-        })
-        .map((myExercise) => (
-          <div style={myStyle} key={myExercise.id}>
-            <Exercise
-              onDeleteExercise={() => {
-                handleDeleteExercise(myExercise.id);
-              }}
-              exercise={myExercise}
-            />
-          </div>
-        ))}
+      {myExercises.map((myExercise) => (
+        <div style={myStyle} key={myExercise.id}>
+          <Exercise
+            onDeleteExercise={() => {
+              handleDeleteExercise(myExercise.id);
+            }}
+            exercise={myExercise}
+          />
+        </div>
+      ))}
     </div>
   );
 };

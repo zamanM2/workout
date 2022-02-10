@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
-import { getWorkouts, saveWorkout, deleteWorkout } from "../Firebase/WorkoutApi";
+import {
+  getWorkouts,
+  saveWorkout,
+  deleteWorkout,
+  deleteAllExercises,
+} from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
@@ -31,11 +36,13 @@ const WorkoutList = () => {
     setNewWorkout(event.target.value);
   };
 
-  const handleDeleteWorkout = async (id) => {
-    await deleteWorkout(id).then((post) => {
-      setWorkoutList(workoutList.filter((myWorkout) => myWorkout.id !== id));
+  const handleDeleteWorkout = async (workoutId, exercises) => {
+    await deleteWorkout(workoutId).then((post) => {
+      setWorkoutList(
+        workoutList.filter((myWorkout) => myWorkout.id !== workoutId)
+      );
     });
-   
+    await deleteAllExercises(exercises);
   };
 
   return (
@@ -63,7 +70,7 @@ const WorkoutList = () => {
             key={_workout.id}
           >
             <Workout
-              onDeleteWorkout={() => handleDeleteWorkout(_workout.id)}
+              onDeleteWorkout={handleDeleteWorkout}
               myWorkout={_workout}
             />
           </Collapsible>

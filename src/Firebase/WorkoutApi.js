@@ -1,5 +1,5 @@
 import { dbRef } from "./FirebaseConfig";
-import { child, get, push, remove } from "firebase/database";
+import { child, get, push, remove, update } from "firebase/database";
 
 let getUser = () => {
   return "123";
@@ -26,7 +26,7 @@ const deleteWorkout = async (workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-const saveExercise= async(exercise, _workoutId)=>{
+const saveExercise = async (exercise, _workoutId) => {
   return push(child(dbRef, `/exercises/${userId}`), {
     name: exercise,
     workoutId: _workoutId,
@@ -34,8 +34,25 @@ const saveExercise= async(exercise, _workoutId)=>{
   });
 };
 
-const deleteExercise = async(exerciseId)=>{
-  remove(child(dbRef, `/exercises/${userId}/${exerciseId}`));
-}
+const deleteExercise = async (exerciseId) => {
+  return remove(child(dbRef, `/exercises/${userId}/${exerciseId}`));
+};
 
-export { getWorkouts, getExercises, saveWorkout, deleteWorkout, saveExercise, deleteExercise };
+const deleteAllExercises = async (allExercises) => {
+  const updates = {};
+  allExercises.forEach(
+    (exercise) => (updates[`/exercises/${userId}/${exercise.id}`] = null)
+  );
+  debugger;
+  return update(dbRef, updates);
+};
+
+export {
+  getWorkouts,
+  getExercises,
+  saveWorkout,
+  deleteWorkout,
+  saveExercise,
+  deleteExercise,
+  deleteAllExercises,
+};
