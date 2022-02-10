@@ -18,7 +18,6 @@ Features to Add
 - Input field validation
 - Warning message when trying to delete workout
 - Make each exercise collapsible
-- BUG: Hitting enter on Add exercise deletes exercise
 - BUG: Workout retrieves all exercises
 
 Done
