@@ -1,7 +1,7 @@
 Features to Add
 - Integrate DB/Firebase
-    - Write Create Workout data
     - Write Create Exercise data
+    - Delete Exercise
     - Write log data
 - Logging Exercise starts countdown timer
 - Login
@@ -29,3 +29,5 @@ Done
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
+    - Write Create Workout data
+    - Delete Workout

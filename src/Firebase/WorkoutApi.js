@@ -1,5 +1,5 @@
 import { dbRef } from "./FirebaseConfig";
-import { child, get, push } from "firebase/database";
+import { child, get, push, remove } from "firebase/database";
 
 let getUser = () => {
   return "123";
@@ -22,4 +22,8 @@ const saveWorkout = async (workout) => {
   });
 };
 
-export { getWorkouts, getExercises, saveWorkout };
+const deleteWorkout = async (workoutId) => {
+  return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
+};
+
+export { getWorkouts, getExercises, saveWorkout, deleteWorkout };
