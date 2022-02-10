@@ -30,6 +30,7 @@ const WorkoutList = () => {
     if (newWorkout.trim() === "") return;
     await saveWorkout(newWorkout).then((post) => {
       setWorkoutList([...workoutList, { name: newWorkout, id: post.key }]);
+      setNewWorkout("");
     });
   };
 

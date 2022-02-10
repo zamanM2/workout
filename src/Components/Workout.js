@@ -36,6 +36,7 @@ const Workout = (props) => {
           id: post.key,
         },
       ]);
+      setNewExercise("");
     });
   };
 
