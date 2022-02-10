@@ -26,6 +26,7 @@ const Workout = (props) => {
 
   const handleAddExercise = async (event) => {
     event.preventDefault();
+    if (newExercise.trim() === "") return;
     await saveExercise(newExercise, props.myWorkout.id).then((post) => {
       setExercises([
         ...myExercises,
