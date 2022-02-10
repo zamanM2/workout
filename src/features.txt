@@ -1,6 +1,5 @@
 Features to Add
 - Integrate DB/Firebase
-    - Delete Exercise
     - Write log data
 - Logging Exercise starts countdown timer
 - Login
@@ -11,7 +10,6 @@ Features to Add
 - Rename Workout
 - Rename Exercise
 - Graph/ stats
-- Delete free floating Exercise
 - Track your weight
 - Add body images to track progress
 - Add top nav to switch between workout and myself
@@ -25,9 +23,11 @@ Features to Add
 Done
 - Delete Workouts
 - Delete reps/sets
+- Delete free floating Exercises
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
-    - Write Create Workout data
+    - Create Workout
     - Delete Workout
-    - Write Create Exercise data
+    - Create Exercise
+    - Delete Exercise

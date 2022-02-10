@@ -52,14 +52,13 @@ const Workout = (props) => {
 
   return (
     <div>
+      <button
+        onClick={() => props.onDeleteWorkout(props.myWorkout.id, myExercises)}
+        type="submit"
+      >
+        Delete Workout
+      </button>
       <form onSubmit={handleAddExercise}>
-        <button
-          onClick={() => props.onDeleteWorkout(props.myWorkout.id, myExercises)}
-          type="submit"
-        >
-          Delete Workout
-        </button>
-        <br />
         <button className="blackBtn" type="submit">
           Add Exercise
         </button>
