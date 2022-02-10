@@ -43,7 +43,6 @@ const deleteAllExercises = async (allExercises) => {
   allExercises.forEach(
     (exercise) => (updates[`/exercises/${userId}/${exercise.id}`] = null)
   );
-  debugger;
   return update(dbRef, updates);
 };
 
