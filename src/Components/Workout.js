@@ -5,6 +5,7 @@ import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
 import { getExercises } from "../Firebase/WorkoutApi";
 import { saveExercise } from "../Firebase/WorkoutApi";
+import { deleteExercise } from "../Firebase/WorkoutApi";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -38,10 +39,13 @@ const Workout = (props) => {
     setNewExercise(event.target.value);
   };
 
-  const handleDeleteExercise = (id) => {
-    setExercises(
+  const handleDeleteExercise = async(id) => {
+    await deleteExercise(id).then((post) => {
+      setExercises(
       myExercises.filter((currentExercise) => currentExercise.id !== id)
-    );
+      ); 
+    });
+    
   };
 
   return (

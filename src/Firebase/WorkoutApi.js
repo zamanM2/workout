@@ -34,4 +34,8 @@ const saveExercise= async(exercise, _workoutId)=>{
   });
 };
 
-export { getWorkouts, getExercises, saveWorkout, deleteWorkout, saveExercise };
+const deleteExercise = async(exerciseId)=>{
+  remove(child(dbRef, `/exercises/${userId}/${exerciseId}`));
+}
+
+export { getWorkouts, getExercises, saveWorkout, deleteWorkout, saveExercise, deleteExercise };
