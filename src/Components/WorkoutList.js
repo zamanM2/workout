@@ -48,7 +48,7 @@ const WorkoutList = () => {
   };
 
   return (
-    <div>
+    <div className = "chest">
       {
         <form onSubmit={handleAddWorkout} style={{ textAlign: "left" }}>
           <button className="addWorkout" type="submit">
