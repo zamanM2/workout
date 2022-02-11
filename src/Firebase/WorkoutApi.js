@@ -46,6 +46,10 @@ const deleteAllExercises = async (allExercises) => {
   return update(dbRef, updates);
 };
 
+const getLogHistory = async(exerciseId)=>{
+  return get(child(dbRef, `/exercises/${userId}/${exerciseId}/log`));
+}
+
 export {
   getWorkouts,
   getExercises,
@@ -54,4 +58,5 @@ export {
   saveExercise,
   deleteExercise,
   deleteAllExercises,
+  getLogHistory,
 };

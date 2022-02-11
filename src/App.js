@@ -9,11 +9,11 @@ function App() {
     <Router>
       <nav>
         <Link to="/workoutlist"> WorkoutList </Link>
-        <Link to="/login"> Login </Link>
+        <Link to="/"> Login </Link>
       </nav>
       <Routes>
         <Route path="/workoutlist" element={<WorkoutList />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );
