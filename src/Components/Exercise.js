@@ -20,14 +20,15 @@ const Exercise = (props) => {
 
   useEffect(() => {
     async function fetchLogHistory() {
-      let snapshot = await getLogHistory(props.exercise.id);
-      let keys = Object.keys(snapshot.val());
-      let todaysDate = getTodaysDate();
-      if (keys[keys.length - 1] !== todaysDate) {
-        setLogHistory(snapshot.val()[keys[keys.length - 1]]);
-      } else {
-        setLogHistory(snapshot.val()[keys[keys.length - 2]]);
-      }
+      await getLogHistory(props.exercise.id).then((snapshot) => {
+        let keys = Object.keys(snapshot.val());
+        let todaysDate = getTodaysDate();
+        if (keys.length > 0 && keys[keys.length - 1] !== todaysDate) {
+          setLogHistory(snapshot.val()[keys[keys.length - 1]]);
+        } else if (keys.length > 1) {
+          setLogHistory(snapshot.val()[keys[keys.length - 2]]);
+        }
+      });
     }
     fetchLogHistory();
   }, []);
