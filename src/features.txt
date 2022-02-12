@@ -24,6 +24,7 @@ Done
 - Delete Workouts
 - Delete reps/sets
 - Delete free floating Exercises
+- Setup React Router
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
@@ -31,5 +32,4 @@ Done
     - Delete Workout
     - Create Exercise
     - Delete Exercise
-    - React Router Working
     - Read Historical Reps/Weights
