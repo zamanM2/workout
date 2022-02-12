@@ -11,15 +11,18 @@ const Exercise = (props) => {
   const [logInput, setLogInput] = useState({ reps: 0, weight: 0 });
   const [logHistory, setLogHistory] = useState([]);
 
+  const getTodaysDate = () => {
+    let todaysDate = new Date();
+    const offset = todaysDate.getTimezoneOffset();
+    todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
+    return todaysDate.toISOString().split("T")[0]; //yyyy-mm-dd
+  };
+
   useEffect(() => {
     async function fetchLogHistory() {
       let snapshot = await getLogHistory(props.exercise.id);
       let keys = Object.keys(snapshot.val());
-      //get local timezone
-      let todaysDate = new Date();
-      const offset = todaysDate.getTimezoneOffset();
-      todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
-      todaysDate = todaysDate.toISOString().split("T")[0];
+      let todaysDate = getTodaysDate();
       if (keys[keys.length - 1] !== todaysDate) {
         setLogHistory(snapshot.val()[keys[keys.length - 1]]);
       } else {
@@ -35,16 +38,11 @@ const Exercise = (props) => {
   const handleLogSubmit = async (event) => {
     event.preventDefault();
     const logObject = {};
-
     setLogEntries([...logEntries, { ...logInput, id: Date.now() }]);
-
     for (let i = 0; i < logEntries.length; i++) {
       logObject[i] = logEntries[i];
     }
-    let todaysDate = new Date();
-    const offset = todaysDate.getTimezoneOffset();
-    todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
-    todaysDate = todaysDate.toISOString().split("T")[0];
+    let todaysDate = getTodaysDate();
     await saveLogData(props.exercise.id, todaysDate, logObject);
   };
 
@@ -75,8 +73,8 @@ const Exercise = (props) => {
   );
 };
 
+export default Exercise;
+
 const mystyle = {
   padding: "15px",
 };
-
-export default Exercise;
