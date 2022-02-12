@@ -19,6 +19,7 @@ Features to Add
 - Warning message when trying to delete workout
 - Make each exercise collapsible
 - BUG: Workout retrieves all exercises
+- LIMIT: Log returned, SORT log on Firebase before returned
 
 Done
 - Delete Workouts
