@@ -3,9 +3,11 @@ import Exercise from "./Exercise";
 import "../App.css";
 import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
-import { getExercises } from "../Firebase/WorkoutApi";
-import { saveExercise } from "../Firebase/WorkoutApi";
-import { deleteExercise } from "../Firebase/WorkoutApi";
+import {
+  getExercises,
+  saveExercise,
+  deleteExercise,
+} from "../Firebase/WorkoutApi";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
