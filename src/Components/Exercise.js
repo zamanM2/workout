@@ -10,8 +10,7 @@ const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
   const [logInput, setLogInput] = useState({ reps: 0, weight: 0 });
   const [logHistory, setLogHistory] = useState([]);
-  
-  
+
   useEffect(() => {
     async function fetchLogHistory() {
       let snapshot = await getLogHistory(props.exercise.id);
@@ -20,9 +19,11 @@ const Exercise = (props) => {
       let todaysDate = new Date();
       const offset = todaysDate.getTimezoneOffset();
       todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
-      todaysDate = todaysDate.toISOString().split('T')[0]
+      todaysDate = todaysDate.toISOString().split("T")[0];
       if (keys[keys.length - 1] !== todaysDate) {
         setLogHistory(snapshot.val()[keys[keys.length - 1]]);
+      } else {
+        setLogHistory(snapshot.val()[keys[keys.length - 2]]);
       }
     }
     fetchLogHistory();
@@ -31,23 +32,20 @@ const Exercise = (props) => {
   const handleInputChange = (event) => {
     setLogInput({ ...logInput, [event.target.name]: event.target.value });
   };
-  const handleLogSubmit = async(event) => {
+  const handleLogSubmit = async (event) => {
     event.preventDefault();
     const logObject = {};
-    
+
     setLogEntries([...logEntries, { ...logInput, id: Date.now() }]);
-    
+
     for (let i = 0; i < logEntries.length; i++) {
       logObject[i] = logEntries[i];
     }
-     let todaysDate = new Date();
-      const offset = todaysDate.getTimezoneOffset();
-      todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
-      todaysDate = todaysDate.toISOString().split('T')[0]
-      
-    await saveLogData(props.exercise.id, todaysDate, logObject)
-    
-    // console.log(logObject);
+    let todaysDate = new Date();
+    const offset = todaysDate.getTimezoneOffset();
+    todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
+    todaysDate = todaysDate.toISOString().split("T")[0];
+    await saveLogData(props.exercise.id, todaysDate, logObject);
   };
 
   const handleDeleteReps = (myId) => {

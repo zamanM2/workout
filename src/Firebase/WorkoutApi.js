@@ -46,18 +46,15 @@ const deleteAllExercises = async (allExercises) => {
   return update(dbRef, updates);
 };
 
-const getLogHistory = async(exerciseId)=>{
+const getLogHistory = async (exerciseId) => {
   return get(child(dbRef, `/exercises/${userId}/${exerciseId}/log`));
-}
+};
 
-const saveLogData= async(exerciseId, workoutDate, data)=>{
-  const updates = {} 
-  console.log(workoutDate)
-  console.log(exerciseId)
-    updates[`/exercises/${userId}/${exerciseId}/log/${workoutDate}`] = data
+const saveLogData = async (exerciseId, workoutDate, data) => {
+  const updates = {};
+  updates[`/exercises/${userId}/${exerciseId}/log/${workoutDate}`] = data;
   return update(dbRef, updates);
-  
-}
+};
 
 export {
   getWorkouts,

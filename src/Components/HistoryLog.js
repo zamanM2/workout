@@ -10,7 +10,7 @@ const HistoryLog = (props) => {
             <th>Weight</th>
           </tr>
           {props.history.map((element) => (
-            <tr>
+            <tr key={element.id}>
               <td style={tableStyle}>{element.reps}</td>
               <td style={tableStyle}>{element.weight}</td>
             </tr>
