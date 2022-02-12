@@ -25,7 +25,7 @@ const Exercise = (props) => {
           if (snapshot == null) return;
           let keys = Object.keys(snapshot.val());
           let todaysDate = getTodaysDate();
-          if (keys.length > 0 && keys[keys.length - 1] !== todaysDate) {
+          if (keys[keys.length - 1] !== todaysDate) {
             setLogHistory(snapshot.val()[keys[keys.length - 1]]);
           } else if (keys.length > 1) {
             setLogHistory(snapshot.val()[keys[keys.length - 2]]);
