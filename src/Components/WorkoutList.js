@@ -14,14 +14,7 @@ const WorkoutList = () => {
   const [newWorkout, setNewWorkout] = useState("");
 
   useEffect(() => {
-    async function fetchWorkoutData() {
-      let data = await getWorkouts();
-      let keys = Object.keys(data);
-      return keys.map((_id) => {
-        return { ...data[_id], id: _id };
-      });
-    }
-    fetchWorkoutData().then((workouts) => {
+    getWorkouts().then((workouts) => {
       setWorkoutList(workouts);
     });
   }, []);

@@ -9,7 +9,10 @@ const userId = getUser();
 
 const getWorkouts = async () => {
   const snapshot = await get(child(dbRef, `/workouts/${userId}`));
-  return snapshot.val();
+  let keys = Object.keys(snapshot.val());
+  return keys.map((_id) => {
+    return { ...snapshot.val()[_id], id: _id };
+  });
 };
 
 const getExercises = async () => {
