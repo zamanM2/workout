@@ -8,7 +8,7 @@ import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
-  const [logInput, setLogInput] = useState({ reps: 0, weight: 0 });
+  const [logInput, setLogInput] = useState({ reps: "", weight: "" });
   const [logHistory, setLogHistory] = useState([]);
 
   const getTodaysDate = () => {
@@ -33,13 +33,14 @@ const Exercise = (props) => {
         .catch(() => {});
     }
     fetchLogHistory();
-  }, []);
+  }, [props.exercise.id]);
 
   const handleInputChange = (event) => {
     setLogInput({ ...logInput, [event.target.name]: event.target.value });
   };
   const handleLogSubmit = async (event) => {
     event.preventDefault();
+    if (logInput.reps.trim() === "" || logInput.weight.trim() === "") return;
     const logObject = {};
     setLogEntries([...logEntries, { ...logInput, id: Date.now() }]);
     for (let i = 0; i < logEntries.length; i++) {

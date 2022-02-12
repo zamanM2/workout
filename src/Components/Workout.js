@@ -4,27 +4,24 @@ import "../App.css";
 import RestTimer from "./RestTimer";
 import "../css/blackBtn.css";
 import {
+  deleteExercise,
   getExercises,
   saveExercise,
-  deleteExercise,
 } from "../Firebase/WorkoutApi";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [newExercise, setNewExercise] = useState("");
 
-  useEffect(async () => {
-    let snapshot = await getExercises();
-    let keys = Object.keys(snapshot.val());
-    let exercises = keys.map((_id) => {
-      return { ...snapshot.val()[_id], id: _id };
+  useEffect(() => {
+    getExercises().then((allExercises) => {
+      setExercises(
+        allExercises.filter(function (exercise) {
+          return exercise.workoutId === props.myWorkout.id;
+        })
+      );
     });
-    setExercises(
-      exercises.filter(function (exercise) {
-        return exercise.workoutId === props.myWorkout.id;
-      })
-    );
-  }, []);
+  }, [props.myWorkout.id]);
 
   const handleAddExercise = async (event) => {
     event.preventDefault();
