@@ -22,7 +22,6 @@ const Exercise = (props) => {
     async function fetchLogHistory() {
       await getLogHistory(props.exercise.id)
         .then((snapshot) => {
-          if (snapshot == null) return;
           let keys = Object.keys(snapshot.val());
           let todaysDate = getTodaysDate();
           if (keys[keys.length - 1] !== todaysDate) {
