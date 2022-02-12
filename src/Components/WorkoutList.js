@@ -15,14 +15,15 @@ const WorkoutList = () => {
 
   useEffect(() => {
     async function fetchWorkoutData() {
-      let snapshot = await getWorkouts();
-      let keys = Object.keys(snapshot.val());
-      let workouts = keys.map((_id) => {
-        return { ...snapshot.val()[_id], id: _id };
+      let data = await getWorkouts();
+      let keys = Object.keys(data);
+      return keys.map((_id) => {
+        return { ...data[_id], id: _id };
       });
-      setWorkoutList(workouts);
     }
-    fetchWorkoutData();
+    fetchWorkoutData().then((workouts) => {
+      setWorkoutList(workouts);
+    });
   }, []);
 
   const handleAddWorkout = async (event) => {
@@ -48,7 +49,7 @@ const WorkoutList = () => {
   };
 
   return (
-    <div className = "chest">
+    <div className="chest">
       {
         <form onSubmit={handleAddWorkout} style={{ textAlign: "left" }}>
           <button className="addWorkout" type="submit">

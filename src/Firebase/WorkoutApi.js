@@ -8,7 +8,8 @@ let getUser = () => {
 const userId = getUser();
 
 const getWorkouts = async () => {
-  return get(child(dbRef, `/workouts/${userId}`));
+  const snapshot = await get(child(dbRef, `/workouts/${userId}`));
+  return snapshot.val();
 };
 
 const getExercises = async () => {
