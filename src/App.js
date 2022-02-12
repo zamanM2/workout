@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <nav>
+      <nav className = "navbar">
         <Link to="/workoutlist"> WorkoutList </Link>
         <Link to="/"> Login </Link>
       </nav>

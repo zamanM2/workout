@@ -17,12 +17,16 @@ const Exercise = (props) => {
     async function fetchLogHistory() {
       let snapshot = await getLogHistory(props.exercise.id);
       let keys = Object.keys(snapshot.val()); 
-      let logData = keys.map((_id) => {
-        return { ...snapshot.val()[_id], id: _id };
+      //get local timezone
+      let todaysDate = new Date();
+      const offset = todaysDate.getTimezoneOffset()
+      todaysDate = new Date(todaysDate.getTime() - (offset*60*1000))
+      if( keys[keys.length-1] !== todaysDate) {
+        //  console.log(snapshot.val()[keys[keys.length-1]][0])
+        setLogHistory(snapshot.val()[keys[keys.length-1]]) 
+      }
      
-      }); console.log(logData)
-      // let repData = logData.keys();
-      setLogHistory(logData)
+      
     }
     fetchLogHistory();
   }, []);

@@ -9,19 +9,13 @@ const HistoryLog = (props)=>{
             <th>Reps</th>
             <th>Weight</th>
           </tr>
-          {props.history.map((_element) => {
-            let keys = Object.keys(_element)
-            keys.forEach((index)=>{
-                if(index != "id" ){
-                    return (
-                    <tr>
-                        <td style={tableStyle}>{index.reps}</td>
-                        <td style={tableStyle}>{index.weight}</td>
-                    </tr>
-                    ) 
-                }
-            })
-          })}
+          {props.history.map((element)=>(
+            
+            <tr>
+                  <td style={tableStyle}>{element.reps}</td>
+                  <td style={tableStyle}>{element.weight}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -35,3 +29,6 @@ const tableStyle = {
 };
 
 export default HistoryLog;
+
+
+
