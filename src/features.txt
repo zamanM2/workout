@@ -32,3 +32,4 @@ Done
     - Create Exercise
     - Delete Exercise
     - React Router Working
+    - Read Historical Reps/Weights

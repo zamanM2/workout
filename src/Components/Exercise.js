@@ -6,8 +6,6 @@ import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory } from "../Firebase/WorkoutApi";
 
-
-
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
   const [logInput, setLogInput] = useState({ reps: 0, weight: 0 });
@@ -16,17 +14,14 @@ const Exercise = (props) => {
   useEffect(() => {
     async function fetchLogHistory() {
       let snapshot = await getLogHistory(props.exercise.id);
-      let keys = Object.keys(snapshot.val()); 
+      let keys = Object.keys(snapshot.val());
       //get local timezone
       let todaysDate = new Date();
-      const offset = todaysDate.getTimezoneOffset()
-      todaysDate = new Date(todaysDate.getTime() - (offset*60*1000))
-      if( keys[keys.length-1] !== todaysDate) {
-        //  console.log(snapshot.val()[keys[keys.length-1]][0])
-        setLogHistory(snapshot.val()[keys[keys.length-1]]) 
+      const offset = todaysDate.getTimezoneOffset();
+      todaysDate = new Date(todaysDate.getTime() - offset * 60 * 1000);
+      if (keys[keys.length - 1] !== todaysDate) {
+        setLogHistory(snapshot.val()[keys[keys.length - 1]]);
       }
-     
-      
     }
     fetchLogHistory();
   }, []);
