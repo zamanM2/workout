@@ -42,12 +42,14 @@ const Exercise = (props) => {
     event.preventDefault();
     if (logInput.reps.trim() === "" || logInput.weight.trim() === "") return;
     const logObject = {};
-    setLogEntries([...logEntries, { ...logInput, id: Date.now() }]);
-    for (let i = 0; i < logEntries.length; i++) {
-      logObject[i] = logEntries[i];
+    const dataToSave = [...logEntries, { ...logInput, id: Date.now() }];
+    for (let i = 0; i < dataToSave.length; i++) {
+      logObject[i] = dataToSave[i];
     }
     let todaysDate = getTodaysDate();
-    await saveLogData(props.exercise.id, todaysDate, logObject);
+    saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
+      setLogEntries(dataToSave);
+    });
   };
 
   const handleDeleteReps = (myId) => {

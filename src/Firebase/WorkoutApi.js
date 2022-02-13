@@ -61,7 +61,7 @@ const getLogHistory = async (exerciseId) => {
 const saveLogData = async (exerciseId, workoutDate, data) => {
   const updates = {};
   updates[`/exercises/${userId}/${exerciseId}/log/${workoutDate}`] = data;
-  return update(dbRef, updates);
+  return await update(dbRef, updates);
 };
 
 export {
