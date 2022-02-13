@@ -38,7 +38,7 @@ const Exercise = (props) => {
   const handleInputChange = (event) => {
     setLogInput({ ...logInput, [event.target.name]: event.target.value });
   };
-  const handleLogSubmit = async (event) => {
+  const handleLogSubmit = (event) => {
     event.preventDefault();
     if (logInput.reps.trim() === "" || logInput.weight.trim() === "") return;
     const logObject = {};
