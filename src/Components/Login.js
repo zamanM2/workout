@@ -1,6 +1,8 @@
 import React from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
+let uid;
+
 const Login = () => {
   const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
@@ -12,7 +14,8 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
+        console.log(user.uid);
+        uid = user.uid;
         // ...
       })
       .catch((error) => {
@@ -46,4 +49,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export { Login, uid };

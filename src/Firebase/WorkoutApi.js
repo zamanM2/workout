@@ -1,13 +1,14 @@
 import { dbRef } from "./FirebaseConfig";
 import { child, get, push, remove, update } from "firebase/database";
+import { uid } from "../Components/Login";
 
 let getUser = () => {
-  return "123";
+  console.log("uuid inside WORKOUT API " + uid);
+  return uid;
 };
 
-const userId = getUser();
-
 const getWorkouts = async () => {
+  const userId = getUser();
   const snapshot = await get(child(dbRef, `/workouts/${userId}`));
   let keys = Object.keys(snapshot.val());
   return keys.map((_id) => {
@@ -16,6 +17,7 @@ const getWorkouts = async () => {
 };
 
 const getExercises = async () => {
+  const userId = getUser();
   const snapshot = await get(child(dbRef, `/exercises/${userId}`));
   let keys = Object.keys(snapshot.val());
   return keys.map((_id) => {
@@ -24,6 +26,7 @@ const getExercises = async () => {
 };
 
 const saveWorkout = async (workout) => {
+  const userId = getUser();
   return push(child(dbRef, `/workouts/${userId}`), {
     name: workout,
     sort: 1,
@@ -31,10 +34,12 @@ const saveWorkout = async (workout) => {
 };
 
 const deleteWorkout = async (workoutId) => {
+  const userId = getUser();
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
 const saveExercise = async (exercise, _workoutId) => {
+  const userId = getUser();
   return push(child(dbRef, `/exercises/${userId}`), {
     name: exercise,
     workoutId: _workoutId,
@@ -43,10 +48,12 @@ const saveExercise = async (exercise, _workoutId) => {
 };
 
 const deleteExercise = async (exerciseId) => {
+  const userId = getUser();
   return remove(child(dbRef, `/exercises/${userId}/${exerciseId}`));
 };
 
 const deleteAllExercises = async (allExercises) => {
+  const userId = getUser();
   const updates = {};
   allExercises.forEach(
     (exercise) => (updates[`/exercises/${userId}/${exercise.id}`] = null)
@@ -55,10 +62,12 @@ const deleteAllExercises = async (allExercises) => {
 };
 
 const getLogHistory = async (exerciseId) => {
+  const userId = getUser();
   return get(child(dbRef, `/exercises/${userId}/${exerciseId}/log`));
 };
 
 const saveLogData = async (exerciseId, workoutDate, data) => {
+  const userId = getUser();
   const updates = {};
   updates[`/exercises/${userId}/${exerciseId}/log/${workoutDate}`] = data;
   return await update(dbRef, updates);
