@@ -1,6 +1,6 @@
 Features to Add
 - Integrate DB/Firebase
-    - Write log data
+
 - Logging Exercise starts countdown timer
 - Login
 - Sign-up
@@ -34,3 +34,4 @@ Done
     - Create Exercise
     - Delete Exercise
     - Read Historical Reps/Weights
+    - Write log data
