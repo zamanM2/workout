@@ -31,7 +31,7 @@ const WorkoutList = () => {
     });
   };
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     setNewWorkout(event.target.value);
   };
 
@@ -61,7 +61,7 @@ const WorkoutList = () => {
             Add Workout
           </button>
           <input
-            onChange={handleChange}
+            onChange={handleInputChange}
             type="text"
             name="workout"
             value={newWorkout}
