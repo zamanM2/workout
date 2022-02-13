@@ -1,9 +1,19 @@
 import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithRedirect } from "firebase/auth";
+
+
 
 const Login = () => {
+const loginWithGoogle =()=>{
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+signInWithRedirect(auth, provider);
+}
   return (
+    
     <div className="navbar">
-      <form>
+      {/* <form>
         <div className="input-container">
           <label>Username </label>
           <input type="text" name="uname" required />
@@ -15,7 +25,8 @@ const Login = () => {
         <div className="button-container">
           <input type="submit" />
         </div>
-      </form>
+      </form> */}
+      <button onClick = {loginWithGoogle}> Login Google</button>
     </div>
   );
 };
