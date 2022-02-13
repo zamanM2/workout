@@ -53,7 +53,15 @@ const Exercise = (props) => {
   };
 
   const handleDeleteReps = (myId) => {
-    setLogEntries(logEntries.filter((row) => row.id !== myId));
+    const logObject = {};
+    const dataToSave = logEntries.filter((row) => row.id !== myId);
+    for (let i = 0; i < dataToSave.length; i++) {
+      logObject[i] = dataToSave[i];
+    }
+    let todaysDate = getTodaysDate();
+    saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
+      setLogEntries(dataToSave);
+    });
   };
 
   return (
