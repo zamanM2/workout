@@ -15,7 +15,7 @@ const WorkoutList = () => {
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
-      setWorkoutList(workouts);
+      setWorkoutList(workouts.map((v) => ({ ...v, open: false })));
     });
   }, []);
 
@@ -23,7 +23,10 @@ const WorkoutList = () => {
     event.preventDefault();
     if (newWorkout.trim() === "") return;
     await saveWorkout(newWorkout).then((post) => {
-      setWorkoutList([...workoutList, { name: newWorkout, id: post.key }]);
+      setWorkoutList([
+        ...workoutList,
+        { name: newWorkout, id: post.key, open: false },
+      ]);
       setNewWorkout("");
     });
   };
@@ -39,6 +42,15 @@ const WorkoutList = () => {
       );
     });
     await deleteAllExercises(exercises);
+  };
+
+  const updateCollapsible = (id) => {
+    const newWorkoutList = workoutList.map((obj) => {
+      if (obj.id !== id) {
+        return { ...obj, open: false };
+      } else return { ...obj, open: true };
+    });
+    setWorkoutList(newWorkoutList);
   };
 
   return (
@@ -58,16 +70,18 @@ const WorkoutList = () => {
         </form>
       }
       <br />
-      {workoutList.map((_workout) => {
+      {workoutList.map((workout) => {
         return (
           <Collapsible
-            trigger={_workout.name}
+            open={workout.open}
+            onOpening={() => updateCollapsible(workout.id)}
+            trigger={workout.name}
             classParentString="collapsibileList"
-            key={_workout.id}
+            key={workout.id}
           >
             <Workout
               onDeleteWorkout={handleDeleteWorkout}
-              myWorkout={_workout}
+              myWorkout={workout}
             />
           </Collapsible>
         );
