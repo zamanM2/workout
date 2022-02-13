@@ -24,6 +24,9 @@ const Exercise = (props) => {
         .then((snapshot) => {
           let keys = Object.keys(snapshot.val());
           let todaysDate = getTodaysDate();
+          if (keys[keys.length - 1] === todaysDate) {
+            setLogEntries(snapshot.val()[keys[keys.length - 1]]);
+          }
           if (keys[keys.length - 1] !== todaysDate) {
             setLogHistory(snapshot.val()[keys[keys.length - 1]]);
           } else if (keys.length > 1) {
