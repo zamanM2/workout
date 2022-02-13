@@ -19,7 +19,7 @@ const Exercise = (props) => {
   };
 
   useEffect(() => {
-    async function fetchLogHistory() {
+    async function fetchLogData() {
       await getLogHistory(props.exercise.id)
         .then((snapshot) => {
           let keys = Object.keys(snapshot.val());
@@ -35,7 +35,7 @@ const Exercise = (props) => {
         })
         .catch(() => {});
     }
-    fetchLogHistory();
+    fetchLogData();
   }, [props.exercise.id]);
 
   const handleInputChange = (event) => {
@@ -44,11 +44,7 @@ const Exercise = (props) => {
   const handleLogSubmit = (event) => {
     event.preventDefault();
     if (logInput.reps.trim() === "" || logInput.weight.trim() === "") return;
-    const logObject = {};
     const dataToSave = [...logEntries, { ...logInput, id: Date.now() }];
-    for (let i = 0; i < dataToSave.length; i++) {
-      logObject[i] = dataToSave[i];
-    }
     let todaysDate = getTodaysDate();
     saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
       setLogEntries(dataToSave);
@@ -56,11 +52,7 @@ const Exercise = (props) => {
   };
 
   const handleDeleteReps = (myId) => {
-    const logObject = {};
     const dataToSave = logEntries.filter((row) => row.id !== myId);
-    for (let i = 0; i < dataToSave.length; i++) {
-      logObject[i] = dataToSave[i];
-    }
     let todaysDate = getTodaysDate();
     saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
       setLogEntries(dataToSave);

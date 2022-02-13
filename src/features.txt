@@ -1,6 +1,4 @@
 Features to Add
-- Integrate DB/Firebase
-
 - Logging Exercise starts countdown timer
 - Login
 - Sign-up
