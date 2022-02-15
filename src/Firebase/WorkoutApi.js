@@ -5,6 +5,7 @@ import { uid } from "../Components/Login";
 let getUser = () => {
   console.log("uuid inside WORKOUT API " + uid);
   return uid;
+  // return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
 };
 
 const getWorkouts = async () => {
