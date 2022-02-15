@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { auth } from "../Firebase/FirebaseConfig";
 
 let uid;
 
-
 const Login = () => {
-  const [user, setUser] = useState = ({});
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  // const [user, setUser] = useState = ({});
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
 
   const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
@@ -21,7 +25,7 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const _user = result.user;
-        setUser(_user)
+        // setUser(_user)
         console.log(_user.uid);
         uid = _user.uid;
         // ...
