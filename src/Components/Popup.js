@@ -5,13 +5,13 @@ import Button from "react-bootstrap/Button";
 const Popup = ({ info }) => {
   return (
     <>
-      <Modal show={info.visibility} onHide={info.cancelBtn}>
+      <Modal show={info.visibility} onHide={info.hideModal}>
         <Modal.Header closeButton>
           <Modal.Title>{info.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{info.body}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={info.cancelBtn}>
+          <Button variant="secondary" onClick={info.hideModal}>
             Cancel
           </Button>
           <Button variant="primary" onClick={info.okBtn}>

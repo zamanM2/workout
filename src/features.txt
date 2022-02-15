@@ -4,7 +4,6 @@ Features to Add
 - Sign-up
 - sort order of exercises
 - sort order of workouts
-- Exercise Log previous day
 - Rename Workout
 - Rename Exercise
 - Graph/ stats
@@ -14,7 +13,6 @@ Features to Add
 - Play sound when timer is up
 - Adjust length of timer
 - Input field validation
-- Warning message when trying to delete workout
 - Make each exercise collapsible
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned

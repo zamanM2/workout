@@ -13,6 +13,7 @@ import Popup from "./Popup";
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [newExercise, setNewExercise] = useState("");
+  const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
 
   useEffect(() => {
     getExercises().then((allExercises) => {
@@ -52,17 +53,27 @@ const Workout = (props) => {
     });
   };
 
+  const deleteWorkoutModalInfo = {
+    title: "Delete Workout?",
+    body: "Are you sure you want to delete this workout?",
+    visibility: showDeleteWorkoutModal,
+    okBtn: () => {
+      props.onDeleteWorkout(props.myWorkout.id, myExercises);
+    },
+    hideModal: () => {
+      setShowDeleteWorkoutModal(false);
+    },
+    showModal: () => {
+      setShowDeleteWorkoutModal(true);
+    },
+  };
+
   return (
     <div>
-      <button onClick={props.info.showModal} type="submit">
+      <button onClick={deleteWorkoutModalInfo.showModal} type="submit">
         Delete Workout
       </button>
-      <Popup
-        info={{
-          ...props.info,
-          okBtn: () => props.onDeleteWorkout(props.myWorkout.id, myExercises),
-        }}
-      />
+      <Popup info={deleteWorkoutModalInfo} />
       <form onSubmit={handleAddExercise}>
         <button className="blackBtn" type="submit">
           Add Exercise
