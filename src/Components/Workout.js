@@ -8,6 +8,7 @@ import {
   getExercises,
   saveExercise,
 } from "../Firebase/WorkoutApi";
+import Popup from "./Popup";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -53,12 +54,15 @@ const Workout = (props) => {
 
   return (
     <div>
-      <button
-        onClick={() => props.onDeleteWorkout(props.myWorkout.id, myExercises)}
-        type="submit"
-      >
+      <button onClick={props.info.showModal} type="submit">
         Delete Workout
       </button>
+      <Popup
+        info={{
+          ...props.info,
+          okBtn: () => props.onDeleteWorkout(props.myWorkout.id, myExercises),
+        }}
+      />
       <form onSubmit={handleAddExercise}>
         <button className="blackBtn" type="submit">
           Add Exercise

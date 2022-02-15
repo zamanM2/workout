@@ -12,6 +12,7 @@ import {
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
+  const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
@@ -42,6 +43,20 @@ const WorkoutList = () => {
       );
     });
     await deleteAllExercises(exercises);
+    setShowDeleteWorkoutModal(false);
+  };
+
+  const deleteWorkoutModalInfo = {
+    title: "Delete Workout?",
+    body: "Are you sure you want to delete this workout?",
+    visibility: showDeleteWorkoutModal,
+    okBtn: "", //to be populated by child workout
+    cancelBtn: () => {
+      setShowDeleteWorkoutModal(false);
+    },
+    showModal: () => {
+      setShowDeleteWorkoutModal(true);
+    },
   };
 
   const updateCollapsible = (id) => {
@@ -80,6 +95,7 @@ const WorkoutList = () => {
             key={workout.id}
           >
             <Workout
+              info={deleteWorkoutModalInfo}
               onDeleteWorkout={handleDeleteWorkout}
               myWorkout={workout}
             />
