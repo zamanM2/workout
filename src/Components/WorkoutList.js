@@ -66,11 +66,11 @@ const WorkoutList = () => {
   return (
     <div className="workoutList">
       {
-        <form onSubmit={handleAddWorkout} style={{ textAlign: "left" }}>
+        <form onSubmit={handleAddWorkout} >
           <button className="addWorkout" type="submit">
             Add Workout
           </button>
-          <input
+          <input className= "addWorkoutInput"
             onChange={handleInputChange}
             type="text"
             name="workout"

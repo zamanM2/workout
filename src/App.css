@@ -31,9 +31,10 @@
 }
 
 .navbarLink{
+font-family: 'Poppins', sans-serif;
 font-family: 'Source Sans Pro', sans-serif;
 font-size: 20px;
-font-weight: bold;
+font-weight: 900;
 color:rgb(255, 255, 255);
 
 }
@@ -105,4 +106,15 @@ h1 {
   height: 25px;
   font-size: 14pt;
   margin-left: 5px;
+}
+
+.addWorkout{
+ min-width: 50px;
+  margin-right: 20px;
+  
+}
+
+.addWorkoutInput{   
+min-width: 50px;
+margin-right: 100px;
 }
