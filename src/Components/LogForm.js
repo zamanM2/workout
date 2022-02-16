@@ -35,6 +35,7 @@ export default LogForm;
 
 const inputStyle = {
   width: "50px",
+  lineHeight: "14px",
   marginRight: "15px",
   marginLeft: "5px",
 };
