@@ -14,6 +14,7 @@ Features to Add
 - Adjust length of timer
 - Input field validation
 - Make each exercise collapsible
+- Enhancement: Change Add Workout button to a modal
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned
 
