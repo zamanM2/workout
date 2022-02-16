@@ -78,7 +78,6 @@ const Exercise = (props) => {
 
   return (
     <div>
-      {props.exercise.name}
       <button
         className="xBtn"
         onClick={deleteExerciseModalInfo.showModal}

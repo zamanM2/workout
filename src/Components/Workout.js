@@ -9,6 +9,7 @@ import {
   saveExercise,
 } from "../Firebase/WorkoutApi";
 import Popup from "./Popup";
+import Collapsible from "react-collapsible";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -17,6 +18,7 @@ const Workout = (props) => {
 
   useEffect(() => {
     getExercises().then((allExercises) => {
+      allExercises.map((element) => ({ ...element, open: false }));
       setExercises(
         allExercises.filter(function (exercise) {
           return exercise.workoutId === props.myWorkout.id;
@@ -68,6 +70,15 @@ const Workout = (props) => {
     },
   };
 
+  const updateCollapsible = (id) => {
+    const newExerciseList = myExercises.map((obj) => {
+      if (obj.id !== id) {
+        return { ...obj, open: false };
+      } else return { ...obj, open: true };
+    });
+    setExercises(newExerciseList);
+  };
+
   return (
     <div>
       <button onClick={deleteWorkoutModalInfo.showModal} type="submit">
@@ -91,12 +102,20 @@ const Workout = (props) => {
 
       {myExercises.map((myExercise) => (
         <div style={myStyle} key={myExercise.id}>
-          <Exercise
-            onDeleteExercise={() => {
-              handleDeleteExercise(myExercise.id);
-            }}
-            exercise={myExercise}
-          />
+          <Collapsible
+            trigger={myExercise.name}
+            classParentString="collapsibileListExercise"
+            key={myExercise.id}
+            open={myExercise.open}
+            onOpening={() => updateCollapsible(myExercise.id)}
+          >
+            <Exercise
+              onDeleteExercise={() => {
+                handleDeleteExercise(myExercise.id);
+              }}
+              exercise={myExercise}
+            />
+          </Collapsible>
         </div>
       ))}
     </div>
@@ -108,6 +127,5 @@ export default Workout;
 const myStyle = {
   color: "white",
   backgroundColor: "",
-  padding: "15px",
   fontFamily: "Arial",
 };

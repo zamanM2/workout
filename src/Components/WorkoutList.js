@@ -15,7 +15,7 @@ const WorkoutList = () => {
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
-      setWorkoutList(workouts.map((v) => ({ ...v, open: false })));
+      setWorkoutList(workouts.map((element) => ({ ...element, open: false })));
     });
   }, []);
 
@@ -72,18 +72,21 @@ const WorkoutList = () => {
       <br />
       {workoutList.map((workout) => {
         return (
-          <Collapsible
-            open={workout.open}
-            onOpening={() => updateCollapsible(workout.id)}
-            trigger={workout.name}
-            classParentString="collapsibileList"
-            key={workout.id}
-          >
-            <Workout
-              onDeleteWorkout={handleDeleteWorkout}
-              myWorkout={workout}
-            />
-          </Collapsible>
+          <>
+            <Collapsible
+              open={workout.open}
+              onOpening={() => updateCollapsible(workout.id)}
+              trigger={workout.name}
+              classParentString="collapsibileList"
+              key={workout.id}
+            >
+              <Workout
+                onDeleteWorkout={handleDeleteWorkout}
+                myWorkout={workout}
+              />
+            </Collapsible>
+            <br />
+          </>
         );
       })}
     </div>
