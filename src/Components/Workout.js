@@ -81,7 +81,11 @@ const Workout = (props) => {
 
   return (
     <div>
-      <button onClick={deleteWorkoutModalInfo.showModal} type="submit">
+      <button
+        onClick={deleteWorkoutModalInfo.showModal}
+        type="submit"
+        style={{ fontSize: "15px" }}
+      >
         Delete Workout
       </button>
       <Popup info={deleteWorkoutModalInfo} />
