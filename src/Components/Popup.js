@@ -6,7 +6,7 @@ const Popup = ({ info }) => {
   return (
     <>
       <Modal show={info.visibility} onHide={info.hideModal}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>{info.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{info.body}</Modal.Body>
@@ -14,7 +14,11 @@ const Popup = ({ info }) => {
           <Button variant="secondary" onClick={info.hideModal}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={info.okBtn}>
+          <Button
+            style={{ backgroundColor: "#ff4500" }}
+            variant="primary"
+            onClick={info.okBtn}
+          >
             Yes
           </Button>
         </Modal.Footer>
