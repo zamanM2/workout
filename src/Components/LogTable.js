@@ -4,6 +4,7 @@ import "../App.css";
 const LogTable = (props) => {
   return (
     <div className="float-end">
+      <h5>Today</h5>
       <table style={tableStyle}>
         <tbody>
           <tr>

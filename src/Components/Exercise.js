@@ -99,12 +99,13 @@ const Exercise = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-6 float-right">
-            Today
             <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
           </div>
           <div className="col-6">
-            {lastWorkoutDate}
-            <HistoryLog history={logHistory} />
+            <HistoryLog
+              history={logHistory}
+              lastWorkoutDate={lastWorkoutDate}
+            />
           </div>
         </div>
       </div>
