@@ -107,7 +107,7 @@ const Workout = (props) => {
           type="text"
           name="exercise"
           value={newExercise}
-          style={{ lineHeight: "10px", marginLeft: "3px" }}
+          style={{ height: "28px", width: "200px", marginLeft: "3px" }}
         />
       </form>
       <RestTimer />
