@@ -2,7 +2,8 @@ import React from "react";
 
 const HistoryLog = (props) => {
   return (
-    <div>
+    <div className="float-start">
+      <h5>{props.lastWorkoutDate}</h5>
       <table style={tableStyle}>
         <tbody>
           <tr>
