@@ -12,7 +12,7 @@ const Exercise = (props) => {
   const [logInput, setLogInput] = useState({ reps: "", weight: "" });
   const [logHistory, setLogHistory] = useState([]);
   const [showDeleteExerciseModal, setShowDeleteExerciseModal] = useState(false);
-  const [lastWorkoutDate, setLastWorkoutDate] = useState("No Workout");
+  const [lastWorkoutDate, setLastWorkoutDate] = useState("No Workouts");
 
   const getTodaysDate = () => {
     let todaysDate = new Date();
