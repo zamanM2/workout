@@ -70,11 +70,20 @@ const Workout = (props) => {
     },
   };
 
-  const updateCollapsible = (id) => {
+  const updateCollapsibleOnOpen = (id) => {
     const newExerciseList = myExercises.map((obj) => {
       if (obj.id !== id) {
         return { ...obj, open: false };
       } else return { ...obj, open: true };
+    });
+    setExercises(newExerciseList);
+  };
+
+  const updateCollapsibleOnClose = (id) => {
+    const newExerciseList = myExercises.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, open: false };
+      } else return { ...obj, open: false };
     });
     setExercises(newExerciseList);
   };
@@ -111,7 +120,8 @@ const Workout = (props) => {
             classParentString="collapsibileListExercise"
             key={myExercise.id}
             open={myExercise.open}
-            onOpening={() => updateCollapsible(myExercise.id)}
+            onOpening={() => updateCollapsibleOnOpen(myExercise.id)}
+            onClosing={() => updateCollapsibleOnClose(myExercise.id)}
           >
             <Exercise
               onDeleteExercise={() => {
