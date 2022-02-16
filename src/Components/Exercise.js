@@ -5,11 +5,13 @@ import "../App.css";
 import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
+import Popup from "./Popup";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
   const [logInput, setLogInput] = useState({ reps: "", weight: "" });
   const [logHistory, setLogHistory] = useState([]);
+  const [showDeleteExerciseModal, setShowDeleteExerciseModal] = useState(false);
 
   const getTodaysDate = () => {
     let todaysDate = new Date();
@@ -59,16 +61,32 @@ const Exercise = (props) => {
     });
   };
 
+    const deleteExerciseModalInfo = {
+    title: "Delete Exercise?",
+    body: "Are you sure you want to delete this exercise?",
+    visibility: showDeleteExerciseModal,
+    okBtn: () => {
+     props.onDeleteExercise()
+    },
+    hideModal: () => {
+      setShowDeleteExerciseModal(false);
+    },
+    showModal: () => {
+      setShowDeleteExerciseModal(true);
+    },
+  };
+
   return (
     <div>
       {props.exercise.name}
       <button
         className="xBtn"
-        onClick={() => props.onDeleteExercise()}
+        onClick={deleteExerciseModalInfo.showModal}
         type="submit"
       >
         X
       </button>
+      <Popup info={deleteExerciseModalInfo} />
       <div style={mystyle}>
         <LogForm
           onChange={handleInputChange}

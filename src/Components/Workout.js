@@ -46,7 +46,7 @@ const Workout = (props) => {
   };
 
   const handleDeleteExercise = async (id) => {
-    await deleteExercise(id).then((post) => {
+    await deleteExercise(id).then(() => {
       setExercises(
         myExercises.filter((currentExercise) => currentExercise.id !== id)
       );
