@@ -110,7 +110,6 @@ const Workout = (props) => {
           style={{ lineHeight: "10px", marginLeft: "3px" }}
         />
       </form>
-      <br />
       <RestTimer />
 
       {myExercises.map((myExercise) => (
