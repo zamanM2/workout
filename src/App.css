@@ -1,5 +1,3 @@
-
-
 .collapsibileList {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -30,13 +28,12 @@
   padding: 10px;
 }
 
-.navbarLink{
-font-family: 'Poppins', sans-serif;
-font-family: 'Source Sans Pro', sans-serif;
-font-size: 20px;
-font-weight: 900;
-color:rgb(255, 255, 255);
-
+.navbarLink {
+  font-family: "Poppins", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
 }
 
 .workoutList {
@@ -108,34 +105,38 @@ h1 {
   margin-left: 5px;
 }
 
-.addWorkout{
- min-width: 50px;
-margin-right: 20px;
-  
+.addWorkout {
+  min-width: 50px;
+  margin-right: 20px;
 }
 
-.addWorkoutInput{   
-min-width: 50px;
-margin-right: 100px;
-box-shadow:inset 0 0 2px 2px #888;
+.addWorkoutInput {
+  min-width: 50px;
+  margin-right: 100px;
+  box-shadow: inset 0 0 2px 2px #888;
   background: #fff;
   border-radius: 15px 50px 30px 5px;
-  padding: 20px; 
+  padding: 20px;
   width: 200px;
-  height: 15px; 
-
+  height: 15px;
 }
 
-.collapasableList{
-  font-family: 'Poppins', sans-serif;
-font-family: 'Source Sans Pro', sans-serif;
-font-size: 25px;
-font-weight: 900;
-color:rgb(2, 1, 1);
-
+.collapasableList {
+  font-family: "Poppins", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 25px;
+  font-weight: 900;
+  color: rgb(2, 1, 1);
 }
 
-.repInput{
+.repInput {
   border-radius: 6px;
   border: 2px solid;
+}
+
+.googleButton {
+  display: flex;
+  margin: auto;
+  border-radius: 15px;
+  border: 2px ;
 }

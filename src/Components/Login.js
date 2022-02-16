@@ -56,7 +56,7 @@ const Login = () => {
           <input type="submit" />
         </div>
       </form> */}
-      <button onClick={loginWithGoogle}> Login Google</button>
+      <button className="googleButton" onClick={loginWithGoogle}> Login Google</button>
     </div>
   );
 };
