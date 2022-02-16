@@ -1,3 +1,5 @@
+
+
 .collapsibileList {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -20,7 +22,20 @@
 }
 
 .navbar {
-  background-image: url("../public/lifestyle.jpeg");
+  display: flex;
+  background-color: rgb(160, 112, 206);
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+.navbarLink{
+font-family: 'Source Sans Pro', sans-serif;
+font-size: 20px;
+font-weight: bold;
+color:rgb(255, 255, 255);
+
 }
 
 .workoutList {
