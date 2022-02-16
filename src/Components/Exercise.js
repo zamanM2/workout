@@ -95,7 +95,7 @@ const Exercise = (props) => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-6 float-right">
             <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
           </div>
           <div className="col-6">
