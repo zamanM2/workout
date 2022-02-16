@@ -44,11 +44,20 @@ const WorkoutList = () => {
     await deleteAllExercises(exercises);
   };
 
-  const updateCollapsible = (id) => {
+  const updateCollapsibleOnOpen = (id) => {
     const newWorkoutList = workoutList.map((obj) => {
       if (obj.id !== id) {
         return { ...obj, open: false };
       } else return { ...obj, open: true };
+    });
+    setWorkoutList(newWorkoutList);
+  };
+
+  const updateCollapsibleOnClose = (id) => {
+    const newWorkoutList = workoutList.map((obj) => {
+      if (obj.id === id) {
+        return { ...obj, open: false };
+      } else return { ...obj, open: false };
     });
     setWorkoutList(newWorkoutList);
   };
@@ -75,7 +84,8 @@ const WorkoutList = () => {
           <>
             <Collapsible
               open={workout.open}
-              onOpening={() => updateCollapsible(workout.id)}
+              onOpening={() => updateCollapsibleOnOpen(workout.id)}
+              onClosing={() => updateCollapsibleOnClose(workout.id)}
               trigger={workout.name}
               classParentString="collapsibileList"
               key={workout.id}
