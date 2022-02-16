@@ -15,7 +15,7 @@ Features to Add
 - Input field validation
 - Graph/Stats
 - BUG: Workout retrieves all exercises
-- LIMIT: Log returned, SORT log on Firebase before returned
+- LIMIT: Log returned, SORT log on Firebase before returned.
 
 Done
 - Delete Workouts
