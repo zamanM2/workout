@@ -57,7 +57,7 @@ const WorkoutList = () => {
     const newWorkoutList = workoutList.map((obj) => {
       if (obj.id === id) {
         return { ...obj, open: false };
-      } else return { ...obj, open: false };
+      } else return { ...obj };
     });
     setWorkoutList(newWorkoutList);
   };

@@ -1,20 +1,19 @@
 Features to Add
-- Logging Exercise starts countdown timer
 - Login
 - Sign-up
-- sort order of exercises
-- sort order of workouts
 - Rename Workout
 - Rename Exercise
-- Graph/ stats
+- sort order of exercises
+- sort order of workouts
+- Logging Exercise starts countdown timer
+- Enhancement: Change Add Workout button to a modal
+- Add bottom nav to switch between workout/myself/settings
+- Adjust length of timer
+- Play sound when timer is up
 - Track your weight
 - Add body images to track progress
-- Add top nav to switch between workout and myself
-- Play sound when timer is up
-- Adjust length of timer
 - Input field validation
-- Make each exercise collapsible
-- Enhancement: Change Add Workout button to a modal
+- Graph/Stats
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned
 

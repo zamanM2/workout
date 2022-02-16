@@ -83,7 +83,7 @@ const Workout = (props) => {
     const newExerciseList = myExercises.map((obj) => {
       if (obj.id === id) {
         return { ...obj, open: false };
-      } else return { ...obj, open: false };
+      } else return { ...obj };
     });
     setExercises(newExerciseList);
   };
