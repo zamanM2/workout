@@ -12,6 +12,7 @@ const Exercise = (props) => {
   const [logInput, setLogInput] = useState({ reps: "", weight: "" });
   const [logHistory, setLogHistory] = useState([]);
   const [showDeleteExerciseModal, setShowDeleteExerciseModal] = useState(false);
+  const [lastWorkoutDate, setLastWorkoutDate] = useState("No Workout");
 
   const getTodaysDate = () => {
     let todaysDate = new Date();
@@ -30,8 +31,10 @@ const Exercise = (props) => {
             setLogEntries(snapshot.val()[keys[keys.length - 1]]);
           }
           if (keys[keys.length - 1] !== todaysDate) {
+            setLastWorkoutDate(keys[keys.length - 1]);
             setLogHistory(snapshot.val()[keys[keys.length - 1]]);
           } else if (keys.length > 1) {
+            setLastWorkoutDate(keys[keys.length - 2]);
             setLogHistory(snapshot.val()[keys[keys.length - 2]]);
           }
         })
@@ -96,9 +99,11 @@ const Exercise = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-6 float-right">
+            Today
             <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
           </div>
           <div className="col-6">
+            {lastWorkoutDate}
             <HistoryLog history={logHistory} />
           </div>
         </div>
