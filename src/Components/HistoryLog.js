@@ -2,7 +2,7 @@ import React from "react";
 
 const HistoryLog = (props) => {
   return (
-    <div className="repweight">
+    <div>
       <table style={tableStyle}>
         <tbody>
           <tr>

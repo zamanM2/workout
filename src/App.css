@@ -41,14 +41,6 @@
   border-style: solid;
 }
 
-.repweight {
-  text-align: center;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 html {
   height: 100%;
 }

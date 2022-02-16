@@ -92,9 +92,17 @@ const Exercise = (props) => {
           onSubmit={handleLogSubmit}
           logSet={logInput}
         />
-        <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
       </div>
-      <HistoryLog history={logHistory} />
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <LogTable onDeleteReps={handleDeleteReps} entries={logEntries} />
+          </div>
+          <div className="col-6">
+            <HistoryLog history={logHistory} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

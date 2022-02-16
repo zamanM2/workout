@@ -3,7 +3,7 @@ import "../App.css";
 
 const LogTable = (props) => {
   return (
-    <div className="repweight">
+    <div>
       <table style={tableStyle}>
         <tbody>
           <tr>
