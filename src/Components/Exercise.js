@@ -35,7 +35,7 @@ const Exercise = (props) => {
             setLogHistory(snapshot.val()[keys[keys.length - 2]]);
           }
         })
-        .catch(() => { });
+        .catch(() => {});
     }
     fetchLogData();
   }, [props.exercise.id]);
@@ -66,7 +66,7 @@ const Exercise = (props) => {
     body: "Are you sure you want to delete this exercise?",
     visibility: showDeleteExerciseModal,
     okBtn: () => {
-      props.onDeleteExercise()
+      props.onDeleteExercise();
     },
     hideModal: () => {
       setShowDeleteExerciseModal(false);
