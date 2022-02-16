@@ -83,7 +83,7 @@ const WorkoutList = () => {
       {workoutList.map((workout) => {
         return (
           <>
-            <Collapsible
+            <Collapsible className="collapasableList"
               open={workout.open}
               onOpening={() => updateCollapsibleOnOpen(workout.id)}
               onClosing={() => updateCollapsibleOnClose(workout.id)}

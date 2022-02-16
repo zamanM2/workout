@@ -8,6 +8,7 @@ const LogForm = (props) => {
       <div className="reps">
         Reps
         <input
+          className=" repInput"
           onChange={props.onChange}
           type="text"
           name="reps"
@@ -16,6 +17,7 @@ const LogForm = (props) => {
         />
         Weight
         <input
+          className=" repInput"
           onChange={props.onChange}
           type="text"
           name="weight"
