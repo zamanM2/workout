@@ -5,7 +5,7 @@ import "../App.css";
 import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
-import Popup from "./Popup";
+import ConfirmModal from "./ConfirmModal";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -88,7 +88,7 @@ const Exercise = (props) => {
       >
         X
       </button>
-      <Popup info={deleteExerciseModalInfo} />
+      <ConfirmModal info={deleteExerciseModalInfo} />
       <div style={mystyle}>
         <LogForm
           onChange={handleInputChange}

@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-const Popup = ({ info }) => {
+const ConfirmModal = ({ info }) => {
   return (
     <>
       <Modal show={info.visibility} onHide={info.hideModal}>
@@ -27,4 +27,4 @@ const Popup = ({ info }) => {
   );
 };
 
-export default Popup;
+export default ConfirmModal;
