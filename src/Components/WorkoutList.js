@@ -13,6 +13,7 @@ import {
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
+  const [showWorkoutButton, setShowWorkoutButton]= useState(false);
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
@@ -63,27 +64,54 @@ const WorkoutList = () => {
     setWorkoutList(newWorkoutList);
   };
 
+  const saveWorkoutName= ()=>{
+
+  }
+  
   return (
     <div className="workoutList">
       {
-        <form onSubmit={handleAddWorkout} >
-          <button className="addWorkout" type="submit">
-            Add Workout
-          </button>
-          <input className= "addWorkoutInput"
+        <form onSubmit={handleAddWorkout}>
+          {showWorkoutButton ? (
+            <button
+              onClick={() => {
+                setShowWorkoutButton(false);
+              }}
+              className="addWorkout"
+              type="submit"
+            >
+              Add Workout
+            </button>
+          ) : (
+            <div>
+              <input></input>
+              <button> Ok</button>
+              <button
+                onClick={() => {
+                  setShowWorkoutButton(true);
+                }}
+              >
+                {" "}
+                Nay{" "}
+              </button>
+            </div>
+          )}
+
+          {/* <input className= "addWorkoutInput"
             onChange={handleInputChange}
             type="text"
             name="workout"
             value={newWorkout}
             className="addWorkoutInput"
-          />
+          /> */}
         </form>
       }
       <br />
       {workoutList.map((workout) => {
         return (
           <>
-            <Collapsible className="collapasableList"
+            <Collapsible
+              className="collapasableList"
               open={workout.open}
               onOpening={() => updateCollapsibleOnOpen(workout.id)}
               onClosing={() => updateCollapsibleOnClose(workout.id)}
