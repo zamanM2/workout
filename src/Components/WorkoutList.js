@@ -13,7 +13,7 @@ import {
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
-  const [showWorkoutButton, setShowWorkoutButton]= useState(false);
+  const [showWorkoutButton, setShowWorkoutButton]= useState(true);
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
@@ -30,6 +30,7 @@ const WorkoutList = () => {
         { name: newWorkout, id: post.key, open: false },
       ]);
       setNewWorkout("");
+      setShowWorkoutButton(true);
     });
   };
 
@@ -84,14 +85,18 @@ const WorkoutList = () => {
             </button>
           ) : (
             <div>
-              <input></input>
-              <button> Ok</button>
+              <input
+                onChange={handleInputChange}
+                value={newWorkout}
+                type="text"
+                name="workout"
+              ></input>
+              <button onClick={()=>{handleAddWorkout(); }}> Ok</button>
               <button
                 onClick={() => {
                   setShowWorkoutButton(true);
                 }}
               >
-                {" "}
                 Nay{" "}
               </button>
             </div>
