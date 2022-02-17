@@ -3,7 +3,7 @@ import "../App.css";
 import "../css/addWorrkoutBtn.css";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
-import AddWorkout from "./AddWorkout";
+import AddWorkoutForm from "./AddWorkoutForm";
 import {
   getWorkouts,
   saveWorkout,
@@ -66,7 +66,7 @@ const WorkoutList = () => {
 
   return (
     <div className="workoutList">
-      <AddWorkout
+      <AddWorkoutForm
         handleAddWorkout={handleAddWorkout}
         handleInputChange={handleInputChange}
         newWorkout={newWorkout}

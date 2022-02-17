@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddWorkout = (props) => {
+const AddWorkoutForm = (props) => {
   const [showWorkoutButton, setShowWorkoutButton] = useState(true);
 
   return (
@@ -44,4 +44,4 @@ const AddWorkout = (props) => {
   );
 };
 
-export default AddWorkout;
+export default AddWorkoutForm;
