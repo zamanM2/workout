@@ -10,11 +10,13 @@ import {
 } from "../Firebase/WorkoutApi";
 import Popup from "./Popup";
 import Collapsible from "react-collapsible";
+import AddExerciseModal from "./AddExerciseModal"
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [newExercise, setNewExercise] = useState("");
   const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
+  const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
 
   useEffect(() => {
     getExercises().then((allExercises) => {
@@ -88,6 +90,16 @@ const Workout = (props) => {
     setExercises(newExerciseList);
   };
 
+  const onHide =()=>{
+    setShowAddExerciseModal(false)
+    
+  }
+
+   const onShow= (event) => {
+    event.preventDefault()
+     setShowAddExerciseModal(true);
+   };
+
   return (
     <div>
       <button
@@ -98,17 +110,18 @@ const Workout = (props) => {
         Delete Workout
       </button>
       <Popup info={deleteWorkoutModalInfo} />
-      <form onSubmit={handleAddExercise}>
-        <button className="blackBtn" type="submit">
+      <form >
+        <button onClick= {onShow} className="blackBtn" type="submit">
           Add Exercise
         </button>
-        <input
+        <AddExerciseModal show={showAddExerciseModal} onHide={onHide} />
+        {/* <input
           onChange={handleChange}
           type="text"
           name="exercise"
           value={newExercise}
           style={{ height: "28px", width: "200px", marginLeft: "3px" }}
-        />
+        /> */}
       </form>
       <RestTimer />
 
