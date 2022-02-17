@@ -10,7 +10,7 @@ import {
 } from "../Firebase/WorkoutApi";
 import Popup from "./Popup";
 import Collapsible from "react-collapsible";
-import AddExerciseModal from "./AddExerciseModal"
+import AddExerciseModal from "./AddExerciseModal";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -90,39 +90,38 @@ const Workout = (props) => {
     setExercises(newExerciseList);
   };
 
-  const onHide =()=>{
-    setShowAddExerciseModal(false)
-    
-  }
+  const onHide = () => {
+    setShowAddExerciseModal(false);
+  };
 
-   const onShow= (event) => {
-    event.preventDefault()
-     setShowAddExerciseModal(true);
-   };
+  const onShow = (event) => {
+    event.preventDefault();
+    setShowAddExerciseModal(true);
+  };
 
   return (
     <div>
+      <button onClick={onShow} className="blackBtn" type="submit">
+        Add
+      </button>
       <button
         onClick={deleteWorkoutModalInfo.showModal}
         type="submit"
-        style={{ fontSize: "15px" }}
+        className="blackBtn"
       >
-        Delete Workout
+        Delete
       </button>
+      <button className="blackBtn">Rename</button>
       <Popup info={deleteWorkoutModalInfo} />
-      <form >
-        <button onClick= {onShow} className="blackBtn" type="submit">
-          Add Exercise
-        </button>
-        <AddExerciseModal show={showAddExerciseModal} onHide={onHide} />
-        {/* <input
+      <AddExerciseModal show={showAddExerciseModal} onHide={onHide} />
+      {/* <input
           onChange={handleChange}
           type="text"
           name="exercise"
           value={newExercise}
           style={{ height: "28px", width: "200px", marginLeft: "3px" }}
         /> */}
-      </form>
+      <br />
       <RestTimer />
 
       {myExercises.map((myExercise) => (
