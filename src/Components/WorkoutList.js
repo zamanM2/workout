@@ -13,7 +13,7 @@ import {
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
-  const [showWorkoutButton, setShowWorkoutButton]= useState(true);
+  const [showWorkoutButton, setShowWorkoutButton] = useState(true);
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
@@ -65,14 +65,10 @@ const WorkoutList = () => {
     setWorkoutList(newWorkoutList);
   };
 
-  const saveWorkoutName= ()=>{
-
-  }
-  
   return (
     <div className="workoutList">
       {
-        <form onSubmit={handleAddWorkout}>
+        <>
           {showWorkoutButton ? (
             <button
               onClick={() => {
@@ -84,32 +80,24 @@ const WorkoutList = () => {
               Add Workout
             </button>
           ) : (
-            <div>
+            <form onSubmit={handleAddWorkout}>
               <input
                 onChange={handleInputChange}
                 value={newWorkout}
                 type="text"
                 name="workout"
-              ></input>
-              <button onClick={()=>{handleAddWorkout(); }}> Ok</button>
+              />
+              <button type="Submit">✔</button>
               <button
                 onClick={() => {
                   setShowWorkoutButton(true);
                 }}
               >
-                Nay{" "}
+                ❌
               </button>
-            </div>
+            </form>
           )}
-
-          {/* <input className= "addWorkoutInput"
-            onChange={handleInputChange}
-            type="text"
-            name="workout"
-            value={newWorkout}
-            className="addWorkoutInput"
-          /> */}
-        </form>
+        </>
       }
       <br />
       {workoutList.map((workout) => {
