@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddWorkout = (props) => {
+  const [showWorkoutButton, setShowWorkoutButton] = useState(true);
+
   return (
     <>
-      {props.showWorkoutButton ? (
+      {showWorkoutButton ? (
         <button
           onClick={() => {
-            props.setShowWorkoutButton(false);
+            setShowWorkoutButton(false);
           }}
           className="addWorkout"
           type="submit"
@@ -14,22 +16,29 @@ const AddWorkout = (props) => {
           Add Workout
         </button>
       ) : (
-        <form onSubmit={props.handleAddWorkout}>
-          <input
-            onChange={props.handleInputChange}
-            value={props.newWorkout}
-            type="text"
-            name="workout"
-          />
-          <button type="Submit">✔</button>
-          <button
-            onClick={() => {
-              props.setShowWorkoutButton(true);
+        <>
+          <form
+            onSubmit={(e) => {
+              props.handleAddWorkout(e);
+              setShowWorkoutButton(true);
             }}
           >
-            ❌
-          </button>
-        </form>
+            <input
+              onChange={props.handleInputChange}
+              value={props.newWorkout}
+              type="text"
+              name="workout"
+            />
+            <button type="Submit">✔</button>
+            <button
+              onClick={() => {
+                setShowWorkoutButton(true);
+              }}
+            >
+              ❌
+            </button>
+          </form>
+        </>
       )}
     </>
   );

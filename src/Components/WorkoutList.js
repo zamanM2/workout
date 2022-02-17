@@ -14,7 +14,6 @@ import {
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
-  const [showWorkoutButton, setShowWorkoutButton] = useState(true);
 
   useEffect(() => {
     getWorkouts().then((workouts) => {
@@ -31,7 +30,6 @@ const WorkoutList = () => {
         { name: newWorkout, id: post.key, open: false },
       ]);
       setNewWorkout("");
-      setShowWorkoutButton(true);
     });
   };
 
@@ -69,8 +67,6 @@ const WorkoutList = () => {
   return (
     <div className="workoutList">
       <AddWorkout
-        showWorkoutButton={showWorkoutButton}
-        setShowWorkoutButton={setShowWorkoutButton}
         handleAddWorkout={handleAddWorkout}
         handleInputChange={handleInputChange}
         newWorkout={newWorkout}
