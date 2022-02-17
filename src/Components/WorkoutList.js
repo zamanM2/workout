@@ -84,7 +84,7 @@ const WorkoutList = () => {
               classParentString="collapsibileList"
               key={workout.id}
             >
-              <Workout
+              <Workout className="workoutClass"
                 onDeleteWorkout={handleDeleteWorkout}
                 myWorkout={workout}
               />

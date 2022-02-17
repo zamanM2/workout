@@ -5,15 +5,17 @@
 }
 
 .collapsibileListExercise {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 1px solid rgb(54, 51, 51);
+  border-bottom: 1px solid rgb(59, 53, 53);
   font-size: 20px;
 }
 
 .timerbutton {
   font-size: 20px;
   color: rgb(221, 41, 41);
-  font-family: "Shojumaru", cursive;
+  font-family: "Poppins", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 1000;
   align-items: center;
   justify-content: column;
   margin-bottom: 8px;
@@ -21,7 +23,7 @@
 
 .navbar {
   /* display: flex; */
-  background-color: rgb(160, 112, 206);
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   /* margin: auto; */
   /* width: 50%; */
   border: 3px solid black;
@@ -38,7 +40,7 @@
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
   font-weight: 900;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .workoutList {
@@ -55,7 +57,7 @@
   align-items: center;
   padding: 30px 10%;
   border-width: 1px;
-  border-color: #e6e1e1;
+  border-color: #050404;
   border-style: solid;
 }
 
@@ -68,7 +70,7 @@ body {
 }
 
 .bg {
-  background-image: url("../public/bg-orange.jpg");
+  background-image: url("../public/lightgrey.jpeg");
   bottom: 0;
   left: -50%;
   opacity: 0.5;
@@ -138,4 +140,8 @@ h1 {
   margin: auto;
   border-radius: 15px;
   border: 2px ;
+}
+
+.workoutClass{
+  color: black;
 }

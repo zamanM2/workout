@@ -150,7 +150,7 @@ const Workout = (props) => {
 export default Workout;
 
 const myStyle = {
-  color: "white",
+  color: "black",
   backgroundColor: "",
   fontFamily: "Arial",
 };
