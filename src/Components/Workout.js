@@ -104,14 +104,14 @@ const Workout = (props) => {
       <button onClick={onShow} className="blackBtn" type="submit">
         Add
       </button>
+      <button className="blackBtn">Rename</button>
       <button
         onClick={deleteWorkoutModalInfo.showModal}
         type="submit"
         className="blackBtn"
       >
-        Delete
+        ❌
       </button>
-      <button className="blackBtn">Rename</button>
       <Popup info={deleteWorkoutModalInfo} />
       <AddExerciseModal show={showAddExerciseModal} onHide={onHide} />
       {/* <input
