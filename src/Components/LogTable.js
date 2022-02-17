@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import "../css/xBtn.css";
 
 const LogTable = (props) => {
   return (
@@ -18,6 +19,7 @@ const LogTable = (props) => {
                 <button
                   onClick={() => props.onDeleteReps(element.id)}
                   type="submit"
+                  className="xBtn"
                 >
                   X
                 </button>

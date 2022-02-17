@@ -16,6 +16,7 @@
    user-select: none;
    -webkit-user-select: none;
    touch-action: manipulation;
+   font-size: 17px;
 }
 
 .xBtn:hover,
