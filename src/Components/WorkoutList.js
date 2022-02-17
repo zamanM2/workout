@@ -3,6 +3,7 @@ import "../App.css";
 import "../css/addWorrkoutBtn.css";
 import Workout from "./Workout";
 import Collapsible from "react-collapsible";
+import AddWorkout from "./AddWorkout";
 import {
   getWorkouts,
   saveWorkout,
@@ -67,38 +68,13 @@ const WorkoutList = () => {
 
   return (
     <div className="workoutList">
-      {
-        <>
-          {showWorkoutButton ? (
-            <button
-              onClick={() => {
-                setShowWorkoutButton(false);
-              }}
-              className="addWorkout"
-              type="submit"
-            >
-              Add Workout
-            </button>
-          ) : (
-            <form onSubmit={handleAddWorkout}>
-              <input
-                onChange={handleInputChange}
-                value={newWorkout}
-                type="text"
-                name="workout"
-              />
-              <button type="Submit">✔</button>
-              <button
-                onClick={() => {
-                  setShowWorkoutButton(true);
-                }}
-              >
-                ❌
-              </button>
-            </form>
-          )}
-        </>
-      }
+      <AddWorkout
+        showWorkoutButton={showWorkoutButton}
+        setShowWorkoutButton={setShowWorkoutButton}
+        handleAddWorkout={handleAddWorkout}
+        handleInputChange={handleInputChange}
+        newWorkout={newWorkout}
+      />
       <br />
       {workoutList.map((workout) => {
         return (
