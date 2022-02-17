@@ -8,14 +8,19 @@ function App() {
   return (
     <Router>
       <nav className="navbar">
-        <Link className="navbarLink" to="/workoutlist">
-          {" "}
-          WorkoutList{" "}
-        </Link>
-        <Link className="navbarLink" to="/">
-          {" "}
-          Login{" "}
-        </Link>
+        
+          
+            <Link className="navbarLink" to="/workoutlist">
+              {" "}
+              WorkoutList{" "}
+            </Link>
+          
+          <Link className="navbarLink" to="/">
+            {" "}
+            Login{" "}
+          </Link>
+          
+        
       </nav>
       <Routes>
         <Route path="/" exact element={<Login />} />

@@ -23,7 +23,8 @@ const AddWorkoutForm = (props) => {
               setShowWorkoutButton(true);
             }}
           >
-            <input
+            <input className = "addWorkoutInput"
+              placeHolder= "Add Workout"
               onChange={props.handleInputChange}
               value={props.newWorkout}
               type="text"
