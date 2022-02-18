@@ -28,7 +28,7 @@ const WorkoutList = () => {
     await addWorkout(newWorkout).then((post) => {
       setWorkoutList([
         ...workoutList,
-        { name: newWorkout, id: post.key, open: false },
+        { name: newWorkout, id: post.key, open: false, sort: 1 },
       ]);
       setNewWorkout("");
     });
@@ -67,6 +67,7 @@ const WorkoutList = () => {
 
   const handleRenameWorkout = (event, workout, newName) => {
     event.preventDefault();
+    if (newName.trim() === "") return;
     const newWorkoutList = [...workoutList];
     for (const element of newWorkoutList) {
       if (element.id === workout.id) {
