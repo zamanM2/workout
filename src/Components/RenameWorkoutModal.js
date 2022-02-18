@@ -11,7 +11,7 @@ const RenameWorkoutModal = (props) => {
   };
 
   return (
-    <Modal show={props.show} onHide={props.onHide}>
+    <Modal show={props.show} onHide={props.info.hideModal}>
       <Modal.Header>
         <Modal.Title>Rename Workout</Modal.Title>
       </Modal.Header>
@@ -26,7 +26,7 @@ const RenameWorkoutModal = (props) => {
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="secondary">
+        <Button onClick={props.info.hideModal} variant="secondary">
           Cancel
         </Button>
         <Button
