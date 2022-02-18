@@ -11,11 +11,13 @@ import {
 import ConfirmModal from "./ConfirmModal";
 import Collapsible from "react-collapsible";
 import AddExerciseModal from "./AddExerciseModal";
+import RenameWorkoutModal from "./RenameWorkoutModal";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
   const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
+  const [showRenameWorkoutModal, setShowRenameWorkoutModal] = useState(false);
 
   useEffect(() => {
     getExercises().then((allExercises) => {
@@ -92,13 +94,30 @@ const Workout = (props) => {
     event.preventDefault();
     setShowAddExerciseModal(true);
   };
+  
+  const onShowRename= (event) => {
+    event.preventDefault();
+    setShowRenameWorkoutModal(true);
+  };
+
+  const onCloseRename= (event)=>{
+  event.preventDefault();
+  setShowRenameWorkoutModal(false);
+  }
 
   return (
     <div>
       <button onClick={onShow} className="blackBtn" type="submit">
         Add
       </button>
-      <button className="blackBtn">Rename</button>
+      <button onClick= {onShowRename} className="blackBtn">Rename</button>
+      <RenameWorkoutModal
+
+        show={showRenameWorkoutModal}
+        onHide={onCloseRename}
+        workoutId={props.myWorkout.id}
+        onHandleRenameWorkout={props.onHandleRenameWorkout}
+      />
       <button
         onClick={deleteWorkoutModalInfo.showModal}
         type="submit"
