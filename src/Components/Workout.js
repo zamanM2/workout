@@ -122,6 +122,7 @@ const Workout = (props) => {
         onClick={addExerciseModalInfo.showModal}
         className="blackBtn"
         type="submit"
+        style={{ fontWeight: "bold" }}
       >
         +
       </button>
