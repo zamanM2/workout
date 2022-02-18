@@ -110,7 +110,7 @@ const Workout = (props) => {
       <AddExerciseModal
         show={showAddExerciseModal}
         onHide={onHide}
-        handleAddExercise={handleAddExercise}
+        onHandleAddExercise={handleAddExercise}
       />
       <br />
       <RestTimer />

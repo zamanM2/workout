@@ -32,7 +32,10 @@ const AddExerciseModal = (props) => {
         <Button
           variant="primary"
           type="submit"
-          // onClick={}
+          onClick={(event)=>{
+            props.onHandleAddExercise(event, exerciseInput);
+            props.onHide();
+          }}
         >
           Ok
         </Button>
