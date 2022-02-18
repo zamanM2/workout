@@ -3,6 +3,7 @@ import React from "react";
 import WorkoutList from "./Components/WorkoutList";
 import { Login } from "./Components/Login";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { FaBeer } from "react-icons/fa";
 
 function App() {
   return (

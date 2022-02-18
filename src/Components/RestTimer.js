@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { IoTimerSharp } from "react-icons/fa";
 
 const Timer = () => {
   const [secondsLeft, setSecondsLeft] = useState(60);
@@ -21,7 +22,8 @@ const Timer = () => {
   };
 
   return (
-    <button onClick={handleClick} className="timerbutton">
+    <button IoTimerSharp  onClick={handleClick} className="timerbutton">
+      
       {secondsLeft}
     </button>
   );
