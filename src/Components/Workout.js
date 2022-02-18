@@ -14,7 +14,6 @@ import AddExerciseModal from "./AddExerciseModal";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
-  const [newExercise, setNewExercise] = useState("");
   const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
   const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
 
@@ -29,7 +28,7 @@ const Workout = (props) => {
     });
   }, [props.myWorkout.id]);
 
-  const handleAddExercise = async (event) => {
+  const handleAddExercise = async (event, newExercise) => {
     event.preventDefault();
     if (newExercise.trim() === "") return;
     await saveExercise(newExercise, props.myWorkout.id).then((post) => {
@@ -41,12 +40,7 @@ const Workout = (props) => {
           id: post.key,
         },
       ]);
-      setNewExercise("");
     });
-  };
-
-  const handleChange = (event) => {
-    setNewExercise(event.target.value);
   };
 
   const handleDeleteExercise = async (id) => {
@@ -113,14 +107,11 @@ const Workout = (props) => {
         ❌
       </button>
       <ConfirmModal info={deleteWorkoutModalInfo} />
-      <AddExerciseModal show={showAddExerciseModal} onHide={onHide} />
-      {/* <input
-          onChange={handleChange}
-          type="text"
-          name="exercise"
-          value={newExercise}
-          style={{ height: "28px", width: "200px", marginLeft: "3px" }}
-        /> */}
+      <AddExerciseModal
+        show={showAddExerciseModal}
+        onHide={onHide}
+        handleAddExercise={handleAddExercise}
+      />
       <br />
       <RestTimer />
 
