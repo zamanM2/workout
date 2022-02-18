@@ -14,11 +14,7 @@ const ConfirmModal = ({ info }) => {
           <Button variant="secondary" onClick={info.hideModal}>
             Cancel
           </Button>
-          <Button
-            style={{ backgroundColor: "#ff4500" }}
-            variant="primary"
-            onClick={info.okBtn}
-          >
+          <Button variant="primary" onClick={info.okBtn}>
             Yes
           </Button>
         </Modal.Footer>

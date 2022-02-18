@@ -86,38 +86,48 @@ const Workout = (props) => {
     setExercises(newExerciseList);
   };
 
-  const onHide = () => {
-    setShowAddExerciseModal(false);
+  const addExerciseModalInfo = {
+    title: "Add Exercise",
+    body: "Name:",
+    visibility: showAddExerciseModal,
+    okBtn: handleAddExercise,
+    hideModal: () => {
+      setShowAddExerciseModal(false);
+    },
+    showModal: () => {
+      setShowAddExerciseModal(true);
+    },
   };
 
-  const onShow = (event) => {
-    event.preventDefault();
-    setShowAddExerciseModal(true);
-  };
-  
-  const onShowRename= (event) => {
+  const onShowRename = (event) => {
     event.preventDefault();
     setShowRenameWorkoutModal(true);
   };
 
-  const onCloseRename= (event)=>{
-  event.preventDefault();
-  setShowRenameWorkoutModal(false);
-  }
+  const onCloseRename = (event) => {
+    event.preventDefault();
+    setShowRenameWorkoutModal(false);
+  };
 
   return (
     <div>
-      <button onClick={onShow} className="blackBtn" type="submit">
+      <button
+        onClick={() => setShowAddExerciseModal(true)}
+        className="blackBtn"
+        type="submit"
+      >
         Add
       </button>
-      <button onClick= {onShowRename} className="blackBtn">Rename</button>
-      <RenameWorkoutModal
 
+      <button onClick={onShowRename} className="blackBtn">
+        Rename
+      </button>
+      <RenameWorkoutModal
         show={showRenameWorkoutModal}
-        onHide={onCloseRename}
         workoutId={props.myWorkout.id}
         onHandleRenameWorkout={props.onHandleRenameWorkout}
       />
+
       <button
         onClick={deleteWorkoutModalInfo.showModal}
         type="submit"
@@ -127,8 +137,7 @@ const Workout = (props) => {
       </button>
       <ConfirmModal info={deleteWorkoutModalInfo} />
       <AddExerciseModal
-        show={showAddExerciseModal}
-        onHide={onHide}
+        info={addExerciseModalInfo}
         onHandleAddExercise={handleAddExercise}
       />
       <br />

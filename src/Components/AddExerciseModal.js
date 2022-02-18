@@ -11,13 +11,13 @@ const AddExerciseModal = (props) => {
   };
 
   return (
-    <Modal show={props.show} onHide={props.onHide}>
+    <Modal show={props.info.visibility} onHide={props.info.hideModal}>
       <Modal.Header>
-        <Modal.Title>Add Exercise</Modal.Title>
+        <Modal.Title>{props.info.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form.Group>
-          <Form.Label>Name: </Form.Label>
+          <Form.Label>{props.info.body}</Form.Label>
           <Form.Control
             type="text"
             onChange={handleInputChange}
@@ -26,15 +26,16 @@ const AddExerciseModal = (props) => {
         </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="secondary">
+        <Button onClick={props.info.hideModal} variant="secondary">
           Cancel
         </Button>
         <Button
           variant="primary"
           type="submit"
-          onClick={(event)=>{
-            props.onHandleAddExercise(event, exerciseInput);
-            props.onHide();
+          onClick={(event) => {
+            props.info.okBtn(event, exerciseInput);
+            props.info.hideModal();
+            setExerciseInput("");
           }}
         >
           Ok
