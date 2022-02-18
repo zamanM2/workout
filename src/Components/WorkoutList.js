@@ -64,16 +64,16 @@ const WorkoutList = () => {
     setWorkoutList(newWorkoutList);
   };
 
-  const handleRenameWorkout=(event, workoutId,newName)=>{
-    event.preventDefault()
-    const newWorkoutList = [...workoutList]
-    for(const element of newWorkoutList){
-      if(element.id === workoutId){
-        element.name = newName
+  const handleRenameWorkout = (event, workoutId, newName) => {
+    event.preventDefault();
+    const newWorkoutList = [...workoutList];
+    for (const element of newWorkoutList) {
+      if (element.id === workoutId) {
+        element.name = newName;
       }
     }
     setWorkoutList(newWorkoutList);
-  }
+  };
 
   return (
     <div className="workoutList">
