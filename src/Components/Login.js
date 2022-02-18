@@ -20,18 +20,12 @@ const Login = () => {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
         const _user = result.user;
         // setUser(_user)
         console.log(_user.uid);
         uid = _user.uid;
-        // ...
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
@@ -56,7 +50,10 @@ const Login = () => {
           <input type="submit" />
         </div>
       </form> */}
-      <button className="googleButton" onClick={loginWithGoogle}> Login Google</button>
+      <button className="googleButton" onClick={loginWithGoogle}>
+        {" "}
+        Login Google
+      </button>
     </div>
   );
 };
