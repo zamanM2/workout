@@ -4,10 +4,10 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/button";
 
 const InputModal = (props) => {
-  const [exerciseInput, setExerciseInput] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {
-    setExerciseInput(event.target.value);
+    setInputValue(event.target.value);
   };
 
   return (
@@ -21,7 +21,7 @@ const InputModal = (props) => {
           <Form.Control
             type="text"
             onChange={handleInputChange}
-            value={exerciseInput}
+            value={inputValue}
           />
         </Form.Group>
       </Modal.Body>
@@ -33,9 +33,9 @@ const InputModal = (props) => {
           variant="primary"
           type="submit"
           onClick={(event) => {
-            props.info.okBtn(event, exerciseInput);
+            props.info.okBtn(event, inputValue);
             props.info.hideModal();
-            setExerciseInput("");
+            setInputValue("");
           }}
         >
           Ok
