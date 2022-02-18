@@ -123,7 +123,7 @@ const Workout = (props) => {
         className="blackBtn"
         type="submit"
       >
-        Add
+        +
       </button>
       <AddExerciseModal info={addExerciseModalInfo} />
 
