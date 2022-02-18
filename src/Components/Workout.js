@@ -104,8 +104,7 @@ const Workout = (props) => {
     setShowRenameWorkoutModal(true);
   };
 
-  const onCloseRename = (event) => {
-    event.preventDefault();
+  const onCloseRename = () => {
     setShowRenameWorkoutModal(false);
   };
 
