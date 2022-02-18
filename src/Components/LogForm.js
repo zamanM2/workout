@@ -10,7 +10,7 @@ const LogForm = (props) => {
         <input
           className=" repInput"
           onChange={props.onChange}
-          type="text"
+          type="number"
           name="reps"
           style={inputStyle}
           value={props.logSet.reps}
@@ -19,7 +19,7 @@ const LogForm = (props) => {
         <input
           className=" repInput"
           onChange={props.onChange}
-          type="text"
+          type="number"
           name="weight"
           style={inputStyle}
           value={props.logSet.weight}

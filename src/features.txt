@@ -1,12 +1,10 @@
 Features to Add
 - Login
 - Sign-up
-- Rename Workout
 - Rename Exercise
 - sort order of exercises
 - sort order of workouts
 - Logging Exercise starts countdown timer
-- Enhancement: Change Add Workout button to a modal
 - Add bottom nav to switch between workout/myself/settings
 - Adjust length of timer
 - Play sound when timer is up
@@ -22,6 +20,7 @@ Done
 - Delete reps/sets
 - Delete free floating Exercises
 - Setup React Router
+- Rename Workout
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
