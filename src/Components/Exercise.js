@@ -6,6 +6,7 @@ import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./ConfirmModal";
+import { BsTrash } from "react-icons/bs";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -90,7 +91,7 @@ const Exercise = (props) => {
         onClick={deleteExerciseModalInfo.showModal}
         type="submit"
       >
-        ❌
+        <BsTrash />
       </button>
       <ConfirmModal info={deleteExerciseModalInfo} />
       <div style={mystyle}>

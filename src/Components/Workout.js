@@ -12,6 +12,7 @@ import ConfirmModal from "./ConfirmModal";
 import Collapsible from "react-collapsible";
 import AddExerciseModal from "./InputModal";
 import RenameWorkoutModal from "./InputModal";
+import { BsTrash } from "react-icons/bs";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -138,7 +139,7 @@ const Workout = (props) => {
         type="submit"
         className="blackBtn"
       >
-        ❌
+        <BsTrash />
       </button>
       <ConfirmModal info={deleteWorkoutModalInfo} />
 
