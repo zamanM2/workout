@@ -71,6 +71,10 @@ const Workout = (props) => {
     setExercises(newExerciseList);
   };
 
+  const handleRenameWorkout = (event, newName) => {
+    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
+  };
+
   const deleteWorkoutModalInfo = {
     title: "Delete Workout?",
     body: "Are you sure you want to delete this workout?",
@@ -103,17 +107,13 @@ const Workout = (props) => {
     title: "Rename Workout",
     body: "New Name:",
     visibility: showRenameWorkoutModal,
-    okBtn: "",
+    okBtn: handleRenameWorkout,
     hideModal: () => {
       setShowRenameWorkoutModal(false);
     },
     showModal: () => {
       setShowRenameWorkoutModal(true);
     },
-  };
-
-  const handleRenameWorkout = (event, newName) => {
-    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
   };
 
   return (
@@ -130,12 +130,7 @@ const Workout = (props) => {
       <button onClick={renameWorkoutModalInfo.showModal} className="blackBtn">
         Rename
       </button>
-      <RenameWorkoutModal
-        info={renameWorkoutModalInfo}
-        show={showRenameWorkoutModal}
-        workoutId={props.myWorkout.id}
-        onHandleRenameWorkout={handleRenameWorkout}
-      />
+      <RenameWorkoutModal info={renameWorkoutModalInfo} />
 
       <button
         onClick={deleteWorkoutModalInfo.showModal}

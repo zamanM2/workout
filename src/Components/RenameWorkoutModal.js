@@ -11,13 +11,13 @@ const RenameWorkoutModal = (props) => {
   };
 
   return (
-    <Modal show={props.show} onHide={props.info.hideModal}>
+    <Modal show={props.info.visibility} onHide={props.info.hideModal}>
       <Modal.Header>
-        <Modal.Title>Rename Workout</Modal.Title>
+        <Modal.Title>{props.info.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form.Group>
-          <Form.Label>New name: </Form.Label>
+          <Form.Label>{props.info.body}</Form.Label>
           <Form.Control
             type="text"
             onChange={handleInputChange}
@@ -32,7 +32,7 @@ const RenameWorkoutModal = (props) => {
         <Button
           variant="primary"
           onClick={(event) => {
-            props.onHandleRenameWorkout(event, renameWorkout);
+            props.info.okBtn(event, renameWorkout);
             props.info.hideModal();
           }}
         >
