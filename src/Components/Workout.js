@@ -6,7 +6,7 @@ import "../css/blackBtn.css";
 import {
   deleteExercise,
   getExercises,
-  saveExercise,
+  addExercise,
 } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./ConfirmModal";
 import Collapsible from "react-collapsible";
@@ -33,7 +33,7 @@ const Workout = (props) => {
   const handleAddExercise = async (event, newExercise) => {
     event.preventDefault();
     if (newExercise.trim() === "") return;
-    await saveExercise(newExercise, props.myWorkout.id).then((post) => {
+    await addExercise(newExercise, props.myWorkout.id).then((post) => {
       setExercises([
         ...myExercises,
         {

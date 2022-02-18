@@ -6,7 +6,7 @@ import Collapsible from "react-collapsible";
 import AddWorkoutForm from "./AddWorkoutForm";
 import {
   getWorkouts,
-  saveWorkout,
+  addWorkout,
   deleteWorkout,
   deleteAllExercises,
 } from "../Firebase/WorkoutApi";
@@ -24,7 +24,7 @@ const WorkoutList = () => {
   const handleAddWorkout = async (event) => {
     event.preventDefault();
     if (newWorkout.trim() === "") return;
-    await saveWorkout(newWorkout).then((post) => {
+    await addWorkout(newWorkout).then((post) => {
       setWorkoutList([
         ...workoutList,
         { name: newWorkout, id: post.key, open: false },

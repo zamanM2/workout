@@ -26,7 +26,7 @@ const getExercises = async () => {
   });
 };
 
-const saveWorkout = async (workout) => {
+const addWorkout = async (workout) => {
   const userId = getUser();
   return push(child(dbRef, `/workouts/${userId}`), {
     name: workout,
@@ -39,7 +39,7 @@ const deleteWorkout = async (workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-const saveExercise = async (exercise, _workoutId) => {
+const addExercise = async (exercise, _workoutId) => {
   const userId = getUser();
   return push(child(dbRef, `/exercises/${userId}`), {
     name: exercise,
@@ -77,9 +77,9 @@ const saveLogData = async (exerciseId, workoutDate, data) => {
 export {
   getWorkouts,
   getExercises,
-  saveWorkout,
+  addWorkout,
   deleteWorkout,
-  saveExercise,
+  addExercise,
   deleteExercise,
   deleteAllExercises,
   getLogHistory,
