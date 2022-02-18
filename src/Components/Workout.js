@@ -53,21 +53,6 @@ const Workout = (props) => {
     });
   };
 
-  const deleteWorkoutModalInfo = {
-    title: "Delete Workout?",
-    body: "Are you sure you want to delete this workout?",
-    visibility: showDeleteWorkoutModal,
-    okBtn: () => {
-      props.onDeleteWorkout(props.myWorkout.id, myExercises);
-    },
-    hideModal: () => {
-      setShowDeleteWorkoutModal(false);
-    },
-    showModal: () => {
-      setShowDeleteWorkoutModal(true);
-    },
-  };
-
   const updateCollapsibleOnOpen = (id) => {
     const newExerciseList = myExercises.map((obj) => {
       if (obj.id !== id) {
@@ -84,6 +69,21 @@ const Workout = (props) => {
       } else return { ...obj };
     });
     setExercises(newExerciseList);
+  };
+
+  const deleteWorkoutModalInfo = {
+    title: "Delete Workout?",
+    body: "Are you sure you want to delete this workout?",
+    visibility: showDeleteWorkoutModal,
+    okBtn: () => {
+      props.onDeleteWorkout(props.myWorkout.id, myExercises);
+    },
+    hideModal: () => {
+      setShowDeleteWorkoutModal(false);
+    },
+    showModal: () => {
+      setShowDeleteWorkoutModal(true);
+    },
   };
 
   const addExerciseModalInfo = {
