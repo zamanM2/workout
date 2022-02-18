@@ -11,7 +11,7 @@ import {
 import ConfirmModal from "./ConfirmModal";
 import Collapsible from "react-collapsible";
 import AddExerciseModal from "./InputModal";
-import RenameWorkoutModal from "./RenameWorkoutModal";
+import RenameWorkoutModal from "./InputModal";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
