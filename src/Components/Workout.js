@@ -10,7 +10,7 @@ import {
 } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./ConfirmModal";
 import Collapsible from "react-collapsible";
-import AddExerciseModal from "./AddExerciseModal";
+import AddExerciseModal from "./InputModal";
 import RenameWorkoutModal from "./RenameWorkoutModal";
 
 const Workout = (props) => {
@@ -136,10 +136,9 @@ const Workout = (props) => {
         ❌
       </button>
       <ConfirmModal info={deleteWorkoutModalInfo} />
-      <AddExerciseModal
-        info={addExerciseModalInfo}
-        onHandleAddExercise={handleAddExercise}
-      />
+
+      <AddExerciseModal info={addExerciseModalInfo} />
+
       <br />
       <RestTimer />
 

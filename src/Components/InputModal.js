@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/button";
 
-const AddExerciseModal = (props) => {
+const InputModal = (props) => {
   const [exerciseInput, setExerciseInput] = useState("");
 
   const handleInputChange = (event) => {
@@ -45,4 +45,4 @@ const AddExerciseModal = (props) => {
   );
 };
 
-export default AddExerciseModal;
+export default InputModal;
