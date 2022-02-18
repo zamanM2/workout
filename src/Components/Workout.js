@@ -112,6 +112,10 @@ const Workout = (props) => {
     },
   };
 
+  const handleRenameWorkout = (event, newName) => {
+    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
+  };
+
   return (
     <div>
       <button
@@ -130,7 +134,7 @@ const Workout = (props) => {
         info={renameWorkoutModalInfo}
         show={showRenameWorkoutModal}
         workoutId={props.myWorkout.id}
-        onHandleRenameWorkout={props.onHandleRenameWorkout}
+        onHandleRenameWorkout={handleRenameWorkout}
       />
 
       <button

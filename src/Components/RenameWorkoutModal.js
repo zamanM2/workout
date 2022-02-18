@@ -32,8 +32,8 @@ const RenameWorkoutModal = (props) => {
         <Button
           variant="primary"
           onClick={(event) => {
-            props.onHandleRenameWorkout(event, props.workoutId, renameWorkout);
-            props.onHide(event);
+            props.onHandleRenameWorkout(event, renameWorkout);
+            props.info.hideModal();
           }}
         >
           Ok
