@@ -54,7 +54,7 @@ const Workout = (props) => {
   };
 
   const handleRenameWorkout = (event, newName) => {
-    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
+    props.onHandleRenameWorkout(event, props.myWorkout, newName);
   };
 
   const updateCollapsibleOnOpen = (id) => {

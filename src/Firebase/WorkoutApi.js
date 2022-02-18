@@ -39,6 +39,16 @@ const deleteWorkout = async (workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
+const renameWorkout = async (workout, newName) => {
+  const userId = getUser();
+  const updates = {};
+  updates[`/workouts/${userId}/${workout.id}`] = {
+    name: workout.name,
+    sort: workout.sort,
+  };
+  return update(dbRef, updates);
+};
+
 const addExercise = async (exercise, _workoutId) => {
   const userId = getUser();
   return push(child(dbRef, `/exercises/${userId}`), {
@@ -84,4 +94,5 @@ export {
   deleteAllExercises,
   getLogHistory,
   saveLogData,
+  renameWorkout,
 };

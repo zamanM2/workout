@@ -9,6 +9,7 @@ import {
   addWorkout,
   deleteWorkout,
   deleteAllExercises,
+  renameWorkout,
 } from "../Firebase/WorkoutApi";
 
 const WorkoutList = () => {
@@ -64,15 +65,17 @@ const WorkoutList = () => {
     setWorkoutList(newWorkoutList);
   };
 
-  const handleRenameWorkout = (event, workoutId, newName) => {
+  const handleRenameWorkout = (event, workout, newName) => {
     event.preventDefault();
     const newWorkoutList = [...workoutList];
     for (const element of newWorkoutList) {
-      if (element.id === workoutId) {
+      if (element.id === workout.id) {
         element.name = newName;
       }
     }
-    setWorkoutList(newWorkoutList);
+    renameWorkout(workout, newName).then(() => {
+      setWorkoutList(newWorkoutList);
+    });
   };
 
   return (
