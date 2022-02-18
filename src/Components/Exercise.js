@@ -81,12 +81,13 @@ const Exercise = (props) => {
 
   return (
     <div>
+      <button className="blackBtn">✏️</button>
       <button
-        className="xBtn"
+        className="blackBtn"
         onClick={deleteExerciseModalInfo.showModal}
         type="submit"
       >
-        X
+        ❌
       </button>
       <ConfirmModal info={deleteExerciseModalInfo} />
       <div style={mystyle}>

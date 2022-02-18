@@ -53,6 +53,10 @@ const Workout = (props) => {
     });
   };
 
+  const handleRenameWorkout = (event, newName) => {
+    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
+  };
+
   const updateCollapsibleOnOpen = (id) => {
     const newExerciseList = myExercises.map((obj) => {
       if (obj.id !== id) {
@@ -69,10 +73,6 @@ const Workout = (props) => {
       } else return { ...obj };
     });
     setExercises(newExerciseList);
-  };
-
-  const handleRenameWorkout = (event, newName) => {
-    props.onHandleRenameWorkout(event, props.myWorkout.id, newName);
   };
 
   const deleteWorkoutModalInfo = {
@@ -128,7 +128,7 @@ const Workout = (props) => {
       <AddExerciseModal info={addExerciseModalInfo} />
 
       <button onClick={renameWorkoutModalInfo.showModal} className="blackBtn">
-        Rename
+        ✏️
       </button>
       <RenameWorkoutModal info={renameWorkoutModalInfo} />
 
