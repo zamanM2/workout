@@ -125,6 +125,7 @@ const Workout = (props) => {
       <RenameWorkoutModal
         show={showRenameWorkoutModal}
         workoutId={props.myWorkout.id}
+        onHide={onCloseRename}
         onHandleRenameWorkout={props.onHandleRenameWorkout}
       />
 
