@@ -74,7 +74,7 @@ const WorkoutList = () => {
       <br />
       {workoutList.map((workout) => {
         return (
-          <>
+          <div key={workout.id}>
             <Collapsible
               className="collapasableList"
               open={workout.open}
@@ -82,15 +82,15 @@ const WorkoutList = () => {
               onClosing={() => updateCollapsibleOnClose(workout.id)}
               trigger={workout.name}
               classParentString="collapsibileList"
-              key={workout.id}
             >
-              <Workout className="workoutClass"
+              <Workout
+                className="workoutClass"
                 onDeleteWorkout={handleDeleteWorkout}
                 myWorkout={workout}
               />
             </Collapsible>
             <br />
-          </>
+          </div>
         );
       })}
     </div>
