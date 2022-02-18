@@ -8,6 +8,7 @@ const LogForm = (props) => {
       <div className="reps">
         Reps
         <input
+          maxLength="4"
           className=" repInput"
           onChange={props.onChange}
           type="number"
@@ -17,6 +18,7 @@ const LogForm = (props) => {
         />
         Weight
         <input
+          maxLength="4"
           className=" repInput"
           onChange={props.onChange}
           type="number"

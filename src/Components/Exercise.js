@@ -44,7 +44,10 @@ const Exercise = (props) => {
   }, [props.exercise.id]);
 
   const handleInputChange = (event) => {
-    setLogInput({ ...logInput, [event.target.name]: event.target.value });
+    setLogInput({
+      ...logInput,
+      [event.target.name]: event.target.value.slice(0, event.target.maxLength),
+    });
   };
   const handleLogSubmit = (event) => {
     event.preventDefault();
