@@ -13,7 +13,7 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const AuthProvider = ({ children }) => {
       {children}
     </AuthProvider.Provider>
   );
-};
+}
