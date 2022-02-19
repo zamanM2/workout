@@ -30,6 +30,7 @@ const LogTable = (props) => {
           ))}
         </tbody>
       </table>
+      <br />
     </div>
   );
 };
