@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "../Firebase/FirebaseConfig";
+import { getAuth, signInWithRedirect, onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext({});
 
@@ -10,9 +11,20 @@ export function useAuth() {
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
-  const contextValue = { currentUser };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setCurrentUser(currentUser);
+    });
 
-  const login = () => {};
+    return unsubscribe;
+  }, []);
+
+  const login = () => {
+    const auth = getAuth();
+    return signInWithRedirect(auth, provider);
+  };
+
+  const contextValue = { currentUser, login };
 
   return (
     <AuthProvider.Provider value={contextValue}>
