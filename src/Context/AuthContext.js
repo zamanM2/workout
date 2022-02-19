@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "../Firebase/FirebaseConfig";
-import { getAuth, signInWithRedirect, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  signInWithRedirect,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 const AuthContext = createContext({});
 
@@ -20,6 +25,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = () => {
+    const provider = new GoogleAuthProvider();
     const auth = getAuth();
     return signInWithRedirect(auth, provider);
   };
