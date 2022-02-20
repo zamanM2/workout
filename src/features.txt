@@ -1,15 +1,16 @@
 Features to Add
 - Rename Exercise
+- Adjust length of timer
 - sort order of exercises
 - sort order of workouts
 - Logging Exercise starts countdown timer
-- Add bottom nav to switch between workout/myself/settings
-- Adjust length of timer
+- Add top nav to switch between workout/myself/settings
 - Play sound when timer is up
-- Track your weight
-- Add body images to track progress
+- Track your weight / MYSELF
+- Add body images to track progress / MYSELF
 - Input field validation
 - Graph/Stats
+- Sign in/ Google button
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned.
 

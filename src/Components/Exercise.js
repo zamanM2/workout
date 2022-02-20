@@ -8,6 +8,7 @@ import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./Modals/ConfirmModal";
 import { BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
+import  ExerciseRenameModal from "./Modals/InputModal"
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -15,6 +16,7 @@ const Exercise = (props) => {
   const [logHistory, setLogHistory] = useState([]);
   const [showDeleteExerciseModal, setShowDeleteExerciseModal] = useState(false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState("No Workouts");
+  const [showRenameExerciseModal, setShowRenameExerciseModal] = useState(false);
   const { currentUser } = useAuth();
 
   const getTodaysDate = () => {
@@ -95,9 +97,26 @@ const Exercise = (props) => {
     },
   };
 
+  const handleRenameExercise= ()=>{
+
+  }
+   const renameExerciseModalInfo = {
+     title: "Rename Exercise",
+     body: "New Name:",
+     visibility: showRenameExerciseModal,
+     okBtn: handleRenameExercise,
+     hideModal: () => {
+       setShowRenameExerciseModal(false);
+     },
+     showModal: () => {
+       setShowRenameExerciseModal(true);
+     },
+   };
+
   return (
     <div>
-      <button className="blackBtn">✏️</button>
+      <button onClick = {renameExerciseModalInfo.showModal}className="blackBtn">✏️</button>
+      <ExerciseRenameModal info = {renameExerciseModalInfo} />
       <button
         className="blackBtn"
         onClick={deleteExerciseModalInfo.showModal}
