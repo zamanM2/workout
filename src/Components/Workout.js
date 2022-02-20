@@ -13,15 +13,17 @@ import Collapsible from "react-collapsible";
 import AddExerciseModal from "./Modals/InputModal";
 import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash } from "react-icons/bs";
+import { useAuth } from "../Context/AuthContext";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
   const [showAddExerciseModal, setShowAddExerciseModal] = useState(false);
   const [showRenameWorkoutModal, setShowRenameWorkoutModal] = useState(false);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
-    getExercises().then((allExercises) => {
+    getExercises(currentUser.uid).then((allExercises) => {
       allExercises.map((element) => ({ ...element, open: false }));
       setExercises(
         allExercises.filter(function (exercise) {
@@ -34,20 +36,22 @@ const Workout = (props) => {
   const handleAddExercise = async (event, newExercise) => {
     event.preventDefault();
     if (newExercise.trim() === "") return;
-    await addExercise(newExercise, props.myWorkout.id).then((post) => {
-      setExercises([
-        ...myExercises,
-        {
-          name: newExercise,
-          workoutId: props.myWorkout.id,
-          id: post.key,
-        },
-      ]);
-    });
+    await addExercise(currentUser.uid, newExercise, props.myWorkout.id).then(
+      (post) => {
+        setExercises([
+          ...myExercises,
+          {
+            name: newExercise,
+            workoutId: props.myWorkout.id,
+            id: post.key,
+          },
+        ]);
+      }
+    );
   };
 
   const handleDeleteExercise = async (id) => {
-    await deleteExercise(id).then(() => {
+    await deleteExercise(currentUser.uid, id).then(() => {
       setExercises(
         myExercises.filter((currentExercise) => currentExercise.id !== id)
       );

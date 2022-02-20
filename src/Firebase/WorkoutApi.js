@@ -1,12 +1,12 @@
 import { dbRef } from "./FirebaseConfig";
 import { child, get, push, remove, update } from "firebase/database";
+import { useAuth } from "../Context/AuthContext";
 
 let getUser = () => {
   return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
 };
 
-const getWorkouts = async () => {
-  const userId = getUser();
+const getWorkouts = async (userId) => {
   const snapshot = await get(child(dbRef, `/workouts/${userId}`));
   let keys = Object.keys(snapshot.val());
   return keys.map((_id) => {
@@ -14,8 +14,7 @@ const getWorkouts = async () => {
   });
 };
 
-const getExercises = async () => {
-  const userId = getUser();
+const getExercises = async (userId) => {
   const snapshot = await get(child(dbRef, `/exercises/${userId}`));
   let keys = Object.keys(snapshot.val());
   return keys.map((_id) => {
@@ -23,21 +22,18 @@ const getExercises = async () => {
   });
 };
 
-const addWorkout = async (workout) => {
-  const userId = getUser();
+const addWorkout = async (userId, workout) => {
   return push(child(dbRef, `/workouts/${userId}`), {
     name: workout,
     sort: 1,
   });
 };
 
-const deleteWorkout = async (workoutId) => {
-  const userId = getUser();
+const deleteWorkout = async (userId, workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-const renameWorkout = async (workout, newName) => {
-  const userId = getUser();
+const renameWorkout = async (userId, workout, newName) => {
   const updates = {};
   updates[`/workouts/${userId}/${workout.id}`] = {
     name: workout.name,
@@ -46,8 +42,7 @@ const renameWorkout = async (workout, newName) => {
   return update(dbRef, updates);
 };
 
-const addExercise = async (exercise, _workoutId) => {
-  const userId = getUser();
+const addExercise = async (userId, exercise, _workoutId) => {
   return push(child(dbRef, `/exercises/${userId}`), {
     name: exercise,
     workoutId: _workoutId,
@@ -55,13 +50,11 @@ const addExercise = async (exercise, _workoutId) => {
   });
 };
 
-const deleteExercise = async (exerciseId) => {
-  const userId = getUser();
+const deleteExercise = async (userId, exerciseId) => {
   return remove(child(dbRef, `/exercises/${userId}/${exerciseId}`));
 };
 
-const deleteAllExercises = async (allExercises) => {
-  const userId = getUser();
+const deleteAllExercises = async (userId, allExercises) => {
   const updates = {};
   allExercises.forEach(
     (exercise) => (updates[`/exercises/${userId}/${exercise.id}`] = null)
@@ -69,13 +62,11 @@ const deleteAllExercises = async (allExercises) => {
   return update(dbRef, updates);
 };
 
-const getLogHistory = async (exerciseId) => {
-  const userId = getUser();
+const getLogHistory = async (userId, exerciseId) => {
   return get(child(dbRef, `/exercises/${userId}/${exerciseId}/log`));
 };
 
-const saveLogData = async (exerciseId, workoutDate, data) => {
-  const userId = getUser();
+const saveLogData = async (userId, exerciseId, workoutDate, data) => {
   const updates = {};
   updates[`/exercises/${userId}/${exerciseId}/log/${workoutDate}`] = data;
   return await update(dbRef, updates);

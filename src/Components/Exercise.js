@@ -7,6 +7,7 @@ import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./Modals/ConfirmModal";
 import { BsTrash } from "react-icons/bs";
+import { useAuth } from "../Context/AuthContext";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -14,6 +15,7 @@ const Exercise = (props) => {
   const [logHistory, setLogHistory] = useState([]);
   const [showDeleteExerciseModal, setShowDeleteExerciseModal] = useState(false);
   const [lastWorkoutDate, setLastWorkoutDate] = useState("No Workouts");
+  const { currentUser } = useAuth();
 
   const getTodaysDate = () => {
     let todaysDate = new Date();
@@ -24,7 +26,7 @@ const Exercise = (props) => {
 
   useEffect(() => {
     async function fetchLogData() {
-      await getLogHistory(props.exercise.id)
+      await getLogHistory(currentUser.uid, props.exercise.id)
         .then((snapshot) => {
           let keys = Object.keys(snapshot.val());
           let todaysDate = getTodaysDate();
@@ -55,7 +57,12 @@ const Exercise = (props) => {
     if (logInput.reps.trim() === "" || logInput.weight.trim() === "") return;
     const dataToSave = [...logEntries, { ...logInput, id: Date.now() }];
     let todaysDate = getTodaysDate();
-    saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
+    saveLogData(
+      currentUser.uid,
+      props.exercise.id,
+      todaysDate,
+      dataToSave
+    ).then(() => {
       setLogEntries(dataToSave);
     });
   };
@@ -63,7 +70,12 @@ const Exercise = (props) => {
   const handleDeleteReps = (myId) => {
     const dataToSave = logEntries.filter((row) => row.id !== myId);
     let todaysDate = getTodaysDate();
-    saveLogData(props.exercise.id, todaysDate, dataToSave).then(() => {
+    saveLogData(
+      currentUser.uid,
+      props.exercise.id,
+      todaysDate,
+      dataToSave
+    ).then(() => {
       setLogEntries(dataToSave);
     });
   };

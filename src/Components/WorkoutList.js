@@ -11,13 +11,15 @@ import {
   deleteAllExercises,
   renameWorkout,
 } from "../Firebase/WorkoutApi";
+import { useAuth } from "../Context/AuthContext";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
   const [newWorkout, setNewWorkout] = useState("");
+  const { currentUser } = useAuth();
 
   useEffect(() => {
-    getWorkouts().then((workouts) => {
+    getWorkouts(currentUser.uid).then((workouts) => {
       setWorkoutList(workouts.map((element) => ({ ...element, open: false })));
     });
   }, []);
@@ -25,7 +27,7 @@ const WorkoutList = () => {
   const handleAddWorkout = async (event) => {
     event.preventDefault();
     if (newWorkout.trim() === "") return;
-    await addWorkout(newWorkout).then((post) => {
+    await addWorkout(currentUser.uid, newWorkout).then((post) => {
       setWorkoutList([
         ...workoutList,
         { name: newWorkout, id: post.key, open: false, sort: 1 },
@@ -39,12 +41,12 @@ const WorkoutList = () => {
   };
 
   const handleDeleteWorkout = async (workoutId, exercises) => {
-    await deleteWorkout(workoutId).then((post) => {
+    await deleteWorkout(currentUser.uid, workoutId).then((post) => {
       setWorkoutList(
         workoutList.filter((myWorkout) => myWorkout.id !== workoutId)
       );
     });
-    await deleteAllExercises(exercises);
+    await deleteAllExercises(currentUser.uid, exercises);
   };
 
   const updateCollapsibleOnOpen = (id) => {
@@ -74,7 +76,7 @@ const WorkoutList = () => {
         element.name = newName;
       }
     }
-    renameWorkout(workout, newName).then(() => {
+    renameWorkout(currentUser.uid, workout, newName).then(() => {
       setWorkoutList(newWorkoutList);
     });
   };
