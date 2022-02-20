@@ -7,6 +7,7 @@ import {
   deleteExercise,
   getExercises,
   addExercise,
+  renameExercise,
 } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./Modals/ConfirmModal";
 import Collapsible from "react-collapsible";
@@ -14,6 +15,7 @@ import AddExerciseModal from "./Modals/InputModal";
 import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
+
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -123,7 +125,6 @@ const Workout = (props) => {
 
   const handleRenameExercise = (event, exercise, newName) => {
     event.preventDefault();
-    debugger
     if (newName.trim() === "") return;
     const newExerciseList = [...myExercises];
     for (const element of newExerciseList) {
@@ -131,10 +132,10 @@ const Workout = (props) => {
         element.name = newName;
       }
     }
-    setExercises(newExerciseList);
-    // renameWorkout(currentUser.uid, workout, newName).then(() => {
-    //   setWorkoutList(newWorkoutList);
-    // });
+    
+    renameExercise(currentUser.uid, exercise, props.myWorkout.id).then(() => {
+     setExercises(newExerciseList);
+    });
   };
 
   return (

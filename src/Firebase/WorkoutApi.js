@@ -42,7 +42,18 @@ const deleteWorkout = async (userId, workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-const renameWorkout = async (userId, workout, newName) => {
+const renameExercise = async (userId, exercise, _workoutId) => {
+  const updates = {};
+  debugger
+  updates[`/exercises/${userId}/${exercise.id}`] = {
+    name: exercise.name,
+    sort: exercise.sort,
+    workoutId: _workoutId
+  };
+  return update(dbRef, updates);
+};
+
+const renameWorkout = async (userId, workout) => {
   const updates = {};
   updates[`/workouts/${userId}/${workout.id}`] = {
     name: workout.name,
@@ -93,4 +104,5 @@ export {
   saveLogData,
   renameWorkout,
   checkIfUserExists,
+  renameExercise,
 };

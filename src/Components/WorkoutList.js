@@ -76,7 +76,7 @@ const WorkoutList = () => {
         element.name = newName;
       }
     }
-    renameWorkout(currentUser.uid, workout, newName).then(() => {
+    renameWorkout(currentUser.uid, workout).then(() => {
       setWorkoutList(newWorkoutList);
     });
   };
