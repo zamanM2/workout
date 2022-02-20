@@ -24,7 +24,7 @@ function App() {
             }
           />
           <Route
-            path="/workoutlist"
+            path="/workouts"
             element={
               <PrivateRoute>
                 <Nav />

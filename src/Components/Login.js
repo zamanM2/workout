@@ -8,7 +8,7 @@ const Login = () => {
 
   const handleLogin = () => {
     login();
-    navigate("/workoutlist");
+    navigate("/workouts");
   };
 
   return (
