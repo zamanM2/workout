@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { useAuth } from "../Context/AuthContext";
 
-const Nav = () => {
+const NavBar = () => {
   const { logout } = useAuth();
 
   const handleSignOut = () => {
@@ -22,4 +22,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavBar;

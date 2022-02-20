@@ -6,8 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import PublicRoute from "./Components/Routes/PublicRoute";
-
-import Nav from "./Components/Nav";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
@@ -27,7 +26,7 @@ function App() {
             path="/workouts"
             element={
               <PrivateRoute>
-                <Nav />
+                <NavBar />
                 <WorkoutList />
               </PrivateRoute>
             }
