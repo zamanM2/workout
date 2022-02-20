@@ -1,6 +1,5 @@
 import { dbRef } from "./FirebaseConfig";
 import { child, get, push, remove, update } from "firebase/database";
-import { useAuth } from "../Context/AuthContext";
 
 let getUser = () => {
   return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
