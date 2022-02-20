@@ -5,6 +5,8 @@ import { Login } from "./Components/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext";
 import PrivateRoute from "./Components/PrivateRoute";
+import PublicRoute from "./Components/PublicRoute";
+
 import Nav from "./Components/Nav";
 
 function App() {
@@ -12,8 +14,15 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/" exact element={<Login />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            exact
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
           <Route
             path="/workoutlist"
             element={
