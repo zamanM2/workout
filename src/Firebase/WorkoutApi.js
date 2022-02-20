@@ -5,6 +5,16 @@ let getUser = () => {
   return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
 };
 
+const checkIfUserExists = async (userId) => {
+  return await get(child(dbRef, `/users/${userId}`));
+};
+
+const createUser = (user) => {
+  return push(child(dbRef, `/users/${user.uid}`), {
+    email: user.email,
+  });
+};
+
 const getWorkouts = async (userId) => {
   const snapshot = await get(child(dbRef, `/workouts/${userId}`));
   let keys = Object.keys(snapshot.val());
@@ -82,4 +92,5 @@ export {
   getLogHistory,
   saveLogData,
   renameWorkout,
+  checkIfUserExists,
 };

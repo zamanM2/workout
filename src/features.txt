@@ -1,6 +1,4 @@
 Features to Add
-- Login
-- Sign-up
 - Rename Exercise
 - sort order of exercises
 - sort order of workouts
@@ -16,6 +14,8 @@ Features to Add
 - LIMIT: Log returned, SORT log on Firebase before returned.
 
 Done
+- Login
+- Sign-up
 - Delete Workouts
 - Delete reps/sets
 - Delete free floating Exercises
