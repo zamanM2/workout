@@ -1,10 +1,7 @@
 import { dbRef } from "./FirebaseConfig";
 import { child, get, push, remove, update } from "firebase/database";
-import { uid } from "../Components/Login";
 
 let getUser = () => {
-  // console.log("uuid inside WORKOUT API " + uid);
-  // return uid;
   return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
 };
 
