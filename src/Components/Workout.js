@@ -121,6 +121,22 @@ const Workout = (props) => {
     },
   };
 
+  const handleRenameExercise = (event, exercise, newName) => {
+    event.preventDefault();
+    debugger
+    if (newName.trim() === "") return;
+    const newExerciseList = [...myExercises];
+    for (const element of newExerciseList) {
+      if (element.id === exercise.id) {
+        element.name = newName;
+      }
+    }
+    setExercises(newExerciseList);
+    // renameWorkout(currentUser.uid, workout, newName).then(() => {
+    //   setWorkoutList(newWorkoutList);
+    // });
+  };
+
   return (
     <div>
       <button
@@ -161,8 +177,12 @@ const Workout = (props) => {
             onClosing={() => updateCollapsibleOnClose(myExercise.id)}
           >
             <Exercise
+              onRenameExercise={handleRenameExercise
+                
+              }
               onDeleteExercise={() => {
                 handleDeleteExercise(myExercise.id);
+
               }}
               exercise={myExercise}
             />

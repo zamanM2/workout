@@ -97,8 +97,8 @@ const Exercise = (props) => {
     },
   };
 
-  const handleRenameExercise= ()=>{
-
+  const handleRenameExercise= (event, newName)=>{
+    props.onRenameExercise(event,props.exercise, newName)
   }
    const renameExerciseModalInfo = {
      title: "Rename Exercise",
