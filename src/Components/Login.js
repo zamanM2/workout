@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../Context/AuthContext";
 
 const Login = () => {
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
 
   const handleLogin = () => {
     login();
@@ -10,9 +10,8 @@ const Login = () => {
 
   return (
     <div className="navbar">
-      {currentUser.email}
       <button className="googleButton" onClick={handleLogin}>
-        Login Google
+        Login with Google
       </button>
     </div>
   );
