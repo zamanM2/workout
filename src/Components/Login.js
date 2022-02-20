@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <div className="navbar">
-      {currentUser && currentUser.email}
+      {currentUser.email}
       <button className="googleButton" onClick={handleLogin}>
         Login Google
       </button>

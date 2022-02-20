@@ -7,25 +7,22 @@ import AuthProvider from "./Context/AuthContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <nav className="navbar">
           <Link className="navbarLink" to="/workoutlist">
-            {" "}
-            WorkoutList{" "}
+            WorkoutList
           </Link>
-
           <Link className="navbarLink" to="/">
-            {" "}
-            Login{" "}
+            Login
           </Link>
         </nav>
         <Routes>
           <Route path="/" exact element={<Login />} />
           <Route path="/workoutlist" element={<WorkoutList />} />
         </Routes>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
