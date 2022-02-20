@@ -5,7 +5,7 @@ import "../App.css";
 import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
-import ConfirmModal from "./ConfirmModal";
+import ConfirmModal from "./Modals/ConfirmModal";
 import { BsTrash } from "react-icons/bs";
 
 const Exercise = (props) => {

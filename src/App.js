@@ -4,8 +4,8 @@ import WorkoutList from "./Components/WorkoutList";
 import { Login } from "./Components/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext";
-import PrivateRoute from "./Components/PrivateRoute";
-import PublicRoute from "./Components/PublicRoute";
+import PrivateRoute from "./Components/Routes/PrivateRoute";
+import PublicRoute from "./Components/Routes/PublicRoute";
 
 import Nav from "./Components/Nav";
 

@@ -8,10 +8,10 @@ import {
   getExercises,
   addExercise,
 } from "../Firebase/WorkoutApi";
-import ConfirmModal from "./ConfirmModal";
+import ConfirmModal from "./Modals/ConfirmModal";
 import Collapsible from "react-collapsible";
-import AddExerciseModal from "./InputModal";
-import RenameWorkoutModal from "./InputModal";
+import AddExerciseModal from "./Modals/InputModal";
+import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash } from "react-icons/bs";
 
 const Workout = (props) => {
