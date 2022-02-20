@@ -13,7 +13,7 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
@@ -33,8 +33,8 @@ export function AuthProvider({ children }) {
   const contextValue = { currentUser, login };
 
   return (
-    <AuthProvider.Provider value={contextValue}>
-      {children}
-    </AuthProvider.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
-}
+};
+
+export default AuthProvider;
