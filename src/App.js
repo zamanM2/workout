@@ -5,19 +5,13 @@ import { Login } from "./Components/Login";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext";
 import PrivateRoute from "./Components/PrivateRoute";
+import Nav from "./Components/Nav";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <nav className="navbar">
-          <Link className="navbarLink" to="/workoutlist">
-            WorkoutList
-          </Link>
-          <Link className="navbarLink" to="/">
-            Login
-          </Link>
-        </nav>
+        <Nav />
         <Routes>
           <Route path="/" exact element={<Login />} />
           <Route
