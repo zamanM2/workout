@@ -6,7 +6,7 @@ import "../css/xBtn.css";
 import HistoryLog from "./HistoryLog";
 import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./Modals/ConfirmModal";
-import { BsTrash } from "react-icons/bs";
+import { BsPencil, BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
 import ExerciseRenameModal from "./Modals/InputModal";
 
@@ -117,7 +117,7 @@ const Exercise = (props) => {
   return (
     <div>
       <button onClick={renameExerciseModalInfo.showModal} className="blackBtn">
-        ✏️
+        <BsPencil />
       </button>
       <ExerciseRenameModal info={renameExerciseModalInfo} />
       <button

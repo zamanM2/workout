@@ -13,7 +13,7 @@ import ConfirmModal from "./Modals/ConfirmModal";
 import Collapsible from "react-collapsible";
 import AddExerciseModal from "./Modals/InputModal";
 import RenameWorkoutModal from "./Modals/InputModal";
-import { BsTrash } from "react-icons/bs";
+import { BsTrash, BsPencil, BsPlusLg } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
 
 const Workout = (props) => {
@@ -144,12 +144,12 @@ const Workout = (props) => {
         type="submit"
         style={{ fontWeight: "bold" }}
       >
-        +
+        <BsPlusLg />
       </button>
       <AddExerciseModal info={addExerciseModalInfo} />
 
       <button onClick={renameWorkoutModalInfo.showModal} className="blackBtn">
-        ✏️
+        <BsPencil />
       </button>
       <RenameWorkoutModal info={renameWorkoutModalInfo} />
 
