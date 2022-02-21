@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import MyselfForm from "./MyselfForm";
+import MyselfLog from "./MyselfLog";
 
 const MySelf = () => {
   const [inputData, setInputData] = useState({
@@ -33,6 +34,7 @@ const MySelf = () => {
         inputData={inputData}
         onSubmit={handleSubmit}
       />
+      <MyselfLog />
     </Container>
   );
 };
