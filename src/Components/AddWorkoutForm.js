@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import { ImCheckmark2, ImCross } from "react-icons/im";
+import Container from "react-bootstrap/Container";
+import "../css/blackBtn.css";
 
 const AddWorkoutForm = (props) => {
   const [showWorkoutButton, setShowWorkoutButton] = useState(true);
 
   return (
-    <>
+    <Container style={{ marginTop: "5px" }}>
       {showWorkoutButton ? (
         <button
+          style={{ fontSize: "22px", padding: "15px" }}
           onClick={() => {
             setShowWorkoutButton(false);
           }}
-          className="addWorkout"
+          className="blackBtn"
           type="submit"
         >
           Add Workout
@@ -24,6 +28,7 @@ const AddWorkoutForm = (props) => {
             }}
           >
             <input
+              style={{ height: "32px" }}
               className="addWorkoutInput"
               placeholder="Add Workout"
               onChange={props.handleInputChange}
@@ -31,18 +36,21 @@ const AddWorkoutForm = (props) => {
               type="text"
               name="workout"
             />
-            <button type="Submit">✔</button>
+            <button className="blackBtn" type="Submit">
+              <ImCheckmark2 />
+            </button>
             <button
+              className="blackBtn"
               onClick={() => {
                 setShowWorkoutButton(true);
               }}
             >
-              ❌
+              <ImCross />
             </button>
           </form>
         </>
       )}
-    </>
+    </Container>
   );
 };
 
