@@ -11,7 +11,7 @@ const InputModal = (props) => {
   };
 
   return (
-    <Modal show={props.info.visibility} onHide={props.info.hideModal}>
+    <Modal className= "modalPop" show={props.info.visibility} onHide={props.info.hideModal}>
       <Modal.Header>
         <Modal.Title>{props.info.title}</Modal.Title>
       </Modal.Header>

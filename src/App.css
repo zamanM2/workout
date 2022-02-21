@@ -64,6 +64,9 @@
   border-width: 1px;
   border-color: #050404;
   border-style: solid;
+  /* box-shadow : 0 0 0 1900px hsla(220,7%,18%,0.6),
+           0 10px 30px -5px hsla(220,7%,18%,0.6); */
+
 }
 
 html {
@@ -130,6 +133,7 @@ h1 {
 }
 
 .collapasableList {
+  /* opacity:10%; */
 
 }
 
@@ -141,8 +145,10 @@ h1 {
 .googleButton {
   display: flex;
   margin: auto;
-  border-radius: 15px;
-  border: 2px ;
+  /* border-radius: 15px;
+  border: 2px ; */
+  padding: 15px 32px;
+  font-size: 16px;
 }
 
 .workoutClass{
@@ -167,10 +173,23 @@ input[type=number] {
 }
 
 .appHeader {
-  display:flex;
-  margin: auto;
   font-size: 25px;
   text-align: center;
-  align-content: center;
-  align-items: center;
+  font-family: 'Poppins', sans-serif;
+font-family: 'Sassy Frass', cursive;
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Yuji Boku', serif;
+font-weight:1000;
+  
+}
+
+.modalPop{
+  margin     : 45px auto;  
+  padding    : 15px 25px 25px;
+  transition: box-shadow 2s;
+  box-shadow : 0 0 0 1900px hsla(220,7%,18%,0.6),
+           0 10px 30px -5px hsla(220,7%,18%,0.6);
+ background:rgba(255,255,255,0.8);
+ cursor:pointer;
+ /* opacity:90%; */
 }
