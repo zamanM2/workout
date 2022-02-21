@@ -11,6 +11,7 @@ Features to Add
 - Sign in/ Google button
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned.
+- Fade out all other workouts when focusing on one.
 
 Done
 - Login

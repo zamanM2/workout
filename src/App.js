@@ -7,6 +7,7 @@ import AuthProvider from "./Context/AuthContext";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import PublicRoute from "./Components/Routes/PublicRoute";
 import NavBar from "./Components/NavBar";
+import Home from "./Components/Home";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             exact
             element={
               <PublicRoute>
+                <Home />
                 <Login />
               </PublicRoute>
             }
