@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <Container>
       <img className="workoutImg" src={logo} alt="img" />
-      <h5 className="appHeader">FITNESS SLAYERZ</h5>
+      <h5 className="appHeader">FITNESS<br></br> SLAYERZ</h5>
     </Container>
   );
 };
