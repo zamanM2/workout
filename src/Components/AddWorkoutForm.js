@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ImCheckmark, ImCross } from "react-icons/im";
+import { ImCheckmark, ImCross, ImPlus } from "react-icons/im";
 import Container from "react-bootstrap/Container";
 import "../css/blackBtn.css";
 
@@ -10,14 +10,14 @@ const AddWorkoutForm = (props) => {
     <Container style={{ margin: "5px" }}>
       {showWorkoutButton ? (
         <button
-          style={{ fontSize: "22px", padding: "15px" }}
+          style={{ fontSize: "18px", padding: "15px" }}
           onClick={() => {
             setShowWorkoutButton(false);
           }}
           className="blackBtn"
           type="submit"
         >
-          Add Workout
+          + Workout
         </button>
       ) : (
         <>

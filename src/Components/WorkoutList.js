@@ -84,11 +84,13 @@ const WorkoutList = () => {
 
   return (
     <Container className="workoutList">
-      <AddWorkoutForm
-        handleAddWorkout={handleAddWorkout}
-        handleInputChange={handleInputChange}
-        newWorkout={newWorkout}
-      />
+      <Container>
+        <AddWorkoutForm
+          handleAddWorkout={handleAddWorkout}
+          handleInputChange={handleInputChange}
+          newWorkout={newWorkout}
+        />
+      </Container>
       {workoutList.map((workout) => {
         return (
           <Container key={workout.id}>
