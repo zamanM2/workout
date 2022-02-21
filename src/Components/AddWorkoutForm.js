@@ -7,7 +7,7 @@ const AddWorkoutForm = (props) => {
   const [showWorkoutButton, setShowWorkoutButton] = useState(true);
 
   return (
-    <Container style={{ margin: "5px" }}>
+    <Container style={{ marginTop: "5px", marginBottom: "5px" }}>
       {showWorkoutButton ? (
         <button
           style={{ fontSize: "18px", padding: "15px" }}
