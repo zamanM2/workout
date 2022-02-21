@@ -50,12 +50,10 @@ const renameExercise = async (userId, exercise) => {
 };
 
 const renameWorkout = async (userId, workout) => {
-  const updates = {};
-  updates[`/workouts/${userId}/${workout.id}`] = {
+  const updates = {
     name: workout.name,
-    sort: workout.sort,
   };
-  return update(dbRef, updates);
+  return update(child(dbRef, `/workouts/${userId}/${workout.id}`), updates);
 };
 
 const addExercise = async (userId, exercise, _workoutId) => {
