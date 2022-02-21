@@ -28,7 +28,6 @@ const AddWorkoutForm = (props) => {
             }}
           >
             <input
-              style={{ height: "32px" }}
               className="addWorkoutInput"
               placeholder="Add Workout"
               onChange={props.handleInputChange}

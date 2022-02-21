@@ -123,8 +123,10 @@ h1 {
 }
 
 .addWorkoutInput {
-   border-radius: 6px;
+  border-radius: 6px;
   border: 2px solid;
+  height: 32px;
+  width: 50%;
 }
 
 .collapasableList {
