@@ -13,6 +13,7 @@ import {
 } from "../Firebase/WorkoutApi";
 import { useAuth } from "../Context/AuthContext";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
@@ -83,17 +84,17 @@ const WorkoutList = () => {
   };
 
   return (
-    <Container className="workoutList">
-      <Container>
+    <Container fluid className="workoutList">
+      <Row>
         <AddWorkoutForm
           handleAddWorkout={handleAddWorkout}
           handleInputChange={handleInputChange}
           newWorkout={newWorkout}
         />
-      </Container>
+      </Row>
       {workoutList.map((workout) => {
         return (
-          <Container key={workout.id}>
+          <Row key={workout.id}>
             <Collapsible
               className="collapasableList"
               open={workout.open}
@@ -110,7 +111,7 @@ const WorkoutList = () => {
               />
             </Collapsible>
             <br />
-          </Container>
+          </Row>
         );
       })}
     </Container>
