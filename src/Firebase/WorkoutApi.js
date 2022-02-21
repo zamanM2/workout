@@ -100,6 +100,10 @@ const saveLogData = async (userId, exerciseId, workoutDate, data) => {
   return await update(dbRef, updates);
 };
 
+export const getTimerSettings = async (userId) => {
+  return get(child(dbRef, `/users/${userId}/settings/timer`));
+};
+
 export {
   getWorkouts,
   getExercises,
