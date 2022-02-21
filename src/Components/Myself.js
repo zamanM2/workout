@@ -42,6 +42,8 @@ const MySelf = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (inputData.weight.trim() === "" && inputData.bodyFat.trim() === "")
+      return;
     const todaysDate = getTodaysDate();
     saveUserData(currentUser.uid, inputData, todaysDate).then(() => {
       getUserData(currentUser.uid).then((data) => {

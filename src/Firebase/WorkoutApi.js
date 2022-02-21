@@ -41,7 +41,6 @@ export const getUserData = async (userId) => {
 
 export const saveUserData = async (userId, userData, date) => {
   const updates = {};
-  debugger;
   updates[`/myself/${userId}/${date}`] = userData;
   return await update(dbRef, updates);
 };
