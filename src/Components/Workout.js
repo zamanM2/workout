@@ -16,7 +16,6 @@ import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
 
-
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
   const [showDeleteWorkoutModal, setShowDeleteWorkoutModal] = useState(false);
@@ -132,9 +131,8 @@ const Workout = (props) => {
         element.name = newName;
       }
     }
-    
-    renameExercise(currentUser.uid, exercise, props.myWorkout.id).then(() => {
-     setExercises(newExerciseList);
+    renameExercise(currentUser.uid, exercise).then(() => {
+      setExercises(newExerciseList);
     });
   };
 
@@ -178,12 +176,9 @@ const Workout = (props) => {
             onClosing={() => updateCollapsibleOnClose(myExercise.id)}
           >
             <Exercise
-              onRenameExercise={handleRenameExercise
-                
-              }
+              onRenameExercise={handleRenameExercise}
               onDeleteExercise={() => {
                 handleDeleteExercise(myExercise.id);
-
               }}
               exercise={myExercise}
             />

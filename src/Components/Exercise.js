@@ -8,7 +8,7 @@ import { getLogHistory, saveLogData } from "../Firebase/WorkoutApi";
 import ConfirmModal from "./Modals/ConfirmModal";
 import { BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
-import  ExerciseRenameModal from "./Modals/InputModal"
+import ExerciseRenameModal from "./Modals/InputModal";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -97,26 +97,29 @@ const Exercise = (props) => {
     },
   };
 
-  const handleRenameExercise= (event, newName)=>{
-    props.onRenameExercise(event,props.exercise, newName)
-  }
-   const renameExerciseModalInfo = {
-     title: "Rename Exercise",
-     body: "New Name:",
-     visibility: showRenameExerciseModal,
-     okBtn: handleRenameExercise,
-     hideModal: () => {
-       setShowRenameExerciseModal(false);
-     },
-     showModal: () => {
-       setShowRenameExerciseModal(true);
-     },
-   };
+  const handleRenameExercise = (event, newName) => {
+    props.onRenameExercise(event, props.exercise, newName);
+  };
+
+  const renameExerciseModalInfo = {
+    title: "Rename Exercise",
+    body: "New Name:",
+    visibility: showRenameExerciseModal,
+    okBtn: handleRenameExercise,
+    hideModal: () => {
+      setShowRenameExerciseModal(false);
+    },
+    showModal: () => {
+      setShowRenameExerciseModal(true);
+    },
+  };
 
   return (
     <div>
-      <button onClick = {renameExerciseModalInfo.showModal}className="blackBtn">✏️</button>
-      <ExerciseRenameModal info = {renameExerciseModalInfo} />
+      <button onClick={renameExerciseModalInfo.showModal} className="blackBtn">
+        ✏️
+      </button>
+      <ExerciseRenameModal info={renameExerciseModalInfo} />
       <button
         className="blackBtn"
         onClick={deleteExerciseModalInfo.showModal}

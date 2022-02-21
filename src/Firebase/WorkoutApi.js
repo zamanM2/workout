@@ -42,15 +42,11 @@ const deleteWorkout = async (userId, workoutId) => {
   return remove(child(dbRef, `/workouts/${userId}/${workoutId}`));
 };
 
-const renameExercise = async (userId, exercise, _workoutId) => {
-  const updates = {};
-  debugger
-  updates[`/exercises/${userId}/${exercise.id}`] = {
+const renameExercise = async (userId, exercise) => {
+  const updates = {
     name: exercise.name,
-    sort: exercise.sort,
-    workoutId: _workoutId
   };
-  return update(dbRef, updates);
+  return update(child(dbRef, `/exercises/${userId}/${exercise.id}`), updates);
 };
 
 const renameWorkout = async (userId, workout) => {
