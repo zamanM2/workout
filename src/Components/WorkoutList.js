@@ -12,6 +12,7 @@ import {
   renameWorkout,
 } from "../Firebase/WorkoutApi";
 import { useAuth } from "../Context/AuthContext";
+import Container from "react-bootstrap/Container";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
@@ -82,7 +83,7 @@ const WorkoutList = () => {
   };
 
   return (
-    <div className="workoutList">
+    <Container className="workoutList">
       <AddWorkoutForm
         handleAddWorkout={handleAddWorkout}
         handleInputChange={handleInputChange}
@@ -110,7 +111,7 @@ const WorkoutList = () => {
           </div>
         );
       })}
-    </div>
+    </Container>
   );
 };
 
