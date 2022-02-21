@@ -15,6 +15,12 @@ const NavBar = () => {
       <Link className="navbarLink" to="/workouts">
         Workouts
       </Link>
+      <Link className="navbarLink" to="/myself">
+        Myself
+      </Link>
+      <Link className="navbarLink" to="/settings">
+        Settings
+      </Link>
       <Link onClick={handleSignOut} className="navbarLink" to="/">
         Logout
       </Link>

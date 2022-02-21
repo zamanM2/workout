@@ -8,6 +8,8 @@ import PrivateRoute from "./Components/Routes/PrivateRoute";
 import PublicRoute from "./Components/Routes/PublicRoute";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
+import MySelf from "./Components/Myself";
+import Settings from "./Components/Settings";
 
 function App() {
   return (
@@ -30,6 +32,24 @@ function App() {
               <PrivateRoute>
                 <NavBar />
                 <WorkoutList />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/myself"
+            element={
+              <PrivateRoute>
+                <NavBar />
+                <MySelf />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <PrivateRoute>
+                <NavBar />
+                <Settings />
               </PrivateRoute>
             }
           />
