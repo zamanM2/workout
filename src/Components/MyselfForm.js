@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const MyselfForm = (props) => {
   return (
-    <Form>
+    <Form onSubmit={props.onSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Weight</Form.Label>
         <Form.Control
