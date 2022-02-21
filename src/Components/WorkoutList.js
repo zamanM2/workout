@@ -91,7 +91,7 @@ const WorkoutList = () => {
       />
       {workoutList.map((workout) => {
         return (
-          <div key={workout.id}>
+          <Container key={workout.id}>
             <Collapsible
               className="collapasableList"
               open={workout.open}
@@ -108,7 +108,7 @@ const WorkoutList = () => {
               />
             </Collapsible>
             <br />
-          </div>
+          </Container>
         );
       })}
     </Container>
