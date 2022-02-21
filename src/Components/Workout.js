@@ -15,6 +15,7 @@ import AddExerciseModal from "./Modals/InputModal";
 import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash, BsPencil, BsPlusLg } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
+import Name from "./Name";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -168,7 +169,7 @@ const Workout = (props) => {
       {myExercises.map((myExercise) => (
         <div style={myStyle} key={myExercise.id}>
           <Collapsible
-            trigger={myExercise.name}
+            trigger={<Name name={myExercise.name} />}
             classParentString="collapsibileListExercise"
             key={myExercise.id}
             open={myExercise.open}
