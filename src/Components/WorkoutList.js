@@ -14,6 +14,7 @@ import {
 import { useAuth } from "../Context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Name from "./Name";
 
 const WorkoutList = () => {
   const [workoutList, setWorkoutList] = useState([]);
@@ -100,7 +101,7 @@ const WorkoutList = () => {
               open={workout.open}
               onOpening={() => updateCollapsibleOnOpen(workout.id)}
               onClosing={() => updateCollapsibleOnClose(workout.id)}
-              trigger={workout.name}
+              trigger={<Name name={workout.name} />}
               classParentString="collapsibileList"
             >
               <Workout
