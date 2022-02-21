@@ -1,5 +1,4 @@
 Features to Add
-- Rename Exercise
 - Adjust length of timer
 - sort order of exercises
 - sort order of workouts
@@ -8,7 +7,6 @@ Features to Add
 - Play sound when timer is up
 - Track your weight / MYSELF
 - Add body images to track progress / MYSELF
-- Input field validation
 - Graph/Stats
 - Sign in/ Google button
 - BUG: Workout retrieves all exercises
@@ -22,6 +20,7 @@ Done
 - Delete free floating Exercises
 - Setup React Router
 - Rename Workout
+- Rename Exercise
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
