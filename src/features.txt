@@ -2,13 +2,11 @@ Features to Add
 - Adjust length of timer
 - sort order of exercises
 - sort order of workouts
+- Track your weight/bodyfat
 - Logging Exercise starts countdown timer
-- Add top nav to switch between workout/myself/settings
 - Play sound when timer is up
-- Track your weight / MYSELF
 - Add body images to track progress / MYSELF
 - Graph/Stats
-- Sign in/ Google button
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned.
 - Fade out all other workouts when focusing on one.
@@ -22,6 +20,8 @@ Done
 - Setup React Router
 - Rename Workout
 - Rename Exercise
+- Sign in/ Google button
+- Add top nav to switch between workout/myself/settings
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
