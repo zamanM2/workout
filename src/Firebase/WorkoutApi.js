@@ -31,12 +31,19 @@ const getExercises = async (userId) => {
   });
 };
 
-const getUserData = async (userId) => {
+export const getUserData = async (userId) => {
   const snapshot = await get(child(dbRef, `/myself/${userId}`));
   let keys = Object.keys(snapshot.val());
   return keys.map((_date) => {
     return { ...snapshot.val()[_date], date: _date };
   });
+};
+
+export const saveUserData = async (userId, userData, date) => {
+  const updates = {};
+  debugger;
+  updates[`/myself/${userId}/${date}`] = userData;
+  return await update(dbRef, updates);
 };
 
 const addWorkout = async (userId, workout) => {
@@ -107,5 +114,4 @@ export {
   renameWorkout,
   checkIfUserExists,
   renameExercise,
-  getUserData,
 };

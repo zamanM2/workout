@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import MyselfForm from "./MyselfForm";
 import MyselfLog from "./MyselfLog";
-import { getUserData } from "../Firebase/WorkoutApi";
+import { getUserData, saveUserData } from "../Firebase/WorkoutApi";
 import { useAuth } from "../Context/AuthContext";
 
 function dateCompare(a, b) {
@@ -43,7 +43,11 @@ const MySelf = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const todaysDate = getTodaysDate();
-    // setMyData([...myData, { todaysDate: inputData }]);
+    saveUserData(currentUser.uid, inputData, todaysDate).then(() => {
+      getUserData(currentUser.uid).then((data) => {
+        setMyData(data.sort(dateCompare));
+      });
+    });
   };
 
   return (
