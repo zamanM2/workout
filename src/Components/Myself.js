@@ -8,7 +8,9 @@ const MySelf = () => {
     weight: "",
     bodyFat: "",
   });
-  const [myData, setMyData] = useState([]);
+  const [myData, setMyData] = useState([
+    { date: "2022-02-21", weight: "170", bodyFat: "15" },
+  ]);
 
   const handleInputDataChange = ({ target }) => {
     setInputData({ ...inputData, [target.name]: target.value });
@@ -24,7 +26,7 @@ const MySelf = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const todaysDate = getTodaysDate();
-    setMyData([...myData, { todaysDate: inputData }]);
+    // setMyData([...myData, { todaysDate: inputData }]);
   };
 
   return (
@@ -34,7 +36,7 @@ const MySelf = () => {
         inputData={inputData}
         onSubmit={handleSubmit}
       />
-      <MyselfLog />
+      <MyselfLog entries={myData} />
     </Container>
   );
 };
