@@ -1,19 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-// import logo from "../../public/WorkoutAnimie.jpeg";
+import logo from "../images/WorkoutAnime.jpeg";
 
-const Home =()=>{
-return (
-    <div> 
-  <Container className = "workoutimg" >
-  
-      Home Page
-      <img 
-    
-       
-      />
-  </Container>
-  </div>
-);}
+const Home = () => {
+  return (
+    <Container>
+      <img className="workoutImg" src={logo} alt="img" />
+      <h5 className="appHeader">FITNESS SLAYERZ</h5>
+    </Container>
+  );
+};
 
 export default Home;
