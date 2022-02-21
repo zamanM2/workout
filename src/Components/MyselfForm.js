@@ -6,19 +6,27 @@ const MyselfForm = (props) => {
   return (
     <Form onSubmit={props.onSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Weight</Form.Label>
+        <Form.Label
+          style={{ fontSize: "18px", fontWeight: "500", marginTop: "5px" }}
+        >
+          Weight
+        </Form.Label>
         <Form.Control
           onChange={props.onInputChange}
-          type="text"
+          type="number"
           name="weight"
           placeholder="Weight"
+          maxLength="4"
           value={props.inputData.weight}
         />
         <br />
-        <Form.Label>Body Fat</Form.Label>
+        <Form.Label style={{ fontSize: "18px", fontWeight: "500" }}>
+          Body Fat Percentage
+        </Form.Label>
         <Form.Control
-          type="text"
+          type="number"
           name="bodyFat"
+          maxLength="4"
           onChange={props.onInputChange}
           placeholder="Body Fat"
           value={props.inputData.bodyFat}
@@ -32,3 +40,5 @@ const MyselfForm = (props) => {
 };
 
 export default MyselfForm;
+
+const label = { fontSize: "18px" };
