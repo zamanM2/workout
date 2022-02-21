@@ -30,7 +30,10 @@ const MySelf = () => {
   }, []);
 
   const handleInputDataChange = ({ target }) => {
-    setInputData({ ...inputData, [target.name]: target.value });
+    setInputData({
+      ...inputData,
+      [target.name]: target.value.slice(0, target.maxLength),
+    });
   };
 
   const getTodaysDate = () => {
