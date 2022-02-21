@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import MyselfForm from "./MyselfForm";
 import MyselfLog from "./MyselfLog";
+import { getUserData } from "../Firebase/WorkoutApi";
+import { useAuth } from "../Context/AuthContext";
+
+function dateCompare(a, b) {
+  if (a.date < b.date) {
+    return 1;
+  }
+  if (a.date > b.date) {
+    return -1;
+  }
+  return 0;
+}
 
 const MySelf = () => {
   const [inputData, setInputData] = useState({
     weight: "",
     bodyFat: "",
   });
-  const [myData, setMyData] = useState([
-    { date: "2022-02-21", weight: "170", bodyFat: "15" },
-  ]);
+  const [myData, setMyData] = useState([]);
+  const { currentUser } = useAuth();
+
+  useEffect(() => {
+    getUserData(currentUser.uid).then((data) => {
+      setMyData(data.sort(dateCompare));
+    });
+  }, []);
 
   const handleInputDataChange = ({ target }) => {
     setInputData({ ...inputData, [target.name]: target.value });

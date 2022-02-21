@@ -31,6 +31,14 @@ const getExercises = async (userId) => {
   });
 };
 
+const getUserData = async (userId) => {
+  const snapshot = await get(child(dbRef, `/myself/${userId}`));
+  let keys = Object.keys(snapshot.val());
+  return keys.map((_date) => {
+    return { ...snapshot.val()[_date], date: _date };
+  });
+};
+
 const addWorkout = async (userId, workout) => {
   return push(child(dbRef, `/workouts/${userId}`), {
     name: workout,
@@ -99,4 +107,5 @@ export {
   renameWorkout,
   checkIfUserExists,
   renameExercise,
+  getUserData,
 };
