@@ -88,7 +88,6 @@ const WorkoutList = () => {
         handleInputChange={handleInputChange}
         newWorkout={newWorkout}
       />
-      <br />
       {workoutList.map((workout) => {
         return (
           <div key={workout.id}>
