@@ -2,7 +2,6 @@ Features to Add
 - Adjust length of timer
 - sort order of exercises
 - sort order of workouts
-- Track your weight/bodyfat
 - Logging Exercise starts countdown timer
 - Play sound when timer is up
 - Add body images to track progress / MYSELF
@@ -21,6 +20,7 @@ Done
 - Rename Workout
 - Rename Exercise
 - Sign in/ Google button
+- Track your weight/bodyfat
 - Add top nav to switch between workout/myself/settings
 - Integrate DB/Firebase
     - Read Workout data
