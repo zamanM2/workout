@@ -8,6 +8,7 @@ const NavBar = () => {
   const [click, setClick]= useState(false)
 
   const handleClick = ()=> setClick(!click)
+  const closeMobileMenu = () => setClick(false);
 
   const { logout } = useAuth();
 
@@ -30,10 +31,25 @@ const NavBar = () => {
         Logout
       </Link>
       {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
-       <div className = 'menu-icon' onClick={handleClick}>
-         <i className= {click ? 'fas fa-times' : 'fas fa-bars'} />
-         </div>
-       
+      <div className="menu-icon" onClick={handleClick}>
+        <i className={click ? "fas fa-times" : "fas fa-bars"} />
+      </div>
+      <ul className={click ? "nav-menu active" : "nav-menu"} />
+      <li className="nav-item">
+        <Link to="/workout" className="nav-links" onClick={closeMobileMenu} />
+      </li>
+      <li className="nav-item">
+        <Link to="/Myself" className="nav-links" onClick={closeMobileMenu} />
+      </li>
+      <li className="nav-item">
+        <Link to="/Setting" className="nav-links" onClick={closeMobileMenu} />
+      </li>
+      <li className="nav-item">
+        <Link 
+          to="/Logout" 
+          className="fas fa-caret-down" 
+          onClick={closeMobileMenu} />
+      </li>
     </nav>
   );
 };
