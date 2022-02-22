@@ -13,7 +13,6 @@ const MyselfForm = (props) => {
         </Form.Label>
         <Form.Control
           onChange={props.onInputChange}
-          type="number"
           name="weight"
           placeholder="Weight"
           maxLength="7"
@@ -24,7 +23,6 @@ const MyselfForm = (props) => {
           Body Fat Percentage
         </Form.Label>
         <Form.Control
-          type="number"
           name="bodyFat"
           maxLength="7"
           onChange={props.onInputChange}
