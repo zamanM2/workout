@@ -10,8 +10,12 @@ const LogTable = (props) => {
         <tbody>
           <tr>
             <th> </th>
-            <th>Reps</th>
-            <th>Weight</th>
+            <th style={{ padding: "2px", borderLeft: "1px solid black" }}>
+              Reps
+            </th>
+            <th style={{ padding: "2px", borderLeft: "1px solid black" }}>
+              Weight
+            </th>
           </tr>
           {props.entries.map((element) => (
             <tr key={element.id}>
