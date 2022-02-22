@@ -23,10 +23,14 @@ const Timer = () => {
 
   return (
     <>
-      <button onClick={handleClick} className="timerbutton">
+      <button
+        onClick={handleClick}
+        style={{ marginRight: "12px" }}
+        className="timerbutton"
+      >
         {secondsLeft}
       </button>
-      <BiAlarm />
+      <BiAlarm style={{ fontSize: "30px" }} />
     </>
   );
 };

@@ -16,6 +16,8 @@ import RenameWorkoutModal from "./Modals/InputModal";
 import { BsTrash, BsPencil, BsPlusLg } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
 import Name from "./Name";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/cjs/Row";
 
 const Workout = (props) => {
   const [myExercises, setExercises] = useState([]);
@@ -139,32 +141,41 @@ const Workout = (props) => {
 
   return (
     <div>
-      <button
-        onClick={addExerciseModalInfo.showModal}
-        className="blackBtn"
-        type="submit"
-        style={{ fontWeight: "bold" }}
-      >
-        <BsPlusLg />
-      </button>
-      <AddExerciseModal info={addExerciseModalInfo} />
+      <Container className="container-fluid">
+        <Row>
+          <Container style={{ borderRight: "2px solid" }} className="col-6">
+            <button
+              onClick={addExerciseModalInfo.showModal}
+              className="blackBtn"
+              type="submit"
+              style={{ fontWeight: "bold" }}
+            >
+              <BsPlusLg />
+            </button>
+            <AddExerciseModal info={addExerciseModalInfo} />
 
-      <button onClick={renameWorkoutModalInfo.showModal} className="blackBtn">
-        <BsPencil />
-      </button>
-      <RenameWorkoutModal info={renameWorkoutModalInfo} />
+            <button
+              onClick={renameWorkoutModalInfo.showModal}
+              className="blackBtn"
+            >
+              <BsPencil />
+            </button>
+            <RenameWorkoutModal info={renameWorkoutModalInfo} />
 
-      <button
-        onClick={deleteWorkoutModalInfo.showModal}
-        type="submit"
-        className="blackBtn"
-      >
-        <BsTrash />
-      </button>
-      <ConfirmModal info={deleteWorkoutModalInfo} />
-
-      <br />
-      <RestTimer />
+            <button
+              onClick={deleteWorkoutModalInfo.showModal}
+              type="submit"
+              className="blackBtn"
+            >
+              <BsTrash />
+            </button>
+            <ConfirmModal info={deleteWorkoutModalInfo} />
+          </Container>
+          <Container className="col-6">
+            <RestTimer />
+          </Container>
+        </Row>
+      </Container>
 
       {myExercises.map((myExercise) => (
         <div style={myStyle} key={myExercise.id}>

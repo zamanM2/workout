@@ -7,8 +7,12 @@ const HistoryLog = (props) => {
       <table style={tableStyle}>
         <tbody>
           <tr>
-            <th>Reps</th>
-            <th>Weight</th>
+            <th style={{ padding: "2px", borderLeft: "1px solid black" }}>
+              Reps
+            </th>
+            <th style={{ padding: "2px", borderLeft: "1px solid black" }}>
+              Weight
+            </th>
           </tr>
           {props.history.map((element) => (
             <tr key={element.id}>
