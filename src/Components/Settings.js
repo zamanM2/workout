@@ -1,8 +1,10 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+import { useTimer } from "../Context/TimerContext";
 
 const Settings = () => {
-  return <Container>Settings</Container>;
+  const { timer } = useTimer();
+  return <Container>{timer}</Container>;
 };
 
 export default Settings;

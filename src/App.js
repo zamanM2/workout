@@ -10,50 +10,53 @@ import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import MySelf from "./Components/Myself";
 import Settings from "./Components/Settings";
+import TimerProvider from "./Context/TimerContext";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route
-            path="/"
-            exact
-            element={
-              <PublicRoute>
-                <Home />
-                <Login />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/workouts"
-            element={
-              <PrivateRoute>
-                <NavBar />
-                <WorkoutList />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/myself"
-            element={
-              <PrivateRoute>
-                <NavBar />
-                <MySelf />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <PrivateRoute>
-                <NavBar />
-                <Settings />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
+        <TimerProvider>
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={
+                <PublicRoute>
+                  <Home />
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/workouts"
+              element={
+                <PrivateRoute>
+                  <NavBar />
+                  <WorkoutList />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/myself"
+              element={
+                <PrivateRoute>
+                  <NavBar />
+                  <MySelf />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <PrivateRoute>
+                  <NavBar />
+                  <Settings />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </TimerProvider>
       </AuthProvider>
     </Router>
   );
