@@ -358,7 +358,4 @@ input[type="number"] {
     transition: 250ms;
   }
 
-  button {
-    display: none;
-  }
 }
