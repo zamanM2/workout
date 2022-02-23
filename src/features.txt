@@ -1,11 +1,16 @@
 Features to Add
+- Home Page (logo, blurb)
 - Adjust length of timer
-- sort order of exercises
+- Graph for body weight
 - sort order of workouts
+- Gradient for open workout/exercises
+- Play sound when timer is up/flash screen
+- Graph for workout progression
+- History/Progression/Stats
 - Logging Exercise starts countdown timer
-- Play sound when timer is up
 - Add body images to track progress / MYSELF
-- Graph/Stats
+- Calendar
+- sort order of exercises
 - BUG: Workout retrieves all exercises
 - LIMIT: Log returned, SORT log on Firebase before returned.
 - Fade out all other workouts when focusing on one.
