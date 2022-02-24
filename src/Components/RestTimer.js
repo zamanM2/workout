@@ -28,8 +28,6 @@ const Timer = () => {
   });
 
   const handleClick = () => {
-    const audioTune = new Audio(sound);
-    audioTune.play();
     setSecondsLeft(timer);
     if (!isCountingDown) {
       setIsCountingDown(true);
