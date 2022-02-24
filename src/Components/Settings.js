@@ -7,11 +7,14 @@ import { updateTimerSettings } from "../Firebase/WorkoutApi";
 import ChangeTimerModal from "./Modals/InputModal";
 
 const Settings = () => {
-  const [showTimerRenameModal, setShowTimerRenameModal] = useState(true);
+  const [showTimerRenameModal, setShowTimerRenameModal] = useState(false);
   const { currentUser } = useAuth();
   const { timer } = useTimer();
 
-  const onHandleChangeTimerLength = () => {};
+  const onHandleChangeTimerLength = (event, newTimerLength) => {
+    event.preventDefault();
+    updateTimerSettings(currentUser.uid, newTimerLength);
+  };
 
   const renameExerciseModalInfo = {
     title: "Change Rest Timer Length",
@@ -31,7 +34,7 @@ const Settings = () => {
       <Container className="d-flex">
         <h4 className="">Rest Timer: {timer}s</h4>
         <Button
-          onClick={onHandleChangeTimerLength}
+          onClick={renameExerciseModalInfo.showModal}
           style={{ marginLeft: "5px" }}
           className=""
         >

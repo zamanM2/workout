@@ -104,11 +104,11 @@ export const getTimerSettings = async (userId) => {
   return get(child(dbRef, `/users/${userId}/settings/timer`));
 };
 
-export const updateTimerSettings = async (userId, newTimer) => {
+export const updateTimerSettings = async (userId, newTimerLength) => {
   const updates = {
-    timer: newTimer,
+    timer: newTimerLength,
   };
-  return update(child(dbRef, `/users/${userId}/settings/timer`), updates);
+  return update(child(dbRef, `/users/${userId}/settings/`), updates);
 };
 
 export {
