@@ -1,6 +1,5 @@
 Features to Add
 - Home Page (logo, blurb)
-- Adjust length of timer
 - Graph for body weight
 - sort order of workouts
 - Gradient for open workout/exercises
@@ -26,7 +25,8 @@ Done
 - Rename Exercise
 - Sign in/ Google button
 - Track your weight/bodyfat
-- Add top nav to switch between workout/myself/settings
+- Adjust length of timer
+- Add slide out nav
 - Integrate DB/Firebase
     - Read Workout data
     - Read Exercise data
