@@ -3,6 +3,7 @@ import { BiAlarm } from "react-icons/bi";
 import { useTimer } from "../Context/TimerContext";
 import { getTimerSettings } from "../Firebase/WorkoutApi";
 import { useAuth } from "../Context/AuthContext";
+import sound from "../timerSound.mp3";
 
 const Timer = () => {
   const { timer } = useTimer();
@@ -17,6 +18,10 @@ const Timer = () => {
 
   useEffect(() => {
     if (secondsLeft > 0 && isCountingDown) {
+      if (secondsLeft === 1) {
+        const audioTune = new Audio(sound);
+        audioTune.play();
+      }
       const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
       return () => clearTimeout(timerId);
     }
@@ -26,6 +31,7 @@ const Timer = () => {
     setSecondsLeft(timer);
     if (!isCountingDown) {
       setIsCountingDown(true);
+      setSecondsLeft(secondsLeft - 1);
     } else {
       setIsCountingDown(false);
     }
