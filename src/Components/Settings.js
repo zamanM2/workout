@@ -9,11 +9,13 @@ import ChangeTimerModal from "./Modals/InputModal";
 const Settings = () => {
   const [showTimerRenameModal, setShowTimerRenameModal] = useState(false);
   const { currentUser } = useAuth();
-  const { timer } = useTimer();
+  const { timer, setTimer } = useTimer();
 
   const onHandleChangeTimerLength = (event, newTimerLength) => {
     event.preventDefault();
-    updateTimerSettings(currentUser.uid, newTimerLength);
+    updateTimerSettings(currentUser.uid, newTimerLength).then(() => {
+      setTimer(newTimerLength);
+    });
   };
 
   const renameExerciseModalInfo = {

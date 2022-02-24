@@ -17,7 +17,7 @@ const TimerProvider = ({ children }) => {
     setTimer(snapshotTimerValue.val());
   }, []);
 
-  const contextValue = { timer };
+  const contextValue = { timer, setTimer };
 
   return (
     <TimerContext.Provider value={contextValue}>
