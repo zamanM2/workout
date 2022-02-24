@@ -104,6 +104,13 @@ export const getTimerSettings = async (userId) => {
   return get(child(dbRef, `/users/${userId}/settings/timer`));
 };
 
+export const updateTimerSettings = async (userId, newTimer) => {
+  const updates = {
+    timer: newTimer,
+  };
+  return update(child(dbRef, `/users/${userId}/settings/timer`), updates);
+};
+
 export {
   getWorkouts,
   getExercises,
