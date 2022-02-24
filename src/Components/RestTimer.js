@@ -18,13 +18,11 @@ const Timer = () => {
 
   useEffect(() => {
     if (secondsLeft >= 0 && isCountingDown) {
-      if (secondsLeft === 1) {
+      const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
+      if (secondsLeft === 0) {
         const audioTune = new Audio(sound);
         audioTune.autoplay = true;
         audioTune.play();
-      }
-      const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
-      if (secondsLeft === 0) {
         setSecondsLeft(timer);
         setIsCountingDown(false);
       }
