@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { BiAlarm } from "react-icons/bi";
+import { useTimer } from "../Context/TimerContext";
+import { getTimerSettings } from "../Firebase/WorkoutApi";
+import { useAuth } from "../Context/AuthContext";
 
 const Timer = () => {
-  const [secondsLeft, setSecondsLeft] = useState(60);
+  const { timer } = useTimer();
+  const { currentUser } = useAuth();
+  const [secondsLeft, setSecondsLeft] = useState();
   const [isCountingDown, setIsCountingDown] = useState(false);
+
+  useEffect(async () => {
+    const snapshotTimerValue = await getTimerSettings(currentUser.uid);
+    setSecondsLeft(snapshotTimerValue.val());
+  }, []);
 
   useEffect(() => {
     if (secondsLeft > 0 && isCountingDown) {
@@ -13,7 +23,7 @@ const Timer = () => {
   });
 
   const handleClick = () => {
-    setSecondsLeft(60);
+    setSecondsLeft(timer);
     if (!isCountingDown) {
       setIsCountingDown(true);
     } else {
