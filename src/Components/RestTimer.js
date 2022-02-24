@@ -20,6 +20,7 @@ const Timer = () => {
     if (secondsLeft > 0 && isCountingDown) {
       if (secondsLeft === 1) {
         const audioTune = new Audio(sound);
+        audioTune.autoplay = true;
         audioTune.play();
       }
       const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
