@@ -4,6 +4,7 @@ import { useTimer } from "../Context/TimerContext";
 import { getTimerSettings } from "../Firebase/WorkoutApi";
 import { useAuth } from "../Context/AuthContext";
 import sound from "../timerSound.mp3";
+import silence from "../silence.mp3";
 
 const Timer = () => {
   const { timer } = useTimer();
@@ -34,9 +35,7 @@ const Timer = () => {
   });
 
   const handleClick = () => {
-    // onClick of first interaction on page before I need the sounds
-    // (This is a tiny MP3 file that is silent and extremely short - retrieved from https://bigsoundbank.com and then modified)
-    soundEffect.src = sound;
+    soundEffect.src = silence;
     setSecondsLeft(timer);
     if (!isCountingDown) {
       setIsCountingDown(true);
