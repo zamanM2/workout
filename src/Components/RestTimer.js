@@ -11,6 +11,7 @@ const Timer = () => {
   const [secondsLeft, setSecondsLeft] = useState();
   const [isCountingDown, setIsCountingDown] = useState(false);
   const soundEffect = new Audio();
+  soundEffect.autoplay = true;
 
   useEffect(async () => {
     const snapshotTimerValue = await getTimerSettings(currentUser.uid);
@@ -21,13 +22,6 @@ const Timer = () => {
     if (secondsLeft >= 0 && isCountingDown) {
       const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
       if (secondsLeft === 0) {
-        soundEffect.autoplay = true;
-
-        // onClick of first interaction on page before I need the sounds
-        // (This is a tiny MP3 file that is silent and extremely short - retrieved from https://bigsoundbank.com and then modified)
-        soundEffect.src =
-          "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
-
         soundEffect.src = sound;
         // const audioTune = new Audio(sound);
         // audioTune.autoplay = true;
@@ -40,8 +34,6 @@ const Timer = () => {
   });
 
   const handleClick = () => {
-    soundEffect.autoplay = true;
-
     // onClick of first interaction on page before I need the sounds
     // (This is a tiny MP3 file that is silent and extremely short - retrieved from https://bigsoundbank.com and then modified)
     soundEffect.src =
