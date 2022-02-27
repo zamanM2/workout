@@ -9,6 +9,8 @@ import ConfirmModal from "./Modals/ConfirmModal";
 import { BsPencil, BsTrash } from "react-icons/bs";
 import { useAuth } from "../Context/AuthContext";
 import ExerciseRenameModal from "./Modals/InputModal";
+import {VscGraphLine} from "react-icons/vsc"
+import { Link } from "react-router-dom";
 
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
@@ -116,6 +118,11 @@ const Exercise = (props) => {
 
   return (
     <div>
+      <Link to = "/progression">
+        <button className="blackBtn">
+          <VscGraphLine />
+        </button>
+      </Link>
       <button onClick={renameExerciseModalInfo.showModal} className="blackBtn">
         <BsPencil />
       </button>
