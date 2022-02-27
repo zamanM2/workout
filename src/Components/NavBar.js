@@ -7,7 +7,7 @@ import Dropdown from "./Dropdown";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown]= useState(false)
+  const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -35,7 +35,7 @@ const NavBar = () => {
             Myself
           </Link>
         </li>
-
+        
         <li className="nav-item">
           <Link className="navbarLink" to="/settings" onClick={closeMobileMenu}>
             Settings

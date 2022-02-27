@@ -11,6 +11,7 @@ import Home from "./Components/Home";
 import MySelf from "./Components/Myself";
 import Settings from "./Components/Settings";
 import TimerProvider from "./Context/TimerContext";
+import Progression from "./Components/Progression";
 
 function App() {
   return (
@@ -43,6 +44,15 @@ function App() {
                 <PrivateRoute>
                   <NavBar />
                   <MySelf />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/progression"
+              element={
+                <PrivateRoute>
+                  <NavBar />
+                  <Progression />
                 </PrivateRoute>
               }
             />
