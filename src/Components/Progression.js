@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { useAuth } from "../Context/AuthContext";
 import { getLogHistory } from "../Firebase/WorkoutApi";
+import "../css/blackBtn.css";
 
 ChartJS.register(
   CategoryScale,
@@ -69,7 +70,9 @@ const Progression = (props) => {
     <Container>
       <Line options={options} data={data} type={"line"} />
       <br />
-      <button onClick={() => {}}>Back</button>
+      <button onClick={() => {}} className="blackBtn">
+        Back
+      </button>
     </Container>
   );
 };
