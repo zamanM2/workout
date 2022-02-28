@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { useAuth } from "../Context/AuthContext";
 import { getLogHistory } from "../Firebase/WorkoutApi";
@@ -54,6 +54,7 @@ const data = {
 const Progression = (props) => {
   const { currentUser } = useAuth();
   const [, updateState] = useState();
+  const navigate = useNavigate();
   let { id } = useParams();
 
   useEffect(() => {
@@ -70,7 +71,7 @@ const Progression = (props) => {
     <Container>
       <Line options={options} data={data} type={"line"} />
       <br />
-      <button onClick={() => {}} className="blackBtn">
+      <button onClick={() => navigate(-1)} className="blackBtn">
         Back
       </button>
     </Container>
