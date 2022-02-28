@@ -12,6 +12,7 @@ import ExerciseRenameModal from "./Modals/InputModal";
 import {VscGraphLine} from "react-icons/vsc"
 import { Link } from "react-router-dom";
 
+
 const Exercise = (props) => {
   const [logEntries, setLogEntries] = useState([]);
   const [logInput, setLogInput] = useState({ reps: "", weight: "" });
@@ -118,7 +119,8 @@ const Exercise = (props) => {
 
   return (
     <div>
-      <Link to = "/progression">
+      <Link to="/progression" state={{ id:" hello"}}
+      >
         <button className="blackBtn">
           <VscGraphLine />
         </button>
