@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import { useAuth } from "../Context/AuthContext";
 
 ChartJS.register(
   CategoryScale,
@@ -42,7 +43,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Exercise",
       data: ["1", "2", "3", "4", "5", "6", "2"],
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -51,7 +52,10 @@ export const data = {
 };
 
 const Progression = (props) => {
+  const { currentUser } = useAuth();
   let { id } = useParams();
+
+  useEffect(() => {}, []);
 
   return (
     <Container>

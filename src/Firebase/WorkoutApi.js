@@ -1,10 +1,6 @@
 import { dbRef } from "./FirebaseConfig";
 import { child, get, push, remove, update } from "firebase/database";
 
-let getUser = () => {
-  return "pvTXt2ruj6e6tu47Nbwx76kMvzp1";
-};
-
 const checkIfUserExists = async (userId) => {
   return await get(child(dbRef, `/users/${userId}`));
 };
