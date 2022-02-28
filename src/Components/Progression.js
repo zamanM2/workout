@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,6 +13,7 @@ import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { useAuth } from "../Context/AuthContext";
+import { getLogHistory } from "../Firebase/WorkoutApi";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+const options = {
   responsive: true,
   plugins: {
     legend: {
@@ -37,10 +38,8 @@ export const options = {
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-export const data = {
-  labels,
+const data = {
+  labels: [],
   datasets: [
     {
       label: "Exercise",
@@ -54,8 +53,21 @@ export const data = {
 const Progression = (props) => {
   const { currentUser } = useAuth();
   let { id } = useParams();
+  const [, updateState] = useState();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function fetchLogData() {
+      await getLogHistory(currentUser.uid, id)
+        .then((snapshot) => {
+          let keys = Object.keys(snapshot.val());
+          data.labels = keys;
+          console.log(keys);
+          updateState({});
+        })
+        .catch(() => {});
+    }
+    fetchLogData();
+  }, [id]);
 
   return (
     <Container>
