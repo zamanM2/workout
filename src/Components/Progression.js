@@ -67,7 +67,7 @@ const Progression = (props) => {
 
   return (
     <Container>
-      <Line options={options} data={data} type={"line"} />;
+      <Line options={options} data={data} type={"line"} />
     </Container>
   );
 };
