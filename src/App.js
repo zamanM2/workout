@@ -48,7 +48,7 @@ function App() {
               }
             />
             <Route
-              path="/progression"
+              path="/progression/:id"
               element={
                 <PrivateRoute>
                   <NavBar />
