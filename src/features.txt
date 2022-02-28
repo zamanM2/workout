@@ -5,9 +5,9 @@ Features to Add
 - sort order of workouts
 - Logging Exercise starts countdown timer
 - Gradient for open workout/exercises
-----------------------------------------------------------------
 - iOS Webview
 - get on App store
+----------------------------------------------------------------
 - Play sound when timer is up/flash screen
 - History/Progression/Stats
 - Add body images to track progress / MYSELF
