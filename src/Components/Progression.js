@@ -52,8 +52,8 @@ const data = {
 
 const Progression = (props) => {
   const { currentUser } = useAuth();
-  let { id } = useParams();
   const [, updateState] = useState();
+  let { id } = useParams();
 
   useEffect(() => {
     async function fetchLogData() {
@@ -68,6 +68,8 @@ const Progression = (props) => {
   return (
     <Container>
       <Line options={options} data={data} type={"line"} />
+      <br />
+      <button onClick={() => {}}>Back</button>
     </Container>
   );
 };
