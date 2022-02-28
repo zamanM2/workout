@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
-  Chart as ChartJS,
   CategoryScale,
+  Chart as ChartJS,
+  Legend,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
@@ -57,14 +57,10 @@ const Progression = (props) => {
 
   useEffect(() => {
     async function fetchLogData() {
-      await getLogHistory(currentUser.uid, id)
-        .then((snapshot) => {
-          let keys = Object.keys(snapshot.val());
-          data.labels = keys;
-          console.log(keys);
-          updateState({});
-        })
-        .catch(() => {});
+      await getLogHistory(currentUser.uid, id).then((snapshot) => {
+        data.labels = Object.keys(snapshot.val());
+        updateState({});
+      });
     }
     fetchLogData();
   }, [id]);
