@@ -58,7 +58,7 @@ const Progression = (props) => {
   let { id } = useParams();
 
   useEffect(() => {
-    async function fetchLogData() {
+    async function populateChartData() {
       await getLogHistory(currentUser.uid, id)
         .then((snapshot) => {
           const dates = Object.keys(snapshot.val());
@@ -99,7 +99,7 @@ const Progression = (props) => {
           updateState({});
         });
     }
-    fetchLogData();
+    populateChartData();
   }, [id]);
 
   return (
