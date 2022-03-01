@@ -61,13 +61,16 @@ const Progression = (props) => {
     async function fetchLogData() {
       await getLogHistory(currentUser.uid, id).then((snapshot) => {
         const dates = Object.keys(snapshot.val());
-        data.labels = dates; //x-axis
+        data.labels = dates.map((el) => {
+          //x-axis
+          return el.substr(5).replace("-", "/") + "/" + el.substr(0, 4);
+        });
         const weightData = [
           {
             label: "Exercise",
-            data: [],
-            borderColor: "rgb(255, 99, 132)",
-            backgroundColor: "rgba(255, 99, 132, 0.5)",
+            data: [], //y-axis
+            borderColor: "#4169E1",
+            backgroundColor: "#4169E1",
           },
         ];
         for (let i = 0; i < dates.length; i++) {
