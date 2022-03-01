@@ -77,7 +77,9 @@ const Progression = (props) => {
           for (let i = 0; i < dates.length; i++) {
             let max = -1;
             for (let j = 0; j < snapshot.val()[dates[i]].length; j++) {
-              if (snapshot.val()[dates[i]][j].weight > max) {
+              if (
+                parseFloat(snapshot.val()[dates[i]][j].weight) > parseFloat(max)
+              ) {
                 max = snapshot.val()[dates[i]][j].weight;
               }
             }
