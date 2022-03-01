@@ -44,7 +44,7 @@ const data = {
   datasets: [
     {
       label: "Exercise",
-      data: ["1", "2", "3", "4", "5", "6", "2"],
+      data: [],
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
@@ -56,12 +56,27 @@ const Progression = (props) => {
   const [, updateState] = useState();
   const navigate = useNavigate();
   let { id } = useParams();
+ 
 
   useEffect(() => {
     async function fetchLogData() {
       await getLogHistory(currentUser.uid, id).then((snapshot) => {
-        data.labels = Object.keys(snapshot.val());
+        const keys = Object.keys(snapshot.val());
+        data.labels = keys;
+        const myDataArray =[
+          {
+            label: "Yellow",
+            data: ["1", "2"],
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ];
+        myDataArray[0].data=[100,200]
+
+        data.datasets = myDataArray;
+        
         updateState({});
+
       });
     }
     fetchLogData();
