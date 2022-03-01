@@ -59,32 +59,45 @@ const Progression = (props) => {
 
   useEffect(() => {
     async function fetchLogData() {
-      await getLogHistory(currentUser.uid, id).then((snapshot) => {
-        const dates = Object.keys(snapshot.val());
-        data.labels = dates.map((el) => {
-          //x-axis
-          return el.substr(5).replace("-", "/") + "/" + el.substr(0, 4);
-        });
-        const weightData = [
-          {
-            label: "Exercise",
-            data: [], //y-axis
-            borderColor: "#4169E1",
-            backgroundColor: "#4169E1",
-          },
-        ];
-        for (let i = 0; i < dates.length; i++) {
-          let max = -1;
-          for (let j = 0; j < snapshot.val()[dates[i]].length; j++) {
-            if (snapshot.val()[dates[i]][j].weight > max) {
-              max = snapshot.val()[dates[i]][j].weight;
+      await getLogHistory(currentUser.uid, id)
+        .then((snapshot) => {
+          const dates = Object.keys(snapshot.val());
+          data.labels = dates.map((el) => {
+            //x-axis
+            return el.substr(5).replace("-", "/") + "/" + el.substr(0, 4);
+          });
+          const weightData = [
+            {
+              label: "Exercise",
+              data: [], //y-axis
+              borderColor: "#4169E1",
+              backgroundColor: "#4169E1",
+            },
+          ];
+          for (let i = 0; i < dates.length; i++) {
+            let max = -1;
+            for (let j = 0; j < snapshot.val()[dates[i]].length; j++) {
+              if (snapshot.val()[dates[i]][j].weight > max) {
+                max = snapshot.val()[dates[i]][j].weight;
+              }
             }
+            weightData[0].data.push(max);
           }
-          weightData[0].data.push(max);
-        }
-        data.datasets = weightData;
-        updateState({});
-      });
+          data.datasets = weightData;
+          updateState({});
+        })
+        .catch((error) => {
+          data.labels = [];
+          data.datasets = [
+            {
+              label: "No Data",
+              data: [],
+              borderColor: "#4169E1",
+              backgroundColor: "#4169E1",
+            },
+          ];
+          updateState({});
+        });
     }
     fetchLogData();
   }, [id]);
