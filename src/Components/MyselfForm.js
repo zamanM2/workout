@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "../css/blackBtn.css";
 
 const MyselfForm = (props) => {
   return (
@@ -34,7 +35,7 @@ const MyselfForm = (props) => {
           value={props.inputData.bodyFat}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button className="blackBtn" variant="primary" type="submit">
         Log
       </Button>
     </Form>
