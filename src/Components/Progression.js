@@ -86,7 +86,6 @@ const Progression = (props) => {
             weightData[0].data.push(max);
           }
           data.datasets = weightData;
-          updateState({});
         })
         .catch((error) => {
           data.labels = [];
@@ -98,10 +97,10 @@ const Progression = (props) => {
               backgroundColor: "#4169E1",
             },
           ];
-          updateState({});
         });
     }
     populateChartData();
+    updateState({});
   }, [id]);
 
   return (
