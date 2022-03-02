@@ -38,6 +38,7 @@ const Timer = () => {
   const handleClick = () => {
     soundEffect.src = sound;
     soundEffect.autoplay = true;
+    soundEffect.volume = 0;
     // soundEffect.pause();
     // soundEffect.currentTime = 0;
 
