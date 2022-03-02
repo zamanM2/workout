@@ -12,7 +12,6 @@ const Timer = () => {
   const [secondsLeft, setSecondsLeft] = useState();
   const [isCountingDown, setIsCountingDown] = useState(false);
   const soundEffect = new Audio();
-  soundEffect.autoplay = true;
 
   useEffect(async () => {
     const snapshotTimerValue = await getTimerSettings(currentUser.uid);
@@ -23,10 +22,8 @@ const Timer = () => {
     if (secondsLeft >= 0 && isCountingDown) {
       const timerId = setTimeout(() => setSecondsLeft(secondsLeft - 1), 1000);
       if (secondsLeft === 0) {
+        soundEffect.autoplay = true;
         soundEffect.src = sound;
-        // const audioTune = new Audio(sound);
-        // audioTune.autoplay = true;
-        // audioTune.play();
         setSecondsLeft(timer);
         setIsCountingDown(false);
       }
@@ -36,9 +33,10 @@ const Timer = () => {
 
   const handleClick = () => {
     soundEffect.src = sound;
-    soundEffect.volume = 0;
+    // soundEffect.volume = 0;
+    soundEffect.play();
     // soundEffect.pause();
-    // soundEffect.currentTime = 0;
+    soundEffect.currentTime = 0;
 
     setSecondsLeft(timer);
     if (!isCountingDown) {
